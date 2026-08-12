@@ -50,3 +50,16 @@ Ce dépôt regroupe mes projets les plus représentatifs de mon parcours au **bo
 ---
 
 ## 🧩 Organisation du dépôt
+
+Ce portfolio est organisé **par technologie**, un dossier dédié à chaque catégorie :
+
+| Dossier | Contenu | Statut |
+|---|---|---|
+| [`PowerBI/`](./PowerBI) | Dashboards et rapports Power BI | ✅ Structure prête — projets en cours d'ajout |
+| `SQL/` | Requêtes, modélisation et analyses SQL | 🚧 À venir |
+| `Python/` | Scripts et notebooks d'analyse de données | 🚧 À venir |
+| `Excel/` | Tableaux de bord et analyses Excel | 🚧 À venir |
+| `Machine-Learning/` | Modèles de machine learning et deep learning | 🚧 À venir |
+
+> Cette structure évolue au fur et à mesure de l'ajout des projets. Chaque dossier contient son propre `README.md` détaillant les projets qu'il regroupe.
+
