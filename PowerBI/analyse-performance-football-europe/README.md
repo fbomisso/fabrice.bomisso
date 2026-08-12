@@ -57,19 +57,19 @@ Le secteur analysé — football professionnel européen — combine deux dimens
 Le rapport comprend **5 pages**, chacune dédiée à un angle métier et un public décisionnel distinct. Filtres globaux (Saison, Compétition, Position) communs à toutes les pages ; filtre Club en local sur les pages Performance et Scouting.
 
 ### Accueil — synthèse et état des lieux global
-![Vue d'ensemble](./screenshots/01-accueil.jpg)
+![Vue d'ensemble](./screenshots/01-accueil.png)
 
 ### Performance — classements et comparaisons
-![Performance](./screenshots/02-performance.jpg)
+![Performance](./screenshots/02-performance.png)
 
 ### Scouting — profils sous-cotés et courbe de valeur par âge
-![Scouting](./screenshots/03-scouting.jpg)
+![Scouting](./screenshots/03-scouting.png)
 
 ### Finance — masse salariale et salaire vs production
-![Finance](./screenshots/04-finance.jpg)
+![Finance](./screenshots/04-finance.png)
 
 ### Effectif / RH — utilisation de l'effectif
-![Effectif RH](./screenshots/05-effectif-rh.jpg)
+![Effectif RH](./screenshots/05-effectif-rh.png)
 
 ## 💡 Insights clés
 
