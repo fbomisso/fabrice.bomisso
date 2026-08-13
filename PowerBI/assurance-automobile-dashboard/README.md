@@ -28,7 +28,7 @@ L'assurance repose sur :
 - **Versement d'indemnités** (sinistres)
 - **Maîtrise des frais de gestion**
 
-**Rentabilité technique** = Primes − Sinistres  
+**Rentabilité technique** = Primes − Sinistres
 **Combined Ratio** = (Sinistres + Frais) / Primes
 
 - ✅ Combined Ratio < 100 % = **rentable**
@@ -59,7 +59,7 @@ L'assurance repose sur :
 ## 🏗️ Architecture du Dashboard (5 Pages)
 
 ### **Page 1 : Direction (Tableau Exécutif)** 🔵
-**Filtre global** : Année, Géographie  
+**Filtre global** : Année, Géographie
 **Slicers** : Police Type (synchronisé)
 
 **Bloc A — Rentabilité**
@@ -76,10 +76,12 @@ L'assurance repose sur :
 **Bloc D — Croissance**
 - Courbe : Croissance primes année-sur-année (glissement SAMEPERIODLASTYEAR)
 
+![Direction](./screenshots/01_Direction.jpg)
+
 ---
 
 ### **Page 2 : Clients & Segmentation** 🟢
-**Filtre global** : Année, Géographie, Police Type  
+**Filtre global** : Année, Géographie, Police Type
 **Slicers** : Segmentation (synchronisé)
 
 - KPI : Clients Actifs 12m (23K) | Taux mono-équipement (89,2 %) | Prime Moyenne (3K €)
@@ -87,10 +89,12 @@ L'assurance repose sur :
 - **Histogramme** : Clients par tranche d'âge
 - **Matrice** : Segment × Type police — visualiser croisement clientèle
 
+![Clients & Segmentation](./screenshots/02_Clients_Segmentation.jpg)
+
 ---
 
 ### **Page 3 : Risque & Sinistralité** 🟠
-**Pas de filtre global** (Fact_Sinistres non reliée aux dimensions temporelles)  
+**Pas de filtre global** (Fact_Sinistres non reliée aux dimensions temporelles)
 **Filtre local** : Catégorie Sinistre
 
 - KPI : Coût médian (6K €) | Coût moyen (9K €) | Nb sinistres exceptionnels (938)
@@ -98,6 +102,8 @@ L'assurance repose sur :
 - **Table** : Détail 938 sinistres (ID, Catégorie, Montant) — tri décroissant
 - **Histogramme** : Sinistres par tranche d'âge assuré
 - **Tableau** : Données qualité (dates incohérentes, anomalies)
+
+![Risque & Sinistralité](./screenshots/03_Risque_Sinistralite.jpg)
 
 ---
 
@@ -114,10 +120,12 @@ L'assurance repose sur :
   - Prix suspects : 721 (🟡 Vigilance)
 - **Histogramme** : Synthèse anomalies (même tri et couleurs)
 
+![Qualité des Données](./screenshots/04_Qualite_Donnees.jpg)
+
 ---
 
 ### **Page 5 : Fidélisation & CRM** 🟣
-**Filtre global** : Année, Géographie, Police Type  
+**Filtre global** : Année, Géographie, Police Type
 **Slicers** : Segmentation (synchronisé)
 
 - KPI : Durée moyenne contrat (1,2K jours ≈ 3,3 ans) | Valeur client (4K € toute durée) | Produits moyens (1,23)
@@ -125,6 +133,8 @@ L'assurance repose sur :
 - **Donut** : Composition portefeuille par type police
 - **Tables Top/Bottom** : Top 10 et Bottom 10 clients par valeur nette
   - Colonnes : Client | Primes Totales | Durée Moyenne
+
+![Fidélisation & CRM](./screenshots/05_Fidelisation_CRM.jpg)
 
 ---
 
@@ -209,7 +219,7 @@ Combined_Ratio = [Loss_Ratio] + 0.25
 Marge_Technique = DIVIDE([Profit_Technique], [Primes_Totales], 0)
 
 # Clients
-Clients_Actifs = CALCULATE(DISTINCTCOUNT(Customer_ID), 
+Clients_Actifs = CALCULATE(DISTINCTCOUNT(Customer_ID),
   Policy_Start <= MAX(Date) AND Policy_Renewal >= MAX(Date)-365)
 Taux_Mono_Produit = DIVIDE(
   CALCULATE(DISTINCTCOUNT(Customer_ID), DISTINCTCOUNT(Policy_Type)=1),
@@ -250,4 +260,3 @@ Alerte_Loss_Ratio = IF([Loss_Ratio] > 0.75, "🟡 VIGILANCE", IF([Loss_Ratio] > 
 ---
 
 **Version 2.0** | Mise à jour : Août 2026 | Status : Construction en cours
-
