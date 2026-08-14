@@ -1,0 +1,28 @@
+# Environnement virtuel
+env/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Environnement / secrets
+.env
+.env.local
+
+# Modèles générés
+models/*.pkl
+
+# Données brutes
+*.csv
