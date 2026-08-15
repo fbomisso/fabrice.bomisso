@@ -1,6 +1,3 @@
-Oui. Dans ce cas, il vaut mieux **ne pas présenter Excel, Python, SQL et Machine Learning comme des domaines déjà réalisés**. Le README doit refléter honnêtement ton portfolio actuel, tout en laissant la structure ouverte pour les futurs projets.
-
-Je te recommande donc une version centrée sur **Power BI**, avec les autres technologies présentées uniquement comme **compétences en développement / futurs domaines**.
 
 # 🎯 Portfolio Data Analyst
 
