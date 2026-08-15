@@ -1,6 +1,11 @@
-# Environnement virtuel
+# Environnements Python
 env/
 venv/
+.venv/
+
+# IDE
+.vscode/
+.vs/
 
 # Python
 __pycache__/
@@ -10,19 +15,9 @@ __pycache__/
 # Jupyter
 .ipynb_checkpoints/
 
-# VS Code
-.vscode/
+# Tests / caches
+.pytest_cache/
 
-# Fichiers système
+# Système
 .DS_Store
 Thumbs.db
-
-# Environnement / secrets
-.env
-.env.local
-
-# Modèles générés
-models/*.pkl
-
-# Données brutes
-*.csv
