@@ -1,4 +1,4 @@
-Voici une version **corrigée et propre pour GitHub**, notamment la ligne de titre qui était transformée en tableau Markdown, ainsi que les liens et la mise en forme.
+
 
 ```markdown
 # 🎯 Portfolio Data Analyst
