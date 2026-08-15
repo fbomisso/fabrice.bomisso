@@ -1,31 +1,50 @@
 # 📊 Projets Power BI
 
-Ce dossier regroupe l'ensemble de mes projets réalisés avec **Power BI**, dans le cadre de mon parcours de Data Analyst.
+Ce dossier regroupe mes projets réalisés avec **Microsoft Power BI** dans le cadre de mon parcours de **Data Analyst**.
 
-## 📁 Structure
+Les projets couvrent différentes problématiques : **performance commerciale, retail, e-commerce, finance, assurance, risque bancaire et analyse sportive**.
 
-Chaque projet possède son propre sous-dossier avec la structure suivante :
+## 🗂️ Projets
+
+| Projet                                                                                                 | Domaine            |
+| ------------------------------------------------------------------------------------------------------ | ------------------ |
+| [⚽ Analyse Performance, Scouting & Finance — Football Européen](./analyse-performance-football-europe) | Football           |
+| [🏆 Analyse Coupe du Monde FIFA 2026](./analyse-coupe-du-monde-fifa-2026)                              | Football           |
+| [🛒 Analyse Retail — Star Schema](./analyse-retail-star-schema)                                        | Retail             |
+| [🛍️ Analyse Performance — Olist](./analyse-performance-olist)                                         | E-commerce         |
+| [⚽ Analyse Pitchside Pro — Revenue](./analyse-pitchside-pro-revenue)                                   | Sport / Business   |
+| [🚗 Assurance Automobile — Dashboard](./assurance-automobile-dashboard)                                | Assurance          |
+| [🏦 Pilotage du Risque de Crédit Bancaire](./pilotage-risque-credit-bancaire)                          | Finance / Banque   |
+| [📊 GAP Service](./GAP_SERVICE)                                                                        | Analyse de données |
+
+## 🛠️ Compétences mobilisées
+
+* **Power Query** — nettoyage et transformation des données
+* **DAX** — mesures et indicateurs
+* **Modélisation des données**
+* **Schéma en étoile**
+* **KPI & indicateurs de performance**
+* **Data Visualization**
+* **Dashboards interactifs**
+* **Analyse temporelle**
+* **Data Storytelling**
+
+## 📁 Structure d'un projet
 
 ```text
-PowerBI/
-└── nom-du-projet/
-    ├── README.md              # Présentation du projet
-    ├── data/                  # Données sources (si partageables)
-    ├── screenshots/           # Captures d'écran du dashboard
-    └── nom-du-projet.pbix     # Fichier Power BI
+nom-du-projet/
+├── README.md
+├── data/
+├── screenshots/
+└── nom-du-projet.pbix
 ```
 
-## 🗂️ Liste des projets
+La présence des fichiers peut varier selon les contraintes de partage des données et du fichier `.pbix`.
 
-| Projet | Description | Statut |
-|---|---|---|
-| [Analyse Performance, Scouting & Finance — Football Européen](./analyse-performance-football-europe) | Vue 360° (performance, scouting, finance) sur les 5 grands championnats européens, 2018–2024 | ✅ README prêt — `.pbix` et données à ajouter |
+## 🚀 Évolution
 
-> Cette section sera mise à jour au fur et à mesure de l'ajout des projets.
+De nouveaux projets Power BI seront ajoutés progressivement afin de documenter mon évolution en **Data Analytics et Business Intelligence**.
 
-## 🛠️ Comment ajouter un nouveau projet
+---
 
-1. Créer un sous-dossier `PowerBI/nom-du-projet/`
-2. Y placer le fichier `.pbix`, les données sources et les captures d'écran
-3. Dupliquer le [template de README](./_template/README.md) et le compléter
-4. Mettre à jour ce fichier (tableau ci-dessus) et le `README.md` principal du repository
+⬅️ [**Retour au portfolio principal**](../)
