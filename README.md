@@ -1,12 +1,15 @@
+Voici une version **corrigée et propre pour GitHub**, notamment la ligne de titre qui était transformée en tableau Markdown, ainsi que les liens et la mise en forme.
+
+```markdown
 # 🎯 Portfolio Data Analyst
 
 **Data Analyst | Power BI · Data Analytics · Business Intelligence**
 
 Bienvenue sur mon portfolio GitHub.
 
-Je suis **Fabrice Bomisso**, Data Analyst, passionné par l'analyse, la visualisation et l'interprétation des données.
+Je suis **Fabrice Bomisso**, Data Analyst, passionné par l’analyse, la visualisation et l’interprétation des données.
 
-Ce portfolio présente mes **projets Power BI**, de la préparation des données à la création de dashboards interactifs, en passant par la modélisation, l'analyse et la restitution des résultats.
+Ce portfolio présente mes **projets Power BI**, de la préparation des données à la création de dashboards interactifs, en passant par la modélisation, l’analyse et la restitution des résultats.
 
 ---
 
@@ -14,21 +17,21 @@ Ce portfolio présente mes **projets Power BI**, de la préparation des données
 
 ### 📊 Power BI
 
-* Power Query
-* DAX
-* Nettoyage et transformation des données
-* Modélisation en étoile
-* Création de KPI
-* Data Visualization
-* Dashboards interactifs
-* Data Storytelling
-* Data Quality
+- Power Query
+- DAX
+- Nettoyage et transformation des données
+- Modélisation en étoile
+- Création de KPI
+- Data Visualization
+- Dashboards interactifs
+- Data Storytelling
+- Data Quality
 
 ### 🛠️ Autres outils
 
-* Microsoft Excel
-* SQL
-* Python
+- Microsoft Excel
+- SQL
+- Python
 
 > Ces compétences sont actuellement en développement et seront progressivement intégrées au portfolio à travers de nouveaux projets.
 
@@ -36,18 +39,18 @@ Ce portfolio présente mes **projets Power BI**, de la préparation des données
 
 ## 📂 Projets Power BI
 
-👉 [**Voir les projets Power BI**](./PowerBI/)
+👉 [**Voir les projets Power BI**](https://fbomisso.github.io/fabrice.bomisso/PowerBI/)
 
 Le portfolio comprend actuellement des projets dans plusieurs domaines :
 
-* 🛒 **Retail & E-commerce**
-* ⚽ **Football & Sport Business**
-* 💳 **Finance & Risque de crédit**
-* 🚗 **Assurance automobile**
-* 📊 **Performance commerciale**
-* 👥 **Analyse RH**
-* 📦 **Gestion des stocks**
-* 🔎 **Qualité des données**
+- 🛒 **Retail & E-commerce**
+- ⚽ **Football & Sport Business**
+- 💳 **Finance & Risque de crédit**
+- 🚗 **Assurance automobile**
+- 📊 **Performance commerciale**
+- 👥 **Analyse RH**
+- 📦 **Gestion des stocks**
+- 🔎 **Qualité des données**
 
 ---
 
@@ -59,15 +62,15 @@ Chaque projet suit une démarche structurée :
 
 Je porte une attention particulière à la **qualité des données**, à la cohérence des indicateurs, à la fiabilité des analyses et à la lisibilité des dashboards.
 
-L'objectif est de transformer des données brutes en **informations fiables et exploitables pour la prise de décision**.
+L’objectif est de transformer des données brutes en **informations fiables et exploitables pour la prise de décision**.
 
 ---
 
 ## 🎓 Formation
 
-* **Certification Data Analyst** — GOMYCODE, 2024–2025
-* **Master en Génie de l'Eau et de l'Environnement**
-* **Licence en Génie de l'Eau et de l'Environnement**
+- **Certification Data Analyst** — GOMYCODE, 2024–2025
+- **Master en Génie de l’Eau et de l’Environnement**
+- **Licence en Génie de l’Eau et de l’Environnement**
 
 ---
 
@@ -75,8 +78,8 @@ L'objectif est de transformer des données brutes en **informations fiables et e
 
 **Fabrice Bomisso**
 
-📍 Côte d'Ivoire
-📧 [fabricebtibo@gmail.com](mailto:fabricebtibo@gmail.com)
+📍 Côte d’Ivoire  
+📧 [fabricebtibo@gmail.com](mailto:fabricebtibo@gmail.com)  
 💼 [LinkedIn](https://www.linkedin.com/in/fabrice-bomisso)
 
 ---
@@ -86,3 +89,4 @@ L'objectif est de transformer des données brutes en **informations fiables et e
 De nouveaux projets et de nouvelles compétences viendront progressivement enrichir ce portfolio.
 
 > **Transformer les données en insights pour faciliter la prise de décision.**
+```
