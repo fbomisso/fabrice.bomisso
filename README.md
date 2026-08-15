@@ -1,76 +1,112 @@
+# 🎯 Portfolio Data Analyst & Data Scientist
 
-
-```markdown
-# 🎯 Portfolio Data Analyst
-
-**Data Analyst | Power BI · Data Analytics · Business Intelligence**
+**Data Analyst | Power BI · Data Analytics · Machine Learning · Business Intelligence**
 
 Bienvenue sur mon portfolio GitHub.
 
-Je suis **Fabrice Bomisso**, Data Analyst, passionné par l’analyse, la visualisation et l’interprétation des données.
+Je suis **Fabrice Bomisso**, Data Analyst & Data Scientist, passionné par la **transformation de données en insights actionnels** et la création de **solutions IA reproductibles**.
 
-Ce portfolio présente mes **projets Power BI**, de la préparation des données à la création de dashboards interactifs, en passant par la modélisation, l’analyse et la restitution des résultats.
+Ce portfolio présente mes projets dans deux domaines :
+- 📊 **Power BI** : Dashboards interactifs et business intelligence
+- 🤖 **Machine Learning** : Prédiction, segmentation et explainability
+
+---
+
+## 🚀 Projets phares
+
+### 1️⃣ **Customer Churn Prediction** ⭐ Machine Learning End-to-End
+
+📂 **Dossier** : `Machine-Learning/Classification/Customer-Churn-Prediction/`
+
+**Description** : Système complet de prédiction du risque de churn pour une entreprise de télécommunications (7,043 clients).
+
+**Stack** : Python • Pandas • Scikit-learn • SHAP • Streamlit
+
+**Résultats** :
+- ✅ Random Forest avec **Recall 77.8%** (détecte 78% des vrais churns)
+- ✅ **F1-Score 63.7%** (meilleur équilibre precision/recall)
+- ✅ ROC-AUC 0.85
+- ✅ **Impact estimé** : 76-83 clients sauvés/an (~50k$ revenue)
+
+**Highlights** :
+- Pipeline ML rigoureux : Audit → Cleaning → EDA → Feature Engineering → ML
+- SHAP Explainability pour interpréter les prédictions
+- Segmentation 3 profils de risque avec recommandations métier
+- **Streamlit App en production** pour scorer les clients en temps réel
+
+🔗 [**Lire la documentation complète**](./Machine-Learning/Classification/Customer-Churn-Prediction/README.md)
+
+---
+
+### 2️⃣ **Power BI Dashboards** 📊 Business Intelligence
+
+📂 **Dossier** : `PowerBI/`
+
+Portfolio de dashboards et rapports Power BI pour analyse métier et prise de décision.
+
+**Domaines couverts** :
+- 🛒 Retail & E-commerce
+- ⚽ Football & Sport Business
+- 💳 Finance & Risque de crédit
+- 🚗 Assurance automobile
+- 📊 Performance commerciale
+- 👥 Analyse RH
+- 📦 Gestion des stocks
+- 🔎 Qualité des données
+
+🔗 [**Voir les projets Power BI**](./PowerBI/)
 
 ---
 
 ## 🧠 Compétences
 
-### 📊 Power BI
+### 🤖 Machine Learning & Data Science
+- **EDA** : Pandas, NumPy, Matplotlib, Seaborn
+- **ML** : Scikit-learn (Classification, Regression, Ensemble Methods)
+- **Deep Learning** : TensorFlow, Keras
+- **Explainability** : SHAP, Feature Importance
+- **Deployment** : Streamlit, Jupyter Notebook
 
-- Power Query
-- DAX
+### 📊 Power BI & Analytics
+- Power Query (M)
+- DAX (formules et mesures avancées)
 - Nettoyage et transformation des données
 - Modélisation en étoile
-- Création de KPI
-- Data Visualization
+- Création de KPI et indicateurs
+- Data Visualization & Storytelling
 - Dashboards interactifs
-- Data Storytelling
-- Data Quality
 
 ### 🛠️ Autres outils
-
-- Microsoft Excel
-- SQL
-- Python
-
-> Ces compétences sont actuellement en développement et seront progressivement intégrées au portfolio à travers de nouveaux projets.
+- **SQL** : Queries complexes, optimisation
+- **Python** : Pandas, NumPy, Scikit-learn
+- **Microsoft Excel** : Power Pivot, Formules avancées
+- **Git & GitHub** : Versionning, collaboration
 
 ---
 
-## 📂 Projets Power BI
+## 🔄 Ma démarche
 
-👉 [**Voir les projets Power BI**](https://fbomisso.github.io/fabrice.bomisso/PowerBI/)
+### Pour la Data Science :
+**Données → Audit → Cleaning → EDA → Feature Engineering → ML → Explainability → Segmentation → Action**
 
-Le portfolio comprend actuellement des projets dans plusieurs domaines :
+- ✅ Audit systématique des données
+- ✅ Nettoyage rigoureux avec justification
+- ✅ EDA orientée métier
+- ✅ Feature engineering intelligent
+- ✅ Comparaison modèles
+- ✅ Explainability (SHAP)
+- ✅ Recommandations métier concrètes
 
-- 🛒 **Retail & E-commerce**
-- ⚽ **Football & Sport Business**
-- 💳 **Finance & Risque de crédit**
-- 🚗 **Assurance automobile**
-- 📊 **Performance commerciale**
-- 👥 **Analyse RH**
-- 📦 **Gestion des stocks**
-- 🔎 **Qualité des données**
-
----
-
-## 🔎 Ma démarche
-
-Chaque projet suit une démarche structurée :
-
+### Pour la Business Intelligence :
 **Données → Audit → Nettoyage → Transformation → Modélisation → DAX → Analyse → Visualisation → Insights**
 
-Je porte une attention particulière à la **qualité des données**, à la cohérence des indicateurs, à la fiabilité des analyses et à la lisibilité des dashboards.
-
-L’objectif est de transformer des données brutes en **informations fiables et exploitables pour la prise de décision**.
-
 ---
 
-## 🎓 Formation
+## 🎓 Formation & Certification
 
 - **Certification Data Analyst** — GOMYCODE, 2024–2025
-- **Master en Génie de l’Eau et de l’Environnement**
-- **Licence en Génie de l’Eau et de l’Environnement**
+- **Master en Génie de l'Eau et de l'Environnement** — Université Jean Lorougnon Guédé
+- **Licence en Génie de l'Eau et de l'Environnement** — Université Jean Lorougnon Guédé
 
 ---
 
@@ -78,15 +114,15 @@ L’objectif est de transformer des données brutes en **informations fiables et
 
 **Fabrice Bomisso**
 
-📍 Côte d’Ivoire  
+📍 Côte d'Ivoire (Abidjan)  
 📧 [fabricebtibo@gmail.com](mailto:fabricebtibo@gmail.com)  
-💼 [LinkedIn](https://www.linkedin.com/in/fabrice-bomisso)
+💼 [LinkedIn](https://www.linkedin.com/in/fabrice-bomisso)  
+💻 [GitHub](https://github.com/fbomisso/fabrice.bomisso)
 
 ---
 
 ## 🚀 Portfolio en évolution
 
-De nouveaux projets et de nouvelles compétences viendront progressivement enrichir ce portfolio.
+De nouveaux projets viendront progressivement enrichir ce portfolio.
 
-> **Transformer les données en insights pour faciliter la prise de décision.**
-```
+> **Transformer les données en insights actionables pour faciliter la prise de décision.**
