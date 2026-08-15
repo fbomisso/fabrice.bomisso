@@ -1,257 +1,437 @@
+Oui. Dans ce cas, il vaut mieux **ne pas présenter Excel, Python, SQL et Machine Learning comme des domaines déjà réalisés**. Le README doit refléter honnêtement ton portfolio actuel, tout en laissant la structure ouverte pour les futurs projets.
+
+Je te recommande donc une version centrée sur **Power BI**, avec les autres technologies présentées uniquement comme **compétences en développement / futurs domaines**.
+
 # 🎯 Portfolio Data Analyst
 
-**Data Analyst | Power BI · Excel · Python**
+**Data Analyst | Power BI · Data Analytics · Business Intelligence**
 
 Bienvenue sur mon portfolio GitHub.
 
-Ce dépôt rassemble progressivement mes projets en **analyse de données, Business Intelligence, Data Visualization et Data Science**.
+Ce dépôt rassemble mes projets réalisés dans le domaine de la **Data Analytics et de la Business Intelligence**, avec un focus particulier sur **Microsoft Power BI**.
 
-Le portfolio est organisé **par domaines de compétence** et évolue au fur et à mesure de la réalisation de nouveaux projets, de l'acquisition de nouvelles compétences et de l'exploration de différentes problématiques métier.
+À travers ces projets, je mets en pratique différentes étapes du processus d'analyse de données : **préparation des données, nettoyage, transformation, modélisation, création de mesures DAX, visualisation et interprétation des résultats**.
 
----
-
-## 👤 À propos de moi
-
-Je suis **Fabrice Bomisso**, Data Analyst avec un parcours à la croisée de l'analyse de données, de la Business Intelligence et des sciences de l'environnement.
-
-Ma démarche consiste à transformer des données brutes en informations **fiables, compréhensibles et exploitables**, en accordant une attention particulière à la qualité des données, à la modélisation et à la restitution des résultats.
-
-### 🎓 Formation
-
-* **Certification Data Analyst** — GOMYCODE, 2024–2025
-* **Master en Génie de l'Eau et de l'Environnement** — Université Jean Lorougnon Guédé
-* **Licence en Génie de l'Eau et de l'Environnement** — Université Jean Lorougnon Guédé
+> 🚀 **Portfolio évolutif :** de nouveaux projets et de nouveaux domaines de compétence seront progressivement ajoutés au fur et à mesure de mon évolution dans le domaine de la Data.
 
 ---
 
-## 🧠 Compétences
+# 👤 À propos de moi
 
-### 📊 Data Analytics & Business Intelligence
+Je suis **Fabrice Bomisso**, Data Analyst avec un parcours à la croisée de l'**analyse de données**, de la **Business Intelligence** et des **sciences de l'environnement**.
 
-* Power BI
-* DAX
+Je m'intéresse particulièrement à la transformation de données brutes en informations **fiables, compréhensibles et utiles à la prise de décision**.
+
+Mon portfolio constitue un espace dans lequel je documente mes projets, mes apprentissages et ma progression dans le domaine de la Data.
+
+---
+
+# 🎓 Formation
+
+* 🎓 **Certification Data Analyst** — GOMYCODE, 2024–2025
+* 🎓 **Master en Génie de l'Eau et de l'Environnement** — Université Jean Lorougnon Guédé
+* 🎓 **Licence en Génie de l'Eau et de l'Environnement** — Université Jean Lorougnon Guédé
+
+---
+
+# 🧠 Compétences actuelles
+
+## 📊 Power BI
+
+Power BI constitue actuellement le **principal axe de développement de mon portfolio**.
+
+### 🔄 Préparation et transformation des données
+
+* Importation de données
 * Power Query
-* Excel
-* Modélisation des données
-* Schémas en étoile
-* KPI & indicateurs de performance
-* Data Quality
-* Data Visualization
-* Data Storytelling
+* Nettoyage des données
+* Transformation des colonnes
+* Gestion des valeurs manquantes
+* Gestion des doublons
+* Changement et contrôle des types de données
+* Fusion et ajout de requêtes
+* Création de colonnes personnalisées
+* Transformation de données avec le langage M
 
-### 🐍 Python & Data Science
+### 🗄️ Modélisation
 
-* Python
-* Pandas
-* NumPy
-* Scikit-learn
-* Matplotlib
-* Analyse exploratoire des données
-* Préparation et transformation des données
-* Machine Learning
+* Modèle en étoile
+* Tables de faits
+* Tables de dimensions
+* Relations entre tables
+* Gestion des cardinalités
+* Modélisation temporelle
+* Création de tables de dates
 
-### 🗄️ SQL
+### 📐 DAX
 
-* Requêtes SQL
-* Jointures
+* Mesures
+* Colonnes calculées
 * Agrégations
-* Fonctions analytiques
-* Manipulation et analyse de données
+* Contextes de filtre
+* Fonctions temporelles
+* KPI
+* Calculs de performance
+* Analyse comparative
 
-> Les compétences et outils présentés dans ce portfolio continueront d'évoluer avec les nouveaux projets.
+### 📈 Data Visualization
 
----
+* Cartes KPI
+* Graphiques en barres
+* Graphiques en courbes
+* Graphiques combinés
+* Segmentation
+* Filtres
+* Slicers
+* Navigation entre pages
+* Mise en forme conditionnelle
+* Tooltips
+* Design de dashboards
 
-# 📊 Projets
+### 💡 Data Storytelling
 
-Le portfolio est organisé **par domaines**.
+Je cherche à construire des dashboards qui permettent de passer rapidement :
 
-Chaque domaine sera progressivement enrichi avec de nouveaux projets afin de refléter l'évolution de mes compétences et la diversité des problématiques traitées.
-
----
-
-## 📈 Power BI & Business Intelligence
-
-**Domaine actuellement le plus développé du portfolio.**
-
-Les projets couvrent plusieurs secteurs : **retail, e-commerce, finance, assurance et football**.
-
-| Projet                                                                                | Domaine             | Description                                                                                            |
-| ------------------------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------ |
-| [Analyse Coupe du Monde FIFA 2026](./PowerBI/analyse-coupe-du-monde-fifa-2026/)       | ⚽ Football          | Analyse des performances des équipes et des joueurs pendant la Coupe du Monde FIFA 2026.               |
-| [Analyse Performance Football Europe](./PowerBI/analyse-performance-football-europe/) | ⚽ Football          | Analyse de la performance des clubs et joueurs des grands championnats européens.                      |
-| [Analyse Performance Olist](./PowerBI/analyse-performance-olist/)                     | 🛒 E-commerce       | Analyse des ventes, clients, produits, revenus et performances géographiques.                          |
-| [PitchSide Pro Revenue](./PowerBI/analyse-pitchside-pro-revenue/)                     | ⚽ Football Business | Analyse des revenus et de la performance commerciale dans le football professionnel.                   |
-| [Retail Star Schema](./PowerBI/analyse-retail-star-schema/)                           | 🛒 Retail           | Analyse retail avec modèle en étoile, contrôle qualité des données, DAX et dashboard décisionnel.      |
-| [Assurance Automobile](./PowerBI/assurance-automobile-dashboard/)                     | 🚗 Assurance        | Analyse de la rentabilité, de la sinistralité, des clients et de la qualité des données.               |
-| [GAP SERVICE](./PowerBI/GAP_SERVICE/)                                                 | 🛒 Retail           | Pilotage des ventes, stocks, ressources humaines, fournisseurs et qualité des données.                 |
-| [Risque de Crédit Bancaire](./PowerBI/pilotage-risque-credit-bancaire/)               | 💳 Finance          | Analyse du portefeuille de prêts, du risque de défaut, de la rentabilité et du profil des emprunteurs. |
+**des données → aux indicateurs → aux tendances → aux insights.**
 
 ---
 
-## 📊 Excel
+# 📂 Projets
 
-**Domaine en cours de développement.**
+Actuellement, le portfolio contient principalement des **projets Power BI**.
 
-Cette section sera progressivement enrichie avec des projets consacrés notamment à :
+Chaque projet est organisé de manière à présenter, lorsque cela est pertinent :
 
-* l'analyse de données ;
-* la gestion et le suivi des stocks ;
-* les tableaux de bord ;
-* les fonctions avancées ;
+* 🎯 le contexte ;
+* ❓ la problématique ;
+* 📊 les données utilisées ;
+* 🧹 le nettoyage et la préparation ;
+* 🔄 les transformations ;
+* 🗄️ la modélisation ;
+* 📐 les mesures DAX ;
+* 📈 les visualisations ;
+* 💡 les principaux insights ;
+* 🎯 les recommandations ;
+* ⚠️ les limites de l'analyse.
+
+---
+
+# 📊 Power BI
+
+[**Voir tous les projets Power BI →**](./PowerBI/)
+
+Cette section constitue actuellement le **cœur du portfolio**.
+
+Les projets couvrent différentes problématiques d'analyse et permettent de mettre en pratique les compétences acquises en :
+
 * Power Query ;
-* l'automatisation ;
-* la modélisation et l'analyse décisionnelle.
+* DAX ;
+* modélisation ;
+* création de KPI ;
+* analyse temporelle ;
+* visualisation ;
+* reporting ;
+* Data Storytelling.
 
----
+### Domaines explorés
 
-## 🐍 Python & Data Science
+Les projets peuvent porter sur différents secteurs, notamment :
 
-**Domaine en cours de développement.**
-
-Cette section accueillera progressivement des projets portant notamment sur :
-
-* l'analyse exploratoire ;
-* le nettoyage et la transformation des données ;
-* la visualisation ;
-* les statistiques ;
-* le Machine Learning ;
-* la modélisation prédictive.
-
----
-
-## 🗄️ SQL
-
-**Domaine en cours de développement.**
-
-Cette section sera progressivement enrichie avec des projets portant sur :
-
-* l'interrogation de bases de données ;
-* les jointures ;
-* les agrégations ;
-* les fonctions analytiques ;
-* la transformation des données ;
-* la modélisation des données.
-
----
-
-## 🤖 Machine Learning
-
-**Domaine en cours de développement.**
-
-Cette section pourra accueillir progressivement des projets consacrés notamment à :
-
-* la classification ;
-* la régression ;
-* le clustering ;
-* la sélection de variables ;
-* l'évaluation des modèles ;
-* la modélisation prédictive.
+* 🛒 Retail
+* 🛍️ E-commerce
+* 💰 Finance
+* 🛡️ Assurance
+* ⚽ Sport / Football
+* 📊 Analyse de performance
 
 ---
 
 # 🔎 Data Quality
 
-La qualité des données constitue une composante importante de ma démarche analytique.
+La qualité des données occupe une place importante dans mes projets Power BI.
 
-Avant de construire un indicateur ou un dashboard, je porte notamment attention à :
+Avant de construire un dashboard, je cherche notamment à vérifier :
 
-* la qualité des données ;
-* les valeurs manquantes ;
-* les doublons ;
-* les incohérences ;
-* les valeurs aberrantes ;
-* les problèmes de typage ;
-* les relations entre les tables ;
-* la cohérence des indicateurs ;
-* les limites et biais potentiels des données.
+### 🧹 Données manquantes
 
-L'objectif est d'éviter qu'un dashboard visuellement convaincant repose sur des données ou des indicateurs incorrects.
+* Identification des valeurs manquantes
+* Analyse de leur origine
+* Traitement approprié selon le contexte
+
+### ♻️ Doublons
+
+* Identification des doublons
+* Vérification de leur pertinence
+* Suppression lorsque nécessaire
+
+### ⚠️ Incohérences
+
+* Valeurs incorrectes
+* Catégories incohérentes
+* Formats différents
+* Problèmes de typage
+
+### 📅 Dates
+
+* Formats de dates
+* Cohérence temporelle
+* Création de dimensions temporelles
+* Analyse par année, trimestre, mois ou jour
+
+### 🔗 Relations
+
+* Vérification des clés
+* Cardinalités
+* Relations entre tables
+* Cohérence du modèle
+
+> **Un dashboard fiable commence par des données correctement préparées.**
 
 ---
 
 # 📐 Approche analytique
 
-Lorsque cela est pertinent, mes projets suivent une démarche structurée :
-
-**Comprendre → Contrôler → Préparer → Modéliser → Analyser → Visualiser → Interpréter → Décider**
-
-Cette approche permet de passer progressivement de données brutes à des informations **fiables, compréhensibles et exploitables**.
-
----
-
-# 📂 Organisation du dépôt
-
-Le dépôt est organisé **par domaines de compétence**.
+Mes projets Power BI suivent généralement une démarche structurée :
 
 ```text
-fabrice.bomisso/
-│
-├── PowerBI/
-│   ├── analyse-coupe-du-monde-fifa-2026/
-│   ├── analyse-performance-football-europe/
-│   ├── analyse-performance-olist/
-│   ├── analyse-pitchside-pro-revenue/
-│   ├── analyse-retail-star-schema/
-│   ├── assurance-automobile-dashboard/
-│   ├── GAP_SERVICE/
-│   └── pilotage-risque-credit-bancaire/
-│
-├── Excel/
-│   └── ...
-│
-├── Python/
-│   └── ...
-│
-├── SQL/
-│   └── ...
-│
-├── Machine-Learning/
-│   └── ...
-│
-└── img/
+Comprendre
+    ↓
+Explorer
+    ↓
+Nettoyer
+    ↓
+Transformer
+    ↓
+Modéliser
+    ↓
+Calculer
+    ↓
+Visualiser
+    ↓
+Analyser
+    ↓
+Interpréter
 ```
 
-Les domaines **Excel, Python, SQL et Machine Learning** seront développés progressivement.
-
-L'organisation du dépôt pourra évoluer avec l'acquisition de nouvelles compétences et la réalisation de nouveaux projets.
+Cette démarche permet de passer progressivement de **données brutes** à une **information exploitable**.
 
 ---
 
-# 🚀 Évolution du portfolio
+# 🎯 Méthodologie de mes projets
 
-Ce dépôt est un **portfolio évolutif**.
+## 1️⃣ Compréhension du problème
 
-De nouveaux projets seront ajoutés progressivement selon :
+Avant de construire le dashboard, j'identifie :
 
-* les domaines de compétence développés ;
-* les outils maîtrisés ;
-* les problématiques métier étudiées ;
-* les projets personnels et professionnels ;
-* les nouvelles compétences acquises.
+* le contexte ;
+* les objectifs ;
+* les utilisateurs ;
+* les questions auxquelles l'analyse doit répondre.
 
-L'objectif est de construire au fil du temps un portfolio permettant d'observer :
+## 2️⃣ Exploration des données
 
-* l'évolution de mes compétences ;
-* la diversité des problématiques traitées ;
-* ma capacité à travailler avec différents outils ;
-* ma capacité à adapter une démarche analytique à différents secteurs ;
-* ma progression dans le domaine de la Data.
+J'analyse les données disponibles afin de comprendre :
+
+* leur structure ;
+* les différentes tables ;
+* les variables ;
+* les dimensions ;
+* les indicateurs disponibles ;
+* les éventuelles anomalies.
+
+## 3️⃣ Nettoyage et transformation
+
+Les données sont préparées dans **Power Query** avant leur utilisation dans le modèle.
+
+## 4️⃣ Modélisation
+
+Lorsque le contexte s'y prête, je privilégie une structure de données claire, notamment autour d'un **schéma en étoile**.
+
+## 5️⃣ Création des indicateurs
+
+Les mesures nécessaires à l'analyse sont créées avec **DAX**.
+
+## 6️⃣ Visualisation
+
+Les graphiques et KPI sont sélectionnés en fonction des questions auxquelles ils doivent répondre.
+
+## 7️⃣ Analyse
+
+Les tendances, écarts, évolutions et anomalies sont étudiés.
+
+## 8️⃣ Restitution
+
+Les résultats sont présentés dans un dashboard permettant une lecture simple et intuitive des informations importantes.
+
+---
+
+# 📈 Principaux KPI étudiés
+
+Selon les problématiques des projets, les indicateurs peuvent notamment concerner :
+
+* chiffre d'affaires ;
+* revenus nets ;
+* bénéfices ;
+* marge ;
+* commandes ;
+* panier moyen ;
+* taux de conversion ;
+* croissance ;
+* performance produit ;
+* performance géographique ;
+* performance par canal ;
+* évolution temporelle.
+
+Les KPI sont toujours définis en fonction du **contexte et des données disponibles**.
+
+---
+
+# 🎨 Data Visualization
+
+L'objectif d'un dashboard n'est pas seulement d'être esthétique.
+
+Il doit surtout permettre de comprendre rapidement :
+
+> **Que se passe-t-il ?**
+
+> **Pourquoi cela se produit-il ?**
+
+> **Quels éléments méritent une attention particulière ?**
+
+> **Quelle décision peut être prise à partir des données ?**
+
+Je porte donc une attention particulière à :
+
+* la hiérarchie visuelle ;
+* la lisibilité ;
+* la cohérence des couleurs ;
+* la disposition des KPI ;
+* le choix des graphiques ;
+* les interactions ;
+* les filtres ;
+* la simplicité de lecture.
+
+---
+
+# 🗂️ Organisation du dépôt
+
+```text
+Portfolio-Data-Analyst/
+│
+├── 📊 PowerBI/
+│   │
+│   ├── Projet-01/
+│   │   ├── README.md
+│   │   ├── Dataset/
+│   │   ├── PowerBI/
+│   │   └── Images/
+│   │
+│   ├── Projet-02/
+│   │   ├── README.md
+│   │   ├── Dataset/
+│   │   ├── PowerBI/
+│   │   └── Images/
+│   │
+│   └── README.md
+│
+├── 🖼️ img/
+│
+└── README.md
+```
+
+La structure pourra évoluer lorsque de nouveaux domaines seront ajoutés.
+
+---
+
+# 🚀 Roadmap
+
+## 🟢 Actuellement
+
+* [x] Création du portfolio GitHub
+* [x] Mise en place de la section Power BI
+* [x] Réalisation de projets Power BI
+* [x] Travail sur Power Query
+* [x] Travail sur DAX
+* [x] Modélisation des données
+* [x] Création de dashboards interactifs
+* [x] Analyse et visualisation des données
+
+## 🟡 Prochaines étapes
+
+* [ ] Ajouter de nouveaux projets Power BI
+* [ ] Approfondir DAX
+* [ ] Approfondir la modélisation
+* [ ] Améliorer le Data Storytelling
+* [ ] Développer davantage les analyses orientées métier
+* [ ] Documenter davantage chaque projet
+
+## 🔵 À venir
+
+De nouveaux domaines pourront progressivement rejoindre le portfolio :
+
+* [ ] 📑 Excel
+* [ ] 🗄️ SQL
+* [ ] 🐍 Python
+* [ ] 📊 Data Science
+* [ ] 🤖 Machine Learning
+
+> Ces domaines sont indiqués comme **axes d'évolution** et ne représentent pas nécessairement des projets actuellement présents dans le portfolio.
+
+---
+
+# 📌 Vision du portfolio
+
+L'objectif de ce portfolio n'est pas de présenter une longue liste d'outils, mais de montrer **ce que je suis capable de réaliser avec les données**.
+
+Chaque nouveau projet doit contribuer à démontrer une ou plusieurs compétences :
+
+**Préparer → Modéliser → Analyser → Visualiser → Interpréter**
+
+Le portfolio évoluera progressivement avec mon apprentissage et mes expériences.
 
 ---
 
 # 📫 Contact
 
-**Fabrice Bomisso**
+## Fabrice Bomisso
 
-**Data Analyst | Power BI · Excel · Python**
+**Data Analyst | Power BI · Data Analytics · Business Intelligence**
 
-📍 Côte d'Ivoire
+📍 **Côte d'Ivoire**
 
 📧 **Email :** [fabricebtibo@gmail.com](mailto:fabricebtibo@gmail.com)
+
 📱 **Téléphone :** +225 07 78 31 45 26
+
 💼 **LinkedIn :** [linkedin.com/in/fabrice-bomisso](https://www.linkedin.com/in/fabrice-bomisso)
 
 ---
 
-💡 **Ouvert aux opportunités, collaborations et projets liés à la Data Analytics, la Business Intelligence et la Data Science.**
+# 🤝 Opportunités & collaborations
+
+Je suis ouvert aux :
+
+* opportunités professionnelles ;
+* projets Data Analytics ;
+* projets Power BI ;
+* collaborations ;
+* projets d'analyse de données ;
+* échanges avec des professionnels et passionnés de Data ;
+* opportunités d'apprentissage et de développement professionnel.
+
+---
+
+# ⭐ Merci pour votre visite
+
+Merci d'avoir pris le temps de consulter mon portfolio.
+
+Ce dépôt représente mon **évolution dans le domaine de la Data Analytics**, avec un focus actuel sur **Power BI et la Business Intelligence**.
+
+De nouveaux projets et de nouvelles compétences viendront progressivement enrichir ce portfolio.
+
+> **Transformer les données en informations, les informations en insights et les insights en décisions.**
+
+<p align="center">
+  <strong>Fabrice Bomisso</strong><br>
+  Data Analyst | Power BI · Data Analytics · Business Intelligence
+</p>
