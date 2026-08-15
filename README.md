@@ -4,9 +4,9 @@
 
 Bienvenue sur mon portfolio GitHub.
 
-Je suis **Fabrice Bomisso**, Data Analyst, passionné par l'analyse et la visualisation des données.
+Je suis **Fabrice Bomisso**, Data Analyst, passionné par l'analyse, la visualisation et l'interprétation des données.
 
-Ce portfolio présente mes **projets Power BI**, de la préparation des données à la création de dashboards interactifs et à l'analyse des résultats.
+Ce portfolio présente mes **projets Power BI**, de la préparation des données à la création de dashboards interactifs, en passant par la modélisation, l'analyse et la restitution des résultats.
 
 ---
 
@@ -22,6 +22,7 @@ Ce portfolio présente mes **projets Power BI**, de la préparation des données
 * Data Visualization
 * Dashboards interactifs
 * Data Storytelling
+* Data Quality
 
 ### 🛠️ Autres outils
 
@@ -37,13 +38,28 @@ Ce portfolio présente mes **projets Power BI**, de la préparation des données
 
 👉 [**Voir les projets Power BI**](./PowerBI/)
 
+Le portfolio comprend actuellement des projets dans plusieurs domaines :
+
+* 🛒 **Retail & E-commerce**
+* ⚽ **Football & Sport Business**
+* 💳 **Finance & Risque de crédit**
+* 🚗 **Assurance automobile**
+* 📊 **Performance commerciale**
+* 👥 **Analyse RH**
+* 📦 **Gestion des stocks**
+* 🔎 **Qualité des données**
+
 ---
 
 ## 🔎 Ma démarche
 
-**Données → Nettoyage → Transformation → Modélisation → Analyse → Visualisation → Insights**
+Chaque projet suit une démarche structurée :
 
-Je porte une attention particulière à la **qualité des données**, à la cohérence des indicateurs et à la lisibilité des dashboards.
+**Données → Audit → Nettoyage → Transformation → Modélisation → DAX → Analyse → Visualisation → Insights**
+
+Je porte une attention particulière à la **qualité des données**, à la cohérence des indicateurs, à la fiabilité des analyses et à la lisibilité des dashboards.
+
+L'objectif est de transformer des données brutes en **informations fiables et exploitables pour la prise de décision**.
 
 ---
 
@@ -65,7 +81,7 @@ Je porte une attention particulière à la **qualité des données**, à la coh�
 
 ---
 
-### 🚀 Portfolio en évolution
+## 🚀 Portfolio en évolution
 
 De nouveaux projets et de nouvelles compétences viendront progressivement enrichir ce portfolio.
 
