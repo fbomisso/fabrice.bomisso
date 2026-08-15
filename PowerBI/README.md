@@ -1,8 +1,8 @@
 # 📊 Projets Power BI
 
-Ce dossier regroupe mes projets réalisés avec **Microsoft Power BI** dans le cadre de mon parcours de **Data Analyst**.
+Bienvenue dans la section Power BI de mon portfolio.
 
-Les projets couvrent différentes problématiques : **performance commerciale, retail, e-commerce, finance, assurance, risque bancaire et analyse sportive**.
+Vous trouverez ici mes différents projets réalisés avec **Microsoft Power BI**, de la préparation des données à la création des dashboards.
 
 ## 🗂️ Projets
 
@@ -14,22 +14,23 @@ Les projets couvrent différentes problématiques : **performance commerciale, r
 | [🛍️ Analyse Performance — Olist](./analyse-performance-olist)                                         | E-commerce         |
 | [⚽ Analyse Pitchside Pro — Revenue](./analyse-pitchside-pro-revenue)                                   | Sport / Business   |
 | [🚗 Assurance Automobile — Dashboard](./assurance-automobile-dashboard)                                | Assurance          |
-| [🏦 Pilotage du Risque de Crédit Bancaire](./pilotage-risque-credit-bancaire)                          | Finance / Banque   |
+| [🏦 Pilotage du Risque de Crédit Bancaire](./pilotage-risque-credit-bancaire)                          | Banque / Finance   |
 | [📊 GAP Service](./GAP_SERVICE)                                                                        | Analyse de données |
 
-## 🛠️ Compétences mobilisées
+## 🛠️ Outils et compétences
 
-* **Power Query** — nettoyage et transformation des données
-* **DAX** — mesures et indicateurs
-* **Modélisation des données**
-* **Schéma en étoile**
-* **KPI & indicateurs de performance**
-* **Data Visualization**
-* **Dashboards interactifs**
-* **Analyse temporelle**
-* **Data Storytelling**
+* Power BI
+* Power Query
+* DAX
+* Modélisation des données
+* Schéma en étoile
+* KPI
+* Data Visualization
+* Dashboards interactifs
 
-## 📁 Structure d'un projet
+## 📁 Structure
+
+Chaque projet peut contenir :
 
 ```text
 nom-du-projet/
@@ -39,12 +40,17 @@ nom-du-projet/
 └── nom-du-projet.pbix
 ```
 
-La présence des fichiers peut varier selon les contraintes de partage des données et du fichier `.pbix`.
+Le contenu peut varier selon le projet et les données disponibles.
 
-## 🚀 Évolution
+## ➕ Ajouter un projet
 
-De nouveaux projets Power BI seront ajoutés progressivement afin de documenter mon évolution en **Data Analytics et Business Intelligence**.
+1. Créer le dossier du projet dans `PowerBI/`
+2. Ajouter le fichier `.pbix` si celui-ci peut être partagé
+3. Ajouter les données nécessaires
+4. Ajouter les captures du dashboard
+5. Créer le `README.md` du projet
+6. Ajouter le projet au tableau ci-dessus
 
 ---
 
-⬅️ [**Retour au portfolio principal**](../)
+[⬅️ Retour au portfolio](../)
