@@ -1,525 +1,337 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import joblib
 from pathlib import Path
-
-# ============================================================
-# CONFIGURATION
-# ============================================================
+import plotly.graph_objects as go
 
 st.set_page_config(
-    page_title="Customer Churn Prediction",
-    page_icon="📊",
-    layout="wide"
+    page_title="Churn Prediction",
+    page_icon="⚠️",
+    layout="wide",
+    initial_sidebar_state="collapsed"
 )
 
-# app.py → Customer-Churn-Prediction/
-BASE_DIR = Path(__file__).resolve().parent.parent
-MODELS_DIR = BASE_DIR / "models"
+st.markdown("""
+<style>
+    .metric-card {
+        background-color: #f0f2f6;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 10px 0;
+    }
+    .high-risk {
+        background-color: #ffe5e5;
+        border-left: 5px solid #d62728;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .medium-risk {
+        background-color: #fff5e5;
+        border-left: 5px solid #ff7f0e;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .low-risk {
+        background-color: #e5f5e5;
+        border-left: 5px solid #2ca02c;
+        padding: 20px;
+        border-radius: 10px;
+    }
+</style>
+""", unsafe_allow_html=True)
 
-
-# ============================================================
-# CHARGEMENT DES ARTEFACTS
-# ============================================================
+st.title("🎯 Telco Customer Churn Prediction")
+st.markdown("**Prédisez le risque de churn et identifiez les actions de rétention prioritaires**")
 
 @st.cache_resource
 def load_artifacts():
-    model = joblib.load(MODELS_DIR / "churn_model.pkl")
-    preprocessor = joblib.load(MODELS_DIR / "preprocessor.pkl")
-    feature_names = joblib.load(MODELS_DIR / "feature_names.pkl")
-    thresholds = joblib.load(MODELS_DIR / "thresholds.pkl")
-
+    model = joblib.load("../models/churn_model.pkl")
+    preprocessor = joblib.load("../models/preprocessor.pkl")
+    feature_names = joblib.load("../models/feature_names.pkl")
+    thresholds = joblib.load("../models/thresholds.pkl")
     return model, preprocessor, feature_names, thresholds
-
 
 try:
     model, preprocessor, feature_names, thresholds = load_artifacts()
-except Exception as e:
-    st.error(f"Erreur lors du chargement des modèles : {e}")
+except FileNotFoundError:
+    st.error("⚠️ Les fichiers du modèle n'ont pas été trouvés.")
     st.stop()
 
+st.markdown("---")
 
-# ============================================================
-# FEATURE ENGINEERING
-# ============================================================
+with st.sidebar:
+    st.header("📋 Profil du client")
+    
+    st.subheader("Démographie")
+    gender = st.selectbox("Genre", ["Male", "Female"])
+    senior_citizen = st.selectbox("Senior Citizen", [0, 1], format_func=lambda x: "Oui" if x == 1 else "Non")
+    partner = st.selectbox("Partner", ["Yes", "No"], format_func=lambda x: "Oui" if x == "Yes" else "Non")
+    dependents = st.selectbox("Dependents", ["Yes", "No"], format_func=lambda x: "Oui" if x == "Yes" else "Non")
+    
+    st.subheader("Services")
+    tenure = st.slider("Ancienneté (mois)", 0, 72, 12)
+    internet_service = st.selectbox("Internet Service", ["DSL", "Fiber optic", "No"])
+    monthly_charges = st.number_input("Charges mensuelles ($)", 0.0, 150.0, 50.0)
+    contract = st.selectbox("Contract", ["Month-to-month", "One year", "Two year"])
+    
+    st.subheader("Paiement")
+    payment_method = st.selectbox("Payment Method",
+        ["Electronic check", "Mailed check", "Bank transfer (automatic)", "Credit card (automatic)"])
+    paperless_billing = st.selectbox("Paperless Billing", ["Yes", "No"], format_func=lambda x: "Oui" if x == "Yes" else "Non")
+    
+    st.subheader("Services additionnels")
+    online_security = st.selectbox("Online Security", ["Yes", "No", "No internet service"])
+    tech_support = st.selectbox("Tech Support", ["Yes", "No", "No internet service"])
+    online_backup = st.selectbox("Online Backup", ["Yes", "No", "No internet service"])
+    device_protection = st.selectbox("Device Protection", ["Yes", "No", "No internet service"])
+    streaming_tv = st.selectbox("Streaming TV", ["Yes", "No", "No internet service"])
+    streaming_movies = st.selectbox("Streaming Movies", ["Yes", "No", "No internet service"])
+    
+    st.subheader("Téléphone")
+    phone_service = st.selectbox("Phone Service", ["Yes", "No"])
+    multiple_lines = st.selectbox("Multiple Lines", ["Yes", "No", "No phone service"])
 
-def create_features(data):
-    df = data.copy()
+def prepare_input(gender, senior_citizen, partner, dependents, tenure,
+                 internet_service, monthly_charges, contract, payment_method,
+                 paperless_billing, online_security, tech_support, online_backup,
+                 device_protection, streaming_tv, streaming_movies, phone_service,
+                 multiple_lines, thresholds):
+    
+    partner_int = 1 if partner == "Yes" else 0
+    dependents_int = 1 if dependents == "Yes" else 0
+    paperless_int = 1 if paperless_billing == "Yes" else 0
+    phone_int = 1 if phone_service == "Yes" else 0
+    
+    num_services = sum([
+        1 if online_security == "Yes" else 0,
+        1 if online_backup == "Yes" else 0,
+        1 if device_protection == "Yes" else 0,
+        1 if tech_support == "Yes" else 0,
+        1 if streaming_tv == "Yes" else 0,
+        1 if streaming_movies == "Yes" else 0
+    ])
+    
+    data = pd.DataFrame({
+        "gender": [gender],
+        "SeniorCitizen": [senior_citizen],
+        "Partner": [partner_int],
+        "Dependents": [dependents_int],
+        "tenure": [tenure],
+        "PhoneService": [phone_int],
+        "MultipleLines": [multiple_lines],
+        "InternetService": [internet_service],
+        "OnlineSecurity": [online_security],
+        "OnlineBackup": [online_backup],
+        "DeviceProtection": [device_protection],
+        "TechSupport": [tech_support],
+        "StreamingTV": [streaming_tv],
+        "StreamingMovies": [streaming_movies],
+        "Contract": [contract],
+        "PaperlessBilling": [paperless_int],
+        "PaymentMethod": [payment_method],
+        "MonthlyCharges": [monthly_charges],
+        "TotalCharges": [tenure * monthly_charges],
+        "tenure_years": [tenure / 12],
+        "is_new_customer": [1 if tenure <= 6 else 0],
+        "is_young_customer": [1 if tenure <= 12 else 0],
+        "high_monthly_charges": [1 if monthly_charges > thresholds["q75_monthly"] else 0],
+        "low_monthly_charges": [1 if monthly_charges < thresholds["q25_monthly"] else 0],
+        "num_services": [num_services],
+        "has_multiple_services": [1 if num_services >= 2 else 0],
+        "has_tech_support": [1 if tech_support == "Yes" else 0],
+        "has_security": [1 if online_security == "Yes" else 0],
+        "is_automatic_payment": [1 if payment_method in ["Bank transfer (automatic)", "Credit card (automatic)"] else 0],
+        "is_long_contract": [1 if contract in ["One year", "Two year"] else 0],
+        "risky_profile": [1 if (tenure <= 6) and (contract == "Month-to-month") else 0]
+    })
+    
+    return data
 
-    # 1. Ancienneté
-    df["tenure_years"] = df["tenure"] / 12
+col1, col2 = st.columns([3, 1])
 
-    df["is_new_customer"] = (
-        df["tenure"] <= 6
-    ).astype(int)
-
-    df["is_young_customer"] = (
-        df["tenure"] <= 12
-    ).astype(int)
-
-    # 2. Charges mensuelles
-    df["high_monthly_charges"] = (
-        df["MonthlyCharges"] > 89.85
-    ).astype(int)
-
-    df["low_monthly_charges"] = (
-        df["MonthlyCharges"] < 35.50
-    ).astype(int)
-
-    # 3. Nombre de services
-    services_cols = [
-        "OnlineSecurity",
-        "OnlineBackup",
-        "DeviceProtection",
-        "TechSupport",
-        "StreamingTV",
-        "StreamingMovies"
-    ]
-
-    df["num_services"] = (
-        df[services_cols] == "Yes"
-    ).sum(axis=1)
-
-    df["has_multiple_services"] = (
-        df["num_services"] >= 2
-    ).astype(int)
-
-    # 4. Support et sécurité
-    df["has_tech_support"] = (
-        df["TechSupport"] == "Yes"
-    ).astype(int)
-
-    df["has_security"] = (
-        df["OnlineSecurity"] == "Yes"
-    ).astype(int)
-
-    # 5. Paiement automatique
-    automatic_payment = [
-        "Bank transfer (automatic)",
-        "Credit card (automatic)"
-    ]
-
-    df["is_automatic_payment"] = (
-        df["PaymentMethod"].isin(automatic_payment)
-    ).astype(int)
-
-    # 6. Contrat long terme
-    df["is_long_contract"] = (
-        df["Contract"].isin([
-            "One year",
-            "Two year"
-        ])
-    ).astype(int)
-
-    # 7. Profil à risque
-    df["risky_profile"] = (
-        (df["is_new_customer"] == 1) &
-        (df["Contract"] == "Month-to-month")
-    ).astype(int)
-
-    return df
-
-
-# ============================================================
-# RECOMMANDATIONS
-# ============================================================
-
-def get_recommendations(row, risk):
-    recommendations = []
-
-    if risk == "ÉLEVÉ":
-        if row["Contract"] == "Month-to-month":
-            recommendations.append(
-                "Proposer une offre de contrat d'un an."
-            )
-
-        if row["PaymentMethod"] == "Electronic check":
-            recommendations.append(
-                "Encourager le passage au paiement automatique."
-            )
-
-        if row["OnlineSecurity"] != "Yes":
-            recommendations.append(
-                "Proposer l'option OnlineSecurity."
-            )
-
-        if row["TechSupport"] != "Yes":
-            recommendations.append(
-                "Proposer l'option TechSupport."
-            )
-
-        if row["tenure"] <= 6:
-            recommendations.append(
-                "Déclencher un programme d'accompagnement des nouveaux clients."
-            )
-
-        if not recommendations:
-            recommendations.append(
-                "Déclencher une campagne personnalisée de rétention."
-            )
-
-    elif risk == "MOYEN":
-        recommendations.append(
-            "Renforcer l'engagement du client avec une offre personnalisée."
+with col2:
+    if st.button("🔮 PRÉDIRE", key="predict", use_container_width=True):
+        
+        input_data = prepare_input(
+            gender, senior_citizen, partner, dependents, tenure,
+            internet_service, monthly_charges, contract, payment_method,
+            paperless_billing, online_security, tech_support, online_backup,
+            device_protection, streaming_tv, streaming_movies, phone_service,
+            multiple_lines, thresholds
         )
+        
+        input_processed = preprocessor.transform(input_data)
+        risk_score = model.predict_proba(input_processed)[0][1]
+        
+        st.session_state.risk_score = risk_score
+        st.session_state.input_data = input_data
 
-        if row["Contract"] == "Month-to-month":
-            recommendations.append(
-                "Proposer une évolution vers un contrat long terme."
-            )
-
-        if row["OnlineSecurity"] != "Yes":
-            recommendations.append(
-                "Proposer des services additionnels."
-            )
-
+if "risk_score" in st.session_state:
+    risk_score = st.session_state.risk_score
+    
+    if risk_score >= 0.70:
+        risk_category = "🔴 ÉLEVÉ"
+        risk_color = "#d62728"
+        css_class = "high-risk"
+    elif risk_score >= 0.40:
+        risk_category = "🟠 MOYEN"
+        risk_color = "#ff7f0e"
+        css_class = "medium-risk"
     else:
-        recommendations.append(
-            "Maintenir la satisfaction et la fidélisation du client."
-        )
-        recommendations.append(
-            "Valoriser la fidélité avec des offres personnalisées."
-        )
-
-    return recommendations
-
-
-# ============================================================
-# INTERFACE
-# ============================================================
-
-st.title("📊 Customer Churn Prediction")
-
-st.markdown(
-    """
-Cette application estime le **risque de churn d'un client télécom**
-à partir de son profil, de ses services, de son contrat et de son mode
-de paiement.
-"""
-)
-
-st.divider()
-
-# ============================================================
-# PROFIL CLIENT
-# ============================================================
-
-st.subheader("👤 Profil client")
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    gender = st.selectbox(
-        "Genre",
-        ["Female", "Male"]
-    )
-
-    senior_citizen = st.selectbox(
-        "Senior Citizen",
-        [0, 1],
-        format_func=lambda x: "Oui" if x == 1 else "Non"
-    )
-
-with col2:
-    partner = st.selectbox(
-        "Partenaire",
-        ["Yes", "No"]
-    )
-
-    dependents = st.selectbox(
-        "Personnes à charge",
-        ["Yes", "No"]
-    )
-
-with col3:
-    tenure = st.number_input(
-        "Ancienneté (mois)",
-        min_value=0,
-        max_value=72,
-        value=12
-    )
-
-    phone_service = st.selectbox(
-        "Service téléphonique",
-        ["Yes", "No"]
-    )
-
-
-# ============================================================
-# SERVICES
-# ============================================================
-
-st.subheader("📡 Services")
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    multiple_lines = st.selectbox(
-        "Lignes multiples",
-        ["No", "Yes", "No phone service"]
-    )
-
-    internet_service = st.selectbox(
-        "Service Internet",
-        ["DSL", "Fiber optic", "No"]
-    )
-
-with col2:
-    online_security = st.selectbox(
-        "Online Security",
-        ["No", "Yes", "No internet service"]
-    )
-
-    online_backup = st.selectbox(
-        "Online Backup",
-        ["No", "Yes", "No internet service"]
-    )
-
-with col3:
-    device_protection = st.selectbox(
-        "Device Protection",
-        ["No", "Yes", "No internet service"]
-    )
-
-    tech_support = st.selectbox(
-        "Tech Support",
-        ["No", "Yes", "No internet service"]
-    )
-
-
-col1, col2 = st.columns(2)
-
-with col1:
-    streaming_tv = st.selectbox(
-        "Streaming TV",
-        ["No", "Yes", "No internet service"]
-    )
-
-with col2:
-    streaming_movies = st.selectbox(
-        "Streaming Movies",
-        ["No", "Yes", "No internet service"]
-    )
-
-
-# ============================================================
-# CONTRAT ET PAIEMENT
-# ============================================================
-
-st.subheader("💳 Contrat & paiement")
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    contract = st.selectbox(
-        "Contrat",
-        ["Month-to-month", "One year", "Two year"]
-    )
-
-with col2:
-    payment_method = st.selectbox(
-        "Méthode de paiement",
-        [
-            "Electronic check",
-            "Mailed check",
-            "Bank transfer (automatic)",
-            "Credit card (automatic)"
-        ]
-    )
-
-with col3:
-    paperless_billing = st.selectbox(
-        "Facturation électronique",
-        ["Yes", "No"]
-    )
-
-
-# ============================================================
-# CHARGES
-# ============================================================
-
-st.subheader("💰 Charges")
-
-col1, col2 = st.columns(2)
-
-with col1:
-    monthly_charges = st.number_input(
-        "Charges mensuelles",
-        min_value=0.0,
-        max_value=200.0,
-        value=70.0,
-        step=0.01
-    )
-
-with col2:
-    total_charges = st.number_input(
-        "Charges totales",
-        min_value=0.0,
-        max_value=10000.0,
-        value=float(tenure * monthly_charges),
-        step=0.01
-    )
-
-
-# ============================================================
-# PREDICTION
-# ============================================================
-
-st.divider()
-
-if st.button(
-    "🔮 Prédire le risque de churn",
-    type="primary",
-    use_container_width=True
-):
-
-    # Données brutes
-    input_data = pd.DataFrame([{
-        "gender": gender,
-        "SeniorCitizen": senior_citizen,
-        "Partner": 1 if partner == "Yes" else 0,
-        "Dependents": 1 if dependents == "Yes" else 0,
-        "tenure": tenure,
-        "PhoneService": 1 if phone_service == "Yes" else 0,
-        "MultipleLines": multiple_lines,
-        "InternetService": internet_service,
-        "OnlineSecurity": online_security,
-        "OnlineBackup": online_backup,
-        "DeviceProtection": device_protection,
-        "TechSupport": tech_support,
-        "StreamingTV": streaming_tv,
-        "StreamingMovies": streaming_movies,
-        "Contract": contract,
-        "PaperlessBilling": 1 if paperless_billing == "Yes" else 0,
-        "PaymentMethod": payment_method,
-        "MonthlyCharges": monthly_charges,
-        "TotalCharges": total_charges
-    }])
-
-    try:
-        # Feature engineering
-        features = create_features(input_data)
-
-        # Colonnes numériques/catégorielles attendues
-        numeric_features = [
-            "SeniorCitizen",
-            "Partner",
-            "Dependents",
-            "tenure",
-            "PhoneService",
-            "PaperlessBilling",
-            "MonthlyCharges",
-            "TotalCharges",
-            "tenure_years",
-            "is_new_customer",
-            "is_young_customer",
-            "high_monthly_charges",
-            "low_monthly_charges",
-            "num_services",
-            "has_multiple_services",
-            "has_tech_support",
-            "has_security",
-            "is_automatic_payment",
-            "is_long_contract",
-            "risky_profile"
-        ]
-
-        categorical_features = [
-            "gender",
-            "MultipleLines",
-            "InternetService",
-            "OnlineSecurity",
-            "OnlineBackup",
-            "DeviceProtection",
-            "TechSupport",
-            "StreamingTV",
-            "StreamingMovies",
-            "Contract",
-            "PaymentMethod"
-        ]
-
-        X = features[
-            numeric_features + categorical_features
-        ]
-
-        # Preprocessing
-        X_processed = preprocessor.transform(X)
-
-        # Prediction
-        churn_probability = model.predict_proba(X_processed)[0, 1]
-
-        score = churn_probability * 100
-
-        # Classification
-        if churn_probability >= thresholds["risk_high"]:
-            risk = "ÉLEVÉ"
-            risk_icon = "🔴"
-        elif churn_probability >= thresholds["risk_medium"]:
-            risk = "MOYEN"
-            risk_icon = "🟠"
-        else:
-            risk = "FAIBLE"
-            risk_icon = "🟢"
-
-        # Résultat
-        st.subheader("🎯 Résultat")
-
-        col1, col2 = st.columns(2)
-
-        with col1:
-            st.metric(
-                "Score de risque",
-                f"{score:.1f}%"
-            )
-
-        with col2:
-            st.metric(
-                "Niveau de risque",
-                f"{risk_icon} {risk}"
-            )
-
-        st.progress(
-            min(max(churn_probability, 0.0), 1.0)
-        )
-
-        # Recommandations
-        st.subheader("💡 Recommandations métier")
-
-        recommendations = get_recommendations(
-            input_data.iloc[0],
-            risk
-        )
-
-        for recommendation in recommendations:
-            st.info(recommendation)
-
-        # Profil calculé
-        st.subheader("🔎 Profil analysé")
-
-        profile_cols = st.columns(4)
-
-        profile_cols[0].metric(
-            "Ancienneté",
-            f"{tenure} mois"
-        )
-
-        profile_cols[1].metric(
-            "Services",
-            int(features["num_services"].iloc[0])
-        )
-
-        profile_cols[2].metric(
-            "Contrat",
-            contract
-        )
-
-        profile_cols[3].metric(
-            "Charges mensuelles",
-            f"{monthly_charges:.2f}"
-        )
-
-    except Exception as e:
-        st.error(
-            f"Une erreur est survenue pendant la prédiction : {e}"
-        )
-        st.exception(e)
+        risk_category = "🟢 FAIBLE"
+        risk_color = "#2ca02c"
+        css_class = "low-risk"
+    
+    st.markdown("---")
+    st.subheader("📊 Résultats")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.metric("Score de risque", f"{risk_score*100:.1f}%")
+    
+    with col2:
+        st.metric("Catégorie", risk_category)
+    
+    with col3:
+        fig = go.Figure(go.Indicator(
+            mode="gauge+number",
+            value=risk_score*100,
+            domain={'x': [0, 1], 'y': [0, 1]},
+            gauge={
+                'axis': {'range': [0, 100]},
+                'bar': {'color': risk_color},
+                'steps': [
+                    {'range': [0, 40], 'color': "#e5f5e5"},
+                    {'range': [40, 70], 'color': "#fff5e5"},
+                    {'range': [70, 100], 'color': "#ffe5e5"}
+                ]
+            }
+        ))
+        fig.update_layout(height=250, margin=dict(l=10, r=10, t=10, b=10))
+        st.plotly_chart(fig, use_container_width=True)
+    
+    st.markdown(f"<div class='{css_class}'>", unsafe_allow_html=True)
+    
+    if risk_score >= 0.70:
+        st.subheader("⚠️ RISQUE ÉLEVÉ - Action immédiate requise")
+        st.markdown("""
+        **Profils observés** :
+        - Nouveaux clients (< 6 mois) avec contrats mensuels
+        - Clients en Fiber optic (41.9% de churn)
+        - Paiement par chèque électronique (45.3% de churn)
+        - Sans services additionnels (41.8% de churn)
+        
+        **Actions prioritaires** :
+        1. ☎️ Contact proactif client (24h)
+        2. 📊 Diagnostic qualité de service
+        3. 🎁 Cross-sell OnlineSecurity/TechSupport
+        4. 💳 Migration vers paiement automatique
+        5. 📝 Proposition de contrat 1-2 ans
+        """)
+    
+    elif risk_score >= 0.40:
+        st.subheader("🟠 RISQUE MOYEN - Rétention progressive")
+        st.markdown("""
+        **Actions suggérées** :
+        1. 📧 Email personnalisé avec offre services
+        2. 💳 Incitation vers paiement automatique
+        3. 📈 Proposition d'upgrade contrat progressif
+        4. 👥 Suivi satisfaction régulier
+        """)
+    
+    else:
+        st.subheader("✅ RISQUE FAIBLE - Client loyal")
+        st.markdown("""
+        **Actions suggérées** :
+        1. 🏆 Intégration VIP Loyalty Program
+        2. 🎉 Offres anniversaire fidélité
+        3. 📞 Feedback régulier satisfaction
+        4. 🌟 Maintien qualité service
+        """)
+    
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    st.markdown("---")
+    st.subheader("🔍 Profil du client")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.metric("Ancienneté", f"{tenure} mois")
+        st.metric("Contrat", contract)
+    
+    with col2:
+        st.metric("Charges mensuelles", f"${monthly_charges:.2f}")
+        st.metric("Internet", internet_service)
+    
+    with col3:
+        st.metric("Paiement", payment_method.split("(")[0].strip())
+        num_services = sum([
+            1 if online_security == "Yes" else 0,
+            1 if online_backup == "Yes" else 0,
+            1 if device_protection == "Yes" else 0,
+            1 if tech_support == "Yes" else 0,
+            1 if streaming_tv == "Yes" else 0,
+            1 if streaming_movies == "Yes" else 0
+        ])
+        st.metric("Services", f"{num_services}/6")
+    
+    st.markdown("---")
+    st.subheader("⚡ Facteurs clés")
+    
+    factors = []
+    
+    if tenure <= 6:
+        factors.append(("🔴", "Nouveau client (≤ 6 mois)"))
+    elif tenure <= 12:
+        factors.append(("🟠", "Client jeune (6-12 mois)"))
+    else:
+        factors.append(("🟢", "Client établi (> 12 mois)"))
+    
+    if contract == "Month-to-month":
+        factors.append(("🔴", "Contrat mensuel (risque : 42.7%)"))
+    elif contract == "One year":
+        factors.append(("🟢", "Contrat 1 an (risque : 11.3%)"))
+    else:
+        factors.append(("🟢", "Contrat 2 ans (risque : 2.8%)"))
+    
+    if payment_method == "Electronic check":
+        factors.append(("🔴", "Chèque électronique (risque : 45.3%)"))
+    elif payment_method.endswith("(automatic)"):
+        factors.append(("🟢", "Paiement automatique (risque : 15-17%)"))
+    
+    if internet_service == "Fiber optic":
+        factors.append(("🟠", "Fibre optique (risque : 41.9%)"))
+    elif internet_service == "DSL":
+        factors.append(("🟢", "DSL (risque : 19.0%)"))
+    
+    num_services = sum([
+        1 if online_security == "Yes" else 0,
+        1 if online_backup == "Yes" else 0,
+        1 if device_protection == "Yes" else 0,
+        1 if tech_support == "Yes" else 0,
+        1 if streaming_tv == "Yes" else 0,
+        1 if streaming_movies == "Yes" else 0
+    ])
+    
+    if num_services == 0:
+        factors.append(("🔴", "Pas de services (risque : 41%+)"))
+    elif num_services >= 2:
+        factors.append(("🟢", "Services additionnels (protection)"))
+    
+    for emoji, text in factors:
+        st.write(f"{emoji} {text}")
+
+st.markdown("---")
+st.markdown("""
+#### ℹ️ À propos
+
+**Modèle** : Random Forest
+- Recall : 77.8% | F1-Score : 63.7% | ROC-AUC : 0.85
+- Features : 34 variables (démographie, services, contrats, charges)
+- Dataset : 7,043 clients Telco Customer Churn
+
+**Recommandations** : Basées sur les profils réels du dataset.
+""")
