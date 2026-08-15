@@ -46,10 +46,11 @@ st.markdown("**Prédisez le risque de churn et identifiez les actions de rétent
 
 @st.cache_resource
 def load_artifacts():
-    model = joblib.load("../models/churn_model.pkl")
-    preprocessor = joblib.load("../models/preprocessor.pkl")
-    feature_names = joblib.load("../models/feature_names.pkl")
-    thresholds = joblib.load("../models/thresholds.pkl")
+    base_path = Path(__file__).parent.parent / "models"
+    model = joblib.load(base_path / "churn_model.pkl")
+    preprocessor = joblib.load(base_path / "preprocessor.pkl")
+    feature_names = joblib.load(base_path / "feature_names.pkl")
+    thresholds = joblib.load(base_path / "thresholds.pkl")
     return model, preprocessor, feature_names, thresholds
 
 try:
