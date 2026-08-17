@@ -5,13 +5,13 @@
 
 Ce projet porte sur la prédiction du churn client dans le secteur des télécommunications.
 
-L'objectif est d'identifier les clients présentant un risque de départ, d'analyser les facteurs associés au churn et de transformer les résultats du modèle en informations utiles pour les actions de fidélisation.
+L'objectif est d'identifier les clients susceptibles de quitter l'entreprise, d'analyser les principaux facteurs associés au churn et d'utiliser les résultats du modèle pour aider à prioriser les actions de fidélisation.
 
-Le projet couvre l'ensemble du processus, de la préparation des données jusqu'au déploiement d'une application de prédiction avec Streamlit.
+Le projet couvre les différentes étapes d'un projet de Data Science, depuis la préparation des données jusqu'à l'intégration du modèle dans une application Streamlit.
 
-**Problématique :** comment identifier suffisamment tôt les clients présentant un risque élevé de churn afin de permettre aux équipes métier de prioriser leurs actions de fidélisation ?
+**Problématique :** comment identifier suffisamment tôt les clients présentant un risque élevé de churn afin de permettre aux équipes métier de cibler leurs actions de fidélisation ?
 
-**Solution :** un modèle de classification basé sur un **Random Forest**, complété par une analyse SHAP, une segmentation des clients selon leur niveau de risque et une application Streamlit permettant d'effectuer des prédictions individuelles.
+**Solution :** un modèle de classification basé sur un **Random Forest**, accompagné d'une analyse SHAP, d'une segmentation des clients selon leur niveau de risque et d'une application Streamlit permettant d'effectuer des prédictions individuelles.
 
 ---
 
@@ -19,13 +19,13 @@ Le projet couvre l'ensemble du processus, de la préparation des données jusqu'
 
 - Analyser les facteurs associés au churn client
 - Nettoyer et préparer les données
-- Créer de nouvelles variables pour améliorer l'analyse
+- Créer de nouvelles variables pour enrichir les données disponibles
 - Comparer plusieurs modèles de classification
-- Sélectionner le modèle adapté à l'objectif métier
+- Sélectionner le modèle le plus adapté à l'objectif de prédiction
 - Interpréter les prédictions avec SHAP
-- Segmenter les clients selon leur niveau de risque
-- Formuler des recommandations à partir des résultats
-- Déployer le modèle dans une application Streamlit
+- Attribuer un niveau de risque aux clients
+- Identifier des pistes d'actions pour les équipes métier
+- Intégrer le modèle dans une application Streamlit
 
 ---
 
@@ -41,10 +41,10 @@ Le projet couvre l'ensemble du processus, de la préparation des données jusqu'
 - 21 variables initiales
 - Variable cible : `Churn`
 
-Le dataset contient notamment des informations sur :
+Le dataset contient notamment des informations concernant :
 
 - le profil démographique ;
-- l'ancienneté ;
+- l'ancienneté du client ;
 - les services souscrits ;
 - le type de contrat ;
 - les méthodes de paiement ;
@@ -54,7 +54,7 @@ Le dataset contient notamment des informations sur :
 
 ## Méthodologie
 
-Le projet suit le processus suivant :
+Le projet suit les principales étapes suivantes :
 
 **Données → Nettoyage → EDA → Feature Engineering → Modélisation → Évaluation → SHAP → Segmentation → Recommandations métier → Application Streamlit**
 
@@ -62,7 +62,7 @@ Le projet suit le processus suivant :
 
 ## 01. Nettoyage des données
 
-Plusieurs contrôles ont été réalisés avant la modélisation.
+Avant la modélisation, plusieurs contrôles ont été effectués sur les données.
 
 ### Principales opérations
 
@@ -72,15 +72,15 @@ Plusieurs contrôles ont été réalisés avant la modélisation.
 - Vérification des types de données
 - Préparation des variables catégorielles et numériques
 
-Les valeurs manquantes observées dans `TotalCharges` correspondent aux clients ayant une ancienneté nulle. Elles ont été traitées en tenant compte de ce contexte.
+Les valeurs manquantes de `TotalCharges` correspondent aux clients ayant une ancienneté nulle. Leur traitement a donc été réalisé en tenant compte de cette situation.
 
 ---
 
 ## 02. Feature Engineering
 
-Plusieurs variables ont été créées pour compléter les informations disponibles dans le dataset.
+De nouvelles variables ont été créées afin de mieux représenter certaines caractéristiques des clients.
 
-Principales variables utilisées :
+Parmi les variables utilisées :
 
 - `tenure_years`
 - `is_new_customer`
@@ -95,13 +95,13 @@ Principales variables utilisées :
 - `is_long_contract`
 - `risky_profile`
 
-Ces variables décrivent notamment l'ancienneté du client, son niveau d'équipement, son engagement contractuel et certains profils associés à un risque plus important.
+Ces variables permettent notamment de prendre en compte l'ancienneté, le niveau d'équipement, le type d'engagement et certains profils associés à un risque de churn plus important.
 
 ---
 
 ## 03. Analyse exploratoire
 
-L'analyse exploratoire a permis d'identifier plusieurs associations avec le churn.
+L'analyse exploratoire a permis d'observer plusieurs différences de churn selon les caractéristiques des clients.
 
 | Facteur | Observation |
 | --- | --- |
@@ -111,7 +111,9 @@ L'analyse exploratoire a permis d'identifier plusieurs associations avec le chur
 | **Paiement** | `Electronic check` présente un taux de churn élevé |
 | **Services** | Certains services additionnels sont associés à un churn plus faible |
 
-Ces résultats décrivent les tendances observées dans les données. Une association entre deux variables ne permet pas à elle seule d'établir une relation causale.
+Ces observations permettent de mieux comprendre les données avant la phase de modélisation.
+
+Elles décrivent toutefois des associations observées dans le dataset et ne permettent pas, à elles seules, de conclure à une relation causale.
 
 ---
 
@@ -122,7 +124,7 @@ Deux modèles de classification ont été étudiés :
 - **Logistic Regression**
 - **Random Forest**
 
-Le **Recall** a été particulièrement pris en compte, car l'objectif est de détecter le plus grand nombre possible de clients susceptibles de churner.
+Le **Recall** a été particulièrement pris en compte. Dans ce contexte, manquer un client qui va réellement churner peut être plus problématique que de classer à risque un client qui restera finalement.
 
 ### Random Forest : modèle retenu
 
@@ -133,15 +135,15 @@ Le **Recall** a été particulièrement pris en compte, car l'objectif est de d�
 | F1-score | **63,75 %** |
 | ROC-AUC | **0,85** |
 
-Le Random Forest a été retenu en raison de sa capacité à détecter une proportion importante des clients ayant réellement churné.
+Le Random Forest a été retenu pour la suite du projet.
 
-Le modèle obtient un **Recall de 77,81 %** sur le jeu de test.
+Sur le jeu de test, il obtient un **Recall de 77,81 %**, ce qui signifie qu'il identifie une part importante des clients ayant réellement churné.
 
 ---
 
 ## 05. Explainability avec SHAP
 
-SHAP a été utilisé pour analyser la contribution des variables aux prédictions du modèle.
+SHAP a été utilisé pour analyser l'influence des variables dans les prédictions du modèle.
 
 Les principales variables identifiées sont notamment :
 
@@ -151,9 +153,9 @@ Les principales variables identifiées sont notamment :
 4. `tenure`
 5. `Contract_Two year`
 
-Les résultats mettent notamment en évidence l'importance de facteurs liés à l'engagement contractuel, à l'ancienneté et au service Internet dans les prédictions du modèle.
+Les résultats montrent notamment l'importance de variables liées à l'engagement contractuel, à l'ancienneté et au service Internet.
 
-SHAP apporte donc une lecture plus détaillée des prédictions du Random Forest.
+L'analyse SHAP permet ainsi de compléter les métriques de performance avec une meilleure compréhension des prédictions du modèle.
 
 ---
 
@@ -171,17 +173,17 @@ Les clients ont ensuite été répartis en trois catégories :
 
 Le groupe **ÉLEVÉ** présente un taux de churn réel de **66,4 %**, contre **7,5 %** pour le groupe **FAIBLE**.
 
-Cette différence montre que le score produit par le modèle permet de distinguer plusieurs niveaux de risque sur le jeu de test.
+Cette différence permet de distinguer clairement plusieurs niveaux de risque sur le jeu de test.
 
 ---
 
 ## 07. Recommandations métier
 
-Les résultats de la segmentation peuvent servir à prioriser les actions de fidélisation.
+Les résultats du modèle peuvent être utilisés pour aider à prioriser les actions de fidélisation.
 
 ### Risque élevé
 
-Les clients de cette catégorie présentent plusieurs signaux associés au churn, notamment :
+Les clients de cette catégorie présentent plusieurs caractéristiques fréquemment associées au churn :
 
 - faible ancienneté ;
 - contrat `Month-to-month` ;
@@ -191,41 +193,41 @@ Les clients de cette catégorie présentent plusieurs signaux associés au churn
 
 **Actions possibles :**
 
-- contact proactif ;
-- vérification de la satisfaction ;
-- proposition de services additionnels pertinents ;
-- encouragement vers le paiement automatique ;
-- proposition d'un contrat plus long lorsque cela est pertinent.
+- contacter le client de manière proactive ;
+- vérifier son niveau de satisfaction ;
+- proposer des services complémentaires adaptés ;
+- encourager l'utilisation du paiement automatique ;
+- proposer un contrat plus long lorsque cela correspond à son profil.
 
 ### Risque moyen
 
-L'objectif est de suivre ces clients avant qu'ils n'atteignent un niveau de risque plus élevé.
+L'objectif est de surveiller ces clients et d'identifier les situations pouvant conduire à une augmentation du risque.
 
 **Actions possibles :**
 
 - suivi régulier ;
-- amélioration de l'équipement en services ;
-- proposition progressive d'un contrat plus engageant ;
-- analyse de la satisfaction.
+- analyse de la satisfaction ;
+- proposition de services adaptés ;
+- présentation d'offres ou de contrats plus engageants lorsque cela est pertinent.
 
 ### Risque faible
 
-L'objectif est principalement de maintenir la relation avec ces clients.
+L'objectif est principalement de maintenir une bonne relation avec ces clients.
 
 **Actions possibles :**
 
 - programme de fidélisation ;
-- maintien de la qualité de service ;
 - suivi de satisfaction ;
-- reconnaissance de la fidélité.
+- maintien de la qualité de service ;
+- valorisation de la fidélité.
 
-> **Important :** ces recommandations sont basées sur les associations observées dans les données. Elles ne permettent pas d'affirmer qu'une action donnée réduira effectivement le churn. Leur efficacité devra être vérifiée avec des expérimentations métier, notamment des tests A/B.
+> **Important :** les recommandations présentées ici sont basées sur les tendances observées dans les données. Elles ne permettent pas de garantir qu'une action donnée réduira le churn. Leur efficacité doit être mesurée à partir de données métier et, lorsque cela est possible, au moyen d'expérimentations comme les tests A/B.
 
 ---
 
 ## 08. Application Streamlit
 
-Le modèle a été intégré dans une application Streamlit permettant de saisir le profil d'un client et d'obtenir une prédiction.
+Le modèle a été intégré dans une application Streamlit permettant de saisir le profil d'un client et d'obtenir une estimation de son risque de churn.
 
 ### Parcours utilisateur
 
@@ -241,7 +243,7 @@ L'application permet notamment de renseigner :
 - la méthode de paiement ;
 - les services additionnels.
 
-La prédiction utilise les artefacts sauvegardés lors de l'entraînement.
+La prédiction est réalisée à partir des artefacts sauvegardés lors de l'entraînement du modèle.
 
 ---
 
@@ -255,12 +257,12 @@ models/
 ├── preprocessor.pkl
 ├── feature_names.pkl
 └── thresholds.pkl
-````
+```
 
-* `churn_model.pkl` : modèle Random Forest
-* `preprocessor.pkl` : pipeline de prétraitement
-* `feature_names.pkl` : noms des variables finales
-* `thresholds.pkl` : seuils utilisés pour certaines variables dérivées
+- `churn_model.pkl` : modèle Random Forest
+- `preprocessor.pkl` : pipeline de prétraitement
+- `feature_names.pkl` : noms des variables finales
+- `thresholds.pkl` : seuils utilisés pour certaines variables dérivées
 
 Le modèle final utilise **42 features après preprocessing**.
 
@@ -291,18 +293,18 @@ UserGenerator/
 
 ## Technologies utilisées
 
-| Domaine                  | Technologies                                     |
-| ------------------------ | ------------------------------------------------ |
-| Langage                  | Python                                           |
-| Manipulation des données | Pandas, NumPy                                    |
-| Visualisation            | Matplotlib, Seaborn                              |
-| Machine Learning         | Scikit-learn                                     |
-| Modèle final             | Random Forest                                    |
-| Explainability           | SHAP                                             |
-| Prétraitement            | ColumnTransformer, StandardScaler, OneHotEncoder |
-| Sauvegarde               | Joblib                                           |
-| Application              | Streamlit                                        |
-| Environnement            | Jupyter Notebook, VS Code                        |
+| Domaine | Technologies |
+| --- | --- |
+| Langage | Python |
+| Manipulation des données | Pandas, NumPy |
+| Visualisation | Matplotlib, Seaborn |
+| Machine Learning | Scikit-learn |
+| Modèle final | Random Forest |
+| Explainability | SHAP |
+| Prétraitement | ColumnTransformer, StandardScaler, OneHotEncoder |
+| Sauvegarde | Joblib |
+| Application | Streamlit |
+| Environnement | Jupyter Notebook, VS Code |
 
 ---
 
@@ -357,17 +359,17 @@ Dans l'application Streamlit, `TotalCharges` est estimé à partir de :
 tenure × MonthlyCharges
 ```
 
-Cette valeur constitue une approximation pour la prédiction d'un nouveau profil.
+Cette valeur constitue une approximation utilisée pour la prédiction d'un nouveau profil.
 
-En production, il serait préférable d'utiliser la valeur réelle provenant du système d'information client.
+Pour une utilisation en production, la valeur réelle provenant du système d'information client serait préférable.
 
 ### Données historiques
 
-Le modèle est entraîné sur des données historiques. Les relations observées ne doivent pas être interprétées automatiquement comme des relations causales.
+Le modèle est entraîné sur des données historiques. Les associations observées dans ces données ne doivent pas être interprétées automatiquement comme des relations causales.
 
 ### Recommandations métier
 
-Les recommandations proposées sont des pistes de décision. Leur impact réel doit être évalué avec des données métier et des expérimentations.
+Les recommandations proposées constituent des pistes d'action. Leur impact réel doit être mesuré à partir de données métier et d'expérimentations.
 
 ### Données statiques
 
@@ -377,17 +379,17 @@ Le modèle n'est actuellement connecté ni à un système de données temps rée
 
 ## Perspectives d'amélioration
 
-Plusieurs évolutions peuvent être envisagées :
+Plusieurs évolutions sont possibles :
 
-* intégration des données CRM en temps réel ;
-* utilisation du véritable `TotalCharges` ;
-* ajout de données comportementales ;
-* monitoring des performances du modèle ;
-* réentraînement automatique ;
-* scoring des clients en batch ;
-* intégration d'un dashboard de suivi du churn ;
-* mise en place de tests A/B pour mesurer l'efficacité des actions de rétention ;
-* déploiement cloud.
+- intégration de données CRM en temps réel ;
+- utilisation du véritable `TotalCharges` ;
+- ajout de données comportementales ;
+- suivi des performances du modèle après déploiement ;
+- réentraînement automatique ;
+- scoring des clients en batch ;
+- intégration d'un dashboard de suivi du churn ;
+- tests A/B pour mesurer l'efficacité des actions de rétention ;
+- déploiement sur une infrastructure cloud.
 
 ---
 
@@ -402,6 +404,4 @@ Projet personnel de Data Science orienté **Machine Learning, Analytics et aide 
 ## Licence
 
 Ce projet est distribué sous licence MIT.
-
-```
-```
+````
