@@ -20,7 +20,7 @@ Abidjan, Côte d'Ivoire
     <img src="https://cdn.simpleicons.org/gmail" width="16" height="16" alt="Gmail" style="flex-shrink:0;">
     <a href="mailto:fabricebtibo@mail.com" style="color:inherit; text-decoration:none;">fabricebtibo@mail.com</a>
     <span aria-hidden="true">&#183;</span>
-    <img src="https://cdn.simpleicons.org/yahoo" width="16" height="16" alt="Yahoo Mail" style="flex-shrink:0;">
+    <img src="https://cdn.simpleicons.org/yahooemail" width="16" height="16" alt="Yahoo Mail" style="flex-shrink:0;">
     <a href="mailto:fabricebtibo@yahoo.com" style="color:inherit; text-decoration:none;">fabricebtibo@yahoo.com</a>
   </div>
 
@@ -79,7 +79,25 @@ Mon travail porte principalement sur la **Business Intelligence**, la **Data Ana
 
 ### Outils
 
-**Git, GitHub, Jupyter Notebook, VS Code**
+#### Data Analysis & Python
+
+Python, Pandas, NumPy, Matplotlib, Seaborn, Jupyter Notebook
+
+#### Business Intelligence
+
+Power BI, Power Query, DAX, Excel
+
+#### Data Science & Machine Learning
+
+Scikit-learn, Random Forest, SHAP, Streamlit
+
+#### Bases de données / SQL
+
+SQL, SQL Server
+
+#### Développement & environnement
+
+Git, GitHub, VS Code
 
 ---
 
@@ -87,7 +105,7 @@ Mon travail porte principalement sur la **Business Intelligence**, la **Data Ana
 
 Une sélection de projets réalisés en Business Intelligence, Data Analytics et Data Science.
 
-### Customer Churn Prediction
+### 01. Customer Churn Prediction
 
 **Machine Learning, Telco**
 
@@ -97,7 +115,7 @@ Résultats : Recall 77,81 % - F1-score 63,75 % - ROC-AUC 0,85
 
 [Voir le projet](./Machine-Learning/Classification/Customer-Churn-Prediction/)
 
-### Retail Analytics
+### 02. Retail Analytics
 
 **Power BI, Data Quality, DAX**
 
@@ -105,7 +123,7 @@ Analyse retail basée sur un modèle en étoile, avec audit des indicateurs, dia
 
 [Voir le projet](./PowerBI/analyse-retail-star-schema/)
 
-### Olist E-commerce Analytics
+### 03. Olist E-commerce Analytics
 
 **Power BI, E-commerce, Data Modeling**
 
@@ -113,7 +131,7 @@ Analyse d'une marketplace e-commerce brésilienne avec modélisation en constell
 
 [Voir le projet](./PowerBI/analyse-performance-olist/)
 
-### PitchSide Pro Revenue
+### 04. PitchSide Pro Revenue
 
 **Power BI, Revenue Analytics, Business Intelligence**
 
@@ -121,7 +139,7 @@ Analyse de la croissance des revenus d'une plateforme e-commerce spécialisée d
 
 [Voir le projet](./PowerBI/analyse-pitchside-pro-revenue/)
 
-### Performance Football Européen
+### 05. Performance Football Européen
 
 **Power BI, Sport Analytics, Scouting**
 
