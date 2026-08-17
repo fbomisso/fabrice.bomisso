@@ -1,4 +1,4 @@
-# Retail Analytics 2024 — Star Schema, Audit DAX & Dashboard Power BI
+# Retail Analytics 2024 | Star Schema, Audit DAX & Dashboard Power BI
 
 ## 📌 Overview
 
