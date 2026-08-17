@@ -1,4 +1,3 @@
-````markdown
 # Customer Churn Prediction | From Data to Business Decision
 
 ## Présentation
