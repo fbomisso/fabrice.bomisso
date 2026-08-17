@@ -5,34 +5,25 @@
 <p align="center">
 
 <a href="https://www.linkedin.com/in/fabrice-bomisso/" target="_blank">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="32" alt="LinkedIn">
+<img src="https://img.shields.io/badge/LinkedIn-Fabrice%20Bomisso-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn">
 </a>
-&nbsp;&nbsp;&nbsp;
 
 <a href="https://github.com/fbomisso/fabrice.bomisso" target="_blank">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="32" alt="GitHub">
+<img src="https://img.shields.io/badge/GitHub-fbomisso-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub">
 </a>
-&nbsp;&nbsp;&nbsp;
 
 <a href="mailto:fabricebtibo@mail.com">
-<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="32" alt="Email">
+<img src="https://img.shields.io/badge/Email-fabricebtibo%40mail.com-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email">
 </a>
-&nbsp;&nbsp;&nbsp;
 
-<a href="tel:+2250545778538">
-<img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="32" alt="Telephone">
+<a href="mailto:fabricebtibo@yahoo.com">
+<img src="https://img.shields.io/badge/Email-fabricebtibo%40yahoo.com-6001D2?style=flat-square&logo=yahoo&logoColor=white" alt="Yahoo">
 </a>
 
 </p>
 
 <p align="center">
-<a href="mailto:fabricebtibo@mail.com">fabricebtibo@mail.com</a>
-&nbsp;|&nbsp;
-<a href="mailto:fabricebtibo@yahoo.com">fabricebtibo@yahoo.com</a>
-&nbsp;|&nbsp;
-<a href="tel:+2250545778538">05 45 77 85 38</a>
-&nbsp;|&nbsp;
-<a href="tel:+2250778314526">07 78 31 45 26</a>
+Abidjan, Côte d'Ivoire · 05 45 77 85 38 · 07 78 31 45 26
 </p>
 
 ---
@@ -41,11 +32,13 @@ Je transforme les données en informations fiables et exploitables pour facilite
 
 Mon travail porte principalement sur la **Business Intelligence**, la **Data Analytics** et le **Machine Learning**, avec une attention particulière portée à la qualité des données, à la modélisation et à l'interprétation des résultats.
 
+---
+
 ## Compétences
 
 ### Business Intelligence
 
-**Power BI | Power Query | DAX | Data Modeling | Data Visualization | Excel**
+**Power BI · Power Query · DAX · Data Modeling · Data Visualization · Excel**
 
 - Modélisation en étoile et en constellation
 - Transformation et nettoyage des données
@@ -56,7 +49,7 @@ Mon travail porte principalement sur la **Business Intelligence**, la **Data Ana
 
 ### Data Analytics & Python
 
-**Python | Pandas | NumPy | Matplotlib | Seaborn**
+**Python · Pandas · NumPy · Matplotlib · Seaborn**
 
 - Exploration et analyse de données
 - Nettoyage et préparation des données
@@ -66,7 +59,7 @@ Mon travail porte principalement sur la **Business Intelligence**, la **Data Ana
 
 ### Machine Learning
 
-**Scikit-learn | Random Forest | SHAP | Streamlit**
+**Scikit-learn · Random Forest · SHAP · Streamlit**
 
 - Classification
 - Évaluation des modèles
@@ -77,7 +70,7 @@ Mon travail porte principalement sur la **Business Intelligence**, la **Data Ana
 
 ### Outils
 
-**Git | GitHub | Jupyter Notebook | VS Code**
+**Git · GitHub · Jupyter Notebook · VS Code**
 
 ---
 
@@ -87,17 +80,17 @@ Une sélection de projets réalisés en **Business Intelligence, Data Analytics 
 
 ### Customer Churn Prediction
 
-**Machine Learning | Telco**
+**Machine Learning · Telco**
 
 Prédiction du risque de churn client avec Random Forest, analyse SHAP, segmentation des risques et application Streamlit.
 
-**Résultats :** Recall **77,81 %** | F1-score **63,75 %** | ROC-AUC **0,85**
+**Résultats :** Recall **77,81 %** · F1-score **63,75 %** · ROC-AUC **0,85**
 
 [Voir le projet](./Machine-Learning/Classification/Customer-Churn-Prediction/)
 
 ### Retail Analytics
 
-**Power BI | Data Quality | DAX**
+**Power BI · Data Quality · DAX**
 
 Analyse retail basée sur un modèle en étoile, avec audit des indicateurs, diagnostic de bugs DAX et validation des résultats.
 
@@ -105,7 +98,7 @@ Analyse retail basée sur un modèle en étoile, avec audit des indicateurs, dia
 
 ### Olist E-commerce Analytics
 
-**Power BI | E-commerce | Data Modeling**
+**Power BI · E-commerce · Data Modeling**
 
 Analyse d'une marketplace e-commerce brésilienne avec modélisation en constellation, contrôle des différents grains de données et analyse de la performance logistique.
 
@@ -113,7 +106,7 @@ Analyse d'une marketplace e-commerce brésilienne avec modélisation en constell
 
 ### PitchSide Pro Revenue
 
-**Power BI | Revenue Analytics | Business Intelligence**
+**Power BI · Revenue Analytics · Business Intelligence**
 
 Analyse de la croissance des revenus d'une plateforme e-commerce spécialisée dans les articles de football, avec décomposition du revenu entre trafic, conversion et panier moyen.
 
@@ -121,7 +114,7 @@ Analyse de la croissance des revenus d'une plateforme e-commerce spécialisée d
 
 ### Performance Football Européen
 
-**Power BI | Sport Analytics | Scouting**
+**Power BI · Sport Analytics · Scouting**
 
 Analyse de la performance des joueurs et des équipes du football européen, avec des volets consacrés au scouting, aux statistiques, à la valorisation et aux effectifs.
 
@@ -139,7 +132,7 @@ Analyse de la performance des joueurs et des équipes du football européen, ave
 
 Je privilégie une démarche structurée allant de la donnée brute jusqu'à la décision.
 
-**Données | Audit | Nettoyage | Transformation | Modélisation | Analyse | Visualisation | Insights | Recommandations**
+**Données → Audit → Nettoyage → Transformation → Modélisation → Analyse → Visualisation → Insights → Recommandations**
 
 Je porte une attention particulière à :
 
@@ -200,9 +193,13 @@ Abidjan, Côte d'Ivoire
 
 ### Réseaux professionnels
 
-[LinkedIn](https://www.linkedin.com/in/fabrice-bomisso/)
+<a href="https://www.linkedin.com/in/fabrice-bomisso/" target="_blank">
+<img src="https://img.shields.io/badge/LinkedIn-Fabrice%20Bomisso-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn">
+</a>
 
-[GitHub](https://github.com/fbomisso/fabrice.bomisso)
+<a href="https://github.com/fbomisso/fabrice.bomisso" target="_blank">
+<img src="https://img.shields.io/badge/GitHub-fbomisso-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub">
+</a>
 
 ### E-mails
 
@@ -212,9 +209,9 @@ Abidjan, Côte d'Ivoire
 
 ### Téléphone
 
-**05 45 77 85 38**
+05 45 77 85 38
 
-**07 78 31 45 26**
+07 78 31 45 26
 
 ---
 
