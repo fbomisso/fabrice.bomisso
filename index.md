@@ -91,9 +91,13 @@ Power BI, Power Query, DAX, Excel
 
 #### Data Science & Machine Learning
 
-Scikit-learn, Random Forest, SHAP, Streamlit
+Scikit-learn, SHAP, Streamlit
 
-#### Bases de données / SQL
+#### Data Profiling & Exploration
+
+ydata-profiling, Sweetviz, Lux
+
+#### Bases de données & SQL
 
 SQL, SQL Server
 
