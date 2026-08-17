@@ -7,12 +7,6 @@
 
 ### Data Analyst | Business Intelligence | Data Science
 
-<p align="center">
-  <img src="{{ '/img/fabrice-bomisso-portfolio.jpg' | relative_url }}"
-       alt="Fabrice BOMISSO"
-       width="180">
-</p>
-
 Abidjan, Côte d'Ivoire
 
 <div style="display:flex; flex-direction:column; gap:8px; margin:14px 0 4px 0; font-size:0.95em;">
