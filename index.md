@@ -19,7 +19,7 @@ Abidjan, Côte d'Ivoire
   </div>
 
   <div style="display:flex; flex-wrap:wrap; align-items:center; gap:8px;">
-    <i class="fab fa-google" style="font-size: 16px; color: #EA4335;"></i>
+    <span aria-hidden="true">📧</span>
     <a href="mailto:fabricebtibo@mail.com" style="color:inherit; text-decoration:none;">fabricebtibo@mail.com</a>
     <span aria-hidden="true">&#183;</span>
     <i class="fab fa-yahoo" style="font-size: 16px; color: #410093;"></i>
