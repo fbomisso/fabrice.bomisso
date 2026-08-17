@@ -1,125 +1,270 @@
-# 📊 Marketplace e-commerce Olist (Brésil) — Modèle en constellation, mesures DAX & dashboard décisionnel
+# 📊 Marketplace e-commerce Olist (Brésil) | Modèle en constellation, mesures DAX & dashboard décisionnel
 
 ## 📌 Overview
 
-Projet Power BI complet mené de bout en bout sur le dataset Olist, une marketplace e-commerce multi-vendeurs brésilienne (99 441 commandes, 13,6 M R$ de GMV, 96 096 clients, 3 095 vendeurs, sept. 2016 – oct. 2018). Le cœur du projet n'est pas le dashboard final mais la **rigueur de modélisation qui l'a précédé** : un modèle en constellation conçu spécifiquement pour éviter les biais de sur-comptage, deux pièges de filtrage diagnostiqués et corrigés (dont un écart mesuré de 96 096 vs 9 145 sur une mesure de comptage client), et un insight central — la ponctualité de livraison — qui domine largement tout autre facteur testé.
+Projet Power BI complet mené de bout en bout sur le dataset Olist, une marketplace e-commerce multi-vendeurs brésilienne (99 441 commandes, 13,6 M R$ de GMV, 96 096 clients, 3 095 vendeurs, septembre 2016 à octobre 2018).
+
+Le cœur du projet n'est pas uniquement le dashboard final, mais la rigueur de modélisation qui l'a précédé : un modèle en constellation conçu pour éviter les biais de sur-comptage, deux pièges de filtrage diagnostiqués et corrigés, dont un écart mesuré de 96 096 vs 9 145 sur une mesure de comptage client, et un insight central : la ponctualité de livraison domine largement les autres facteurs testés.
 
 ## 🎯 Business Problem
 
-Avant de présenter des KPIs à un comité de direction, s'assurer qu'ils sont exacts — pas seulement qu'ils s'affichent. `order_items` (grain produit), `payments` (grain paiement) et `reviews` (grain avis) ont des grains différents : les relier directement entre elles créerait un sur-comptage silencieux du CA. Ce projet documente la méthode retenue pour l'éviter, et la démarche de vérification qui a permis d'identifier un cas réel où un filtre posé sur une dimension ne remontait pas vers les mesures censées en dépendre.
+Avant de présenter des KPIs à un comité de direction, il faut s'assurer qu'ils sont exacts et pas seulement qu'ils s'affichent.
+
+`order_items` est au grain produit, `payments` au grain paiement et `reviews` au grain avis. Les relier directement créerait un sur-comptage silencieux du chiffre d'affaires.
+
+Ce projet documente la méthode retenue pour éviter ce problème ainsi que la démarche de vérification ayant permis d'identifier un cas réel où un filtre posé sur une dimension ne remontait pas vers les mesures censées en dépendre.
 
 ## ❓ Analytical Questions
 
-- Quelle est l'évolution du chiffre d'affaires et du volume de commandes dans le temps ?
-- Quels vendeurs et quelles catégories de produits génèrent le plus de valeur ?
-- Les commandes sont-elles livrées dans les délais promis, et où se situent les retards ?
-- Quel est l'impact réel des retards de livraison sur la satisfaction client ?
-- Comment le chiffre d'affaires et la clientèle se répartissent-ils géographiquement ?
-- Quelle part des vendeurs concentre l'essentiel de l'activité, et quel est le risque associé ?
+* Quelle est l'évolution du chiffre d'affaires et du volume de commandes dans le temps ?
+* Quels vendeurs et quelles catégories de produits génèrent le plus de valeur ?
+* Les commandes sont-elles livrées dans les délais promis et où se situent les retards ?
+* Quel est l'impact réel des retards de livraison sur la satisfaction client ?
+* Comment le chiffre d'affaires et la clientèle se répartissent-ils géographiquement ?
+* Quelle part des vendeurs concentre l'essentiel de l'activité et quel est le risque associé ?
 
 ## 📊 Dataset
 
-- **Source** : [Olist Brazilian E-Commerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
-- **9 fichiers CSV sources**, couvrant tout le cycle de vente : commande, produit, vendeur, client, paiement, avis, géolocalisation.
-- **Logique relationnelle** : `orders` est le pivot du modèle (une commande = une ligne). `order_items`, `payments` et `reviews` s'y rattachent chacune à un grain différent. `geolocation`, volumineuse (1 000 163 lignes) et au grain « relevé GPS », est retraitée puis fusionnée dans `customers` et `sellers` plutôt que conservée comme table indépendante.
-- **Identification client à double niveau** : `customer_id` (technique, par commande) vs `customer_unique_id` (réel, stable) — distinction centrale pour toute la suite du projet.
+* **Source :** Olist Brazilian E-Commerce
+* **9 fichiers CSV sources** couvrant tout le cycle de vente : commande, produit, vendeur, client, paiement, avis et géolocalisation.
+* **Logique relationnelle :** `orders` est le pivot du modèle. Une commande correspond à une ligne. `order_items`, `payments` et `reviews` s'y rattachent chacune à un grain différent.
+* `geolocation`, avec 1 000 163 lignes, est retraitée puis fusionnée dans `customers` et `sellers` plutôt que conservée comme table indépendante.
+* **Identification client à double niveau :** `customer_id` est une clé technique associée aux commandes, tandis que `customer_unique_id` identifie le client réel de manière stable.
 
 ## 🔎 Data Quality
 
-| Anomalie / point vérifié | Détection | Traitement | Impact |
-|---|---|---|---|
-| Concordance montants payments ↔ order_items | Recoupement `payment_value` total vs `price + freight_value` par commande | Vérifié : 99,69 % de concordance à 1 centime près | Confirme la fiabilité globale des montants malgré l'écart de 1,04 % au global |
-| Cohérence temporelle achat/livraison | Contrôle systématique des dates de cycle de vie de commande | Aucune anomalie détectée (0 commande livrée avant achat) | Valide la fiabilité du cœur transactionnel |
-| Doublons sur clés primaires | Contrôle `orders`, `products`, `sellers` | Aucun doublon strict détecté | Confirme l'intégrité référentielle de base |
-| 610 produits sans catégorie | Détection de `product_category_name` null | Non supprimés (créerait des clés étrangères orphelines) : valeur `nao_informado`, traduite en `Unknown` | Préserve de vraies ventes dans les analyses par catégorie plutôt que de les exclure silencieusement |
-| 278 clients (0,28 %) sans correspondance géographique | Left Outer Join `customers` ↔ `geolocation_clean` | Conservés (un client reste comptabilisé en CA/commandes même sans GPS) ; ville → « Localisation inconnue » | Évite une sous-estimation silencieuse du CA client |
-| 8 commandes « delivered » sans date de livraison | Contrôle croisé statut / date | Flag de traçabilité `anomalie_livree_sans_date` créé, non corrigé arbitrairement | Rend l'anomalie visible et traçable plutôt que masquée |
-| 551 doublons d'avis (547 `order_id` concernés) | Un avis attendu par commande, plusieurs trouvés | Règle déterministe : conservation du plus récent (`review_answer_timestamp`), vérifiée sans égalité parfaite de timestamp | 99 224 → 98 673 lignes, garantit une ligne par commande dans `reviews` |
-| Géolocalisation à 26 % de doublons (52,6 lignes/code postal en moyenne) | Table brute `geolocation` (1 000 163 lignes) | Regroupement par code postal : moyenne pour lat/lng, mode pour ville/État | 1 000 163 → ≈ 19 000 lignes ; règle au passage 8 cas de codes postaux à États multiples |
+| Anomalie / point vérifié                       | Détection                                                                | Traitement                                                         | Impact                                     |
+| ---------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------ |
+| Concordance `payments` ↔ `order_items`         | Recoupement de `payment_value` avec `price + freight_value` par commande | 99,69 % de concordance à 1 centime près                            | Confirme la fiabilité globale des montants |
+| Cohérence temporelle                           | Contrôle des dates du cycle de vie                                       | Aucune commande livrée avant son achat                             | Valide la cohérence temporelle             |
+| Doublons sur clés primaires                    | Contrôle de `orders`, `products` et `sellers`                            | Aucun doublon strict                                               | Confirme l'intégrité référentielle         |
+| 610 produits sans catégorie                    | Valeurs nulles dans `product_category_name`                              | Remplacement par `nao_informado`, traduit en `Unknown`             | Préserve les ventes dans les analyses      |
+| 278 clients sans correspondance géographique   | Left Outer Join `customers` ↔ `geolocation_clean`                        | Clients conservés avec localisation inconnue                       | Évite une sous-estimation du CA            |
+| 8 commandes `delivered` sans date de livraison | Contrôle statut / date                                                   | Création d'un flag `anomalie_livree_sans_date`                     | Rend l'anomalie traçable                   |
+| 551 doublons d'avis                            | Plusieurs avis pour 547 commandes                                        | Conservation du plus récent                                        | Garantit une ligne par commande            |
+| Géolocalisation avec 26 % de doublons          | Analyse du grain postal                                                  | Agrégation par code postal avec moyenne lat/lng et mode ville/État | 1 000 163 → environ 19 000 lignes          |
 
 ## 🧹 Data Preparation
 
-Ordre de traitement dicté par les dépendances entre tables (jamais arbitraire) : `geolocation` en premier (référence dont dépendent `customers`/`sellers`), puis `products`/`category_translation` (dimensions simples), puis `customers`/`sellers` (enrichies), et enfin les tables transactionnelles `orders`/`order_items`/`payments`/`reviews` en dernier (dépendantes des autres pour les contrôles de cohérence). Colonne `date_reference_ca_livre` créée sur `orders` avec repli en cascade (date livraison client → date remise transporteur → date achat) pour ne jamais perdre une commande d'un graphique temporel. `category_translation` complétée de 2 catégories absentes + un membre « Inconnu » pour fiabiliser toute jointure ultérieure depuis `products`.
+L'ordre de traitement est dicté par les dépendances entre les tables.
+
+`geolocation` est traitée en premier car elle sert de référence à `customers` et `sellers`. Viennent ensuite `products` et `category_translation`, puis `customers` et `sellers`, et enfin les tables transactionnelles `orders`, `order_items`, `payments` et `reviews`.
+
+Une colonne `date_reference_ca_livre` est créée dans `orders` avec un repli en cascade :
+
+1. Date de livraison client
+2. Date de remise au transporteur
+3. Date d'achat
+
+Cette logique évite de perdre une commande dans les analyses temporelles.
+
+`category_translation` est également complétée avec deux catégories absentes et un membre `Inconnu` afin de fiabiliser les jointures ultérieures.
 
 ## 🧱 Data Model
 
-**Principe directeur : éviter le fan-out.** Une commande à 3 articles payée en 2 fois donnerait, si `order_items` et `payments` étaient reliées directement, 3 × 2 = 6 lignes dans un visuel croisant les deux — un sur-comptage silencieux du CA. Règle appliquée dans tout le modèle : ne jamais relier deux tables de faits entre elles ; chacune se relie uniquement à des dimensions communes (`orders`, `products`, `sellers`). Ce type de modèle porte un nom : **schéma en constellation** (galaxy schema).
+Le principe directeur est d'éviter le fan-out.
 
-**Deux pièges de modélisation identifiés et résolus :**
-- *Relation 1:1 inattendue* — `customer_id` est généré par commande (pas par client réel), donc la relation `customers` ↔ `orders` est 1:1 et non 1:N comme attendu d'une dimension classique. Sens de filtrage choisi : `customers → orders`.
-- *Chemin ambigu (relation en losange)* — charger `geolocation_clean` et `category_translation` comme tables séparées en plus d'être fusionnées dans `customers`/`sellers`/`products` créerait deux chemins distincts vers la même table, bloquant la propagation des filtres. Solution : ces deux tables n'existent que comme étapes intermédiaires en Power Query, chargement désactivé dans le modèle final.
+Une commande contenant trois articles et payée en deux fois donnerait six lignes si `order_items` et `payments` étaient directement reliées. Le chiffre d'affaires serait alors potentiellement sur-compté.
 
-## 📐 Analytical Approach — pièges DAX diagnostiqués et corrigés
+La règle appliquée est donc la suivante : les tables de faits ne sont jamais reliées directement entre elles. Elles se connectent uniquement à des dimensions communes.
 
-| Piège | Symptôme mesuré | Cause racine | Correctif |
-|---|---|---|---|
-| Comptage de commandes | `DISTINCTCOUNT(order_items[order_id])` sous-compte de 775 commandes | Les statuts `unavailable`/`canceled` n'ont aucune ligne dans `order_items` | `COUNTROWS(orders)` — comptage sur la table pivot, jamais sur une table de faits secondaire |
-| CA reconnu | Mélange entre CA généré et CA réellement livré | Deux notions distinctes de revenu selon le statut de commande | Mesure `CA livré` dédiée, filtrée sur `delivered` et activée sur la relation inactive via `USERELATIONSHIP(Calendrier[Date], orders[date_reference_ca_livre])` |
-| Filtre qui ne remonte pas | `Nombre de clients` affiche 96 096 (le total) au lieu de 9 145 (vrais clients de la catégorie `cama_mesa_banho`) une fois filtré par catégorie | Relations à sens unique : un filtre posé sur `products`/`sellers` se propage vers `order_items` mais ne remonte jamais vers `orders` puis `customers` | `CROSSFILTER` appliqué **localement**, dans la mesure concernée uniquement — pas de relation bidirectionnelle permanente (réintroduirait un risque d'ambiguïté pour tout le modèle) |
-| Note moyenne par vendeur | `reviews` ne se relie qu'à `orders`, jamais à `sellers` | Même mécanique de filtre à sens unique | `CROSSFILTER(orders[order_id], order_items[order_id], Both)` dans la mesure, pour faire remonter le filtre `seller → order_items → orders → reviews` |
-| Attribution vendeur vs transporteur | Un vendeur efficace mais mal desservi géographiquement pourrait être sanctionné à tort | Un seul délai de livraison agrégé masque deux responsabilités distinctes | Deux mesures séparées : délai d'expédition vendeur (achat → remise transporteur) et délai transporteur (remise → livraison client) |
+Le modèle final repose ainsi sur un **schéma en constellation (Galaxy Schema)**.
 
-**Recours à `RELATED()` documenté comme alternative à `CROSSFILTER`** dans `Délai moyen d'expédition par vendeur` : `RELATED()` fonctionne toujours sans égard au sens de filtrage choisi, car il s'agit d'un lookup ligne par ligne et non d'une propagation de filtre — distinction retenue comme règle de décision pour tout le catalogue de mesures (section 6.6 de la documentation complète).
+### Piège 1 : relation 1:1 inattendue
+
+`customer_id` est généré par commande et non par client réel. La relation entre `customers` et `orders` est donc 1:1.
+
+Le sens de filtrage retenu est :
+
+`customers → orders`
+
+### Piège 2 : chemin ambigu
+
+Conserver `geolocation_clean` et `category_translation` comme tables chargées en plus de leurs données fusionnées dans `customers`, `sellers` et `products` créerait plusieurs chemins de propagation vers les mêmes tables.
+
+La solution retenue consiste à utiliser ces requêtes uniquement comme étapes intermédiaires Power Query avec chargement désactivé dans le modèle final.
+
+## 📐 Analytical Approach
+
+### Comptage des commandes
+
+`DISTINCTCOUNT(order_items[order_id])` sous-compte de 775 commandes car les statuts `unavailable` et `canceled` ne possèdent aucune ligne dans `order_items`.
+
+La mesure correcte repose donc sur :
+
+`COUNTROWS(orders)`
+
+La table pivot `orders` est utilisée pour compter les commandes.
+
+### CA reconnu
+
+Deux notions sont distinguées :
+
+* CA généré
+* CA réellement livré
+
+Une mesure `CA livré` dédiée est filtrée sur les commandes `delivered` et utilise une relation inactive avec le calendrier via `USERELATIONSHIP`.
+
+### Propagation des filtres
+
+Une mesure de nombre de clients affichait 96 096 au lieu de 9 145 lorsqu'elle était filtrée par catégorie `cama_mesa_banho`.
+
+La cause était le sens unique des relations.
+
+La solution retenue est l'utilisation ciblée de `CROSSFILTER` dans la mesure concernée plutôt qu'une relation bidirectionnelle permanente, afin d'éviter de créer de nouvelles ambiguïtés dans le modèle.
+
+### Note moyenne par vendeur
+
+`reviews` étant reliée aux commandes et non directement aux vendeurs, le filtre vendeur doit traverser `order_items` puis `orders`.
+
+`CROSSFILTER` est donc utilisé localement dans la mesure.
+
+### `RELATED()` comme alternative
+
+Pour le calcul du délai moyen d'expédition par vendeur, `RELATED()` est utilisé comme alternative à `CROSSFILTER`.
+
+La distinction retenue est la suivante :
+
+* `CROSSFILTER` agit sur la propagation des filtres.
+* `RELATED()` effectue un lookup ligne par ligne.
 
 ## 📊 Dashboard
 
+Le rapport comprend cinq pages décisionnelles.
+
 ### Page 1 — Vue d'ensemble
+
 **Objectif :** synthèse pilotable de l'activité globale.
-**KPI :** GMV (13,6 M$), CA livré (13,22 M$), Commandes (99K), Panier Moyen (137,75), Taux Retard (8,11 %).
-**Analyses :** Top 5 catégories par GMV, évolution du nombre de vendeurs actifs, évolution GMV et volume de commandes (sept. 2016 – août 2018), GMV par État (carte).
-**Note de fiabilité affichée directement sur la page :** les 2 derniers mois du jeu de données sont incomplets — signalé plutôt que masqué.
+
+**KPI :**
+
+* GMV : 13,6 M$
+* CA livré : 13,22 M$
+* Commandes : 99K
+* Panier moyen : 137,75
+* Taux de retard : 8,11 %
+
+**Analyses :**
+
+* Top 5 catégories par GMV
+* Évolution du nombre de vendeurs actifs
+* Évolution du GMV et du volume de commandes
+* GMV par État
+
+Une note de fiabilité signale que les deux derniers mois du dataset sont incomplets.
 
 ![Vue d'ensemble](screenshots/02_Vue_ensemble.jpg)
 
 ### Page 2 — Performance commerciale
+
 **Objectif :** analyser la performance par produit et catégorie.
-**KPI :** intégrés aux visuels (GMV par produit/catégorie).
-**Analyses :** GMV par `product_category_name_english` (treemap), évolution du panier moyen (avec note explicite : sept.–déc. 2016 exclus, volume de commandes insuffisant pour un panier moyen représentatif), Top 10 produits par GMV, GMV par catégorie et par mois (top 10 catégories).
+
+**Analyses :**
+
+* GMV par catégorie
+* Évolution du panier moyen
+* Top 10 produits par GMV
+* GMV par catégorie et par mois
+
+Les mois de septembre à décembre 2016 sont exclus de l'analyse du panier moyen en raison d'un volume de commandes insuffisant.
 
 ![Performance commerciale](screenshots/01_Performance_commerciale.jpg)
 
 ### Page 3 — Logistique
+
 **Objectif :** piloter la performance de livraison.
-**KPI :** Taux de livraison à temps (91,89 % vs objectif 95,00 %), délai vendeur moyen (3,2 j) vs délai transporteur moyen (9,3 j) — séparation directement issue du choix de modélisation en deux mesures distinctes.
-**Analyses :** répartition des commandes par statut (97,02 % `delivered`), distribution des délais de livraison, taux de retard par État (carte).
+
+**KPI :**
+
+* Taux de livraison à temps : 91,89 %
+* Objectif : 95,00 %
+* Délai vendeur moyen : 3,2 jours
+* Délai transporteur moyen : 9,3 jours
+
+**Analyses :**
+
+* Répartition des commandes par statut
+* Distribution des délais de livraison
+* Taux de retard par État
 
 ![Logistique](screenshots/03_Logistique.jpg)
 
 ### Page 4 — Satisfaction client
+
 **Objectif :** relier qualité de service et satisfaction.
-**KPI :** Note moyenne (4,1/5), taux d'avis positifs (77,1 %), délai moyen de réponse aux avis (2,59 j).
-**Analyses :** distribution des notes clients (1 à 5), évolution du taux d'avis négatifs, note moyenne selon le délai de livraison, taux de retard vs taux d'avis négatifs (2017-2018).
-**Insight visuel central du projet :** la courbe note moyenne / délai de livraison montre une chute nette une fois le seuil de retard franchi — la preuve visuelle directe de l'insight retenu pour le comité de direction.
+
+**KPI :**
+
+* Note moyenne : 4,1/5
+* Taux d'avis positifs : 77,1 %
+* Délai moyen de réponse : 2,59 jours
+
+**Analyses :**
+
+* Distribution des notes
+* Évolution du taux d'avis négatifs
+* Note moyenne selon le délai de livraison
+* Taux de retard vs taux d'avis négatifs
+
+L'insight central du projet est la relation entre retard de livraison et satisfaction client.
 
 ![Satisfaction client](screenshots/04_Satisfaction_client.jpg)
 
 ### Page 5 — Vendeurs & Géographie
+
 **Objectif :** identifier la concentration de valeur et de risque.
-**KPI :** intégrés aux classements (Top/Bottom 12 vendeurs).
-**Analyses :** Top 12 et Bottom 12 vendeurs actifs par GMV, GMV par État du vendeur (carte), nombre de clients par État (carte), courbe de Pareto de concentration du GMV par vendeur.
-**Note de différenciation cartographique documentée** : la carte de la page Logistique encode la couleur = taux de retard (lecture performance), tandis que la carte de cette page encode la taille des bulles = GMV (lecture concentration commerciale) — deux messages différents sur une même géographie, choisis délibérément.
+
+**Analyses :**
+
+* Top 12 vendeurs par GMV
+* Bottom 12 vendeurs par GMV
+* GMV par État
+* Nombre de clients par État
+* Pareto de concentration du GMV
+
+La carte logistique utilise la couleur pour représenter le taux de retard, tandis que la carte vendeurs utilise la taille des bulles pour représenter le GMV.
 
 ![Vendeurs & Géographie](screenshots/05_Vendeurs_Geographie.jpg)
 
 ## 🔑 Key Insights
 
-- **Observation :** la note moyenne s'effondre de 4,29/5 à 2,27/5 dès qu'une commande est livrée en retard. **Interprétation :** cet écart dépasse largement tout autre facteur testé (catégorie de produit, moyen de paiement, montant de la commande). **Implication métier :** la ponctualité de livraison est le levier de satisfaction le plus déterminant du dataset — prioritaire sur tout autre axe d'amélioration.
-- **Observation :** 10 % des vendeurs (309 sur 3 095) génèrent 67,5 % du GMV total. **Interprétation :** l'activité repose sur une base fortement concentrée, pas sur une contribution homogène de l'ensemble des vendeurs. **Implication métier :** un risque de dépendance à sécuriser, mais aussi une opportunité de prioriser le support sur ces comptes stratégiques.
-- **Observation :** un pic isolé de commandes apparaît en novembre 2017 (+63 % vs octobre). **Interprétation :** cohérent avec un évènement Black Friday plutôt qu'une anomalie de données. **Implication métier :** signal à exploiter pour la planification de capacité (stock, logistique), pas à corriger.
-- **Observation :** aucune catégorie de produit ne dépasse 10 % du GMV total. **Interprétation :** portefeuille produit sainement diversifié. **Implication métier :** facteur de résilience à préserver, pas un sujet à corriger — contrairement à la concentration vendeur ou géographique.
-- **Observation :** 3 États (São Paulo, Rio de Janeiro, Minas Gerais) cumulent 63,4 % du GMV. **Interprétation :** concentration géographique forte sur le Sud-Est brésilien. **Implication métier :** marge de développement commercial réelle sur les 24 autres États, encore peu pénétrés.
+* **Retard et satisfaction :** la note moyenne passe de 4,29/5 à 2,27/5 lorsqu'une commande est livrée en retard. La ponctualité apparaît comme le principal levier de satisfaction parmi les facteurs étudiés.
+
+* **Concentration vendeurs :** 10 % des vendeurs, soit 309 sur 3 095, génèrent 67,5 % du GMV. Cette concentration représente à la fois un risque de dépendance et une opportunité de priorisation des comptes stratégiques.
+
+* **Black Friday :** un pic de commandes de 63 % apparaît en novembre 2017 par rapport à octobre. Ce phénomène est cohérent avec l'activité commerciale du Black Friday et ne constitue pas une anomalie de données.
+
+* **Diversification du catalogue :** aucune catégorie ne représente plus de 10 % du GMV total, ce qui indique une forte diversification du portefeuille produit.
+
+* **Concentration géographique :** São Paulo, Rio de Janeiro et Minas Gerais représentent ensemble 63,4 % du GMV. Les autres États constituent donc un potentiel de développement commercial.
 
 ## 💡 Business Recommendations
 
-- Améliorer la performance logistique en priorité : réduire même partiellement les 6,65 % de retards aurait un effet de levier disproportionné sur la satisfaction globale.
-- Fidéliser les vendeurs stratégiques : sécuriser par un accompagnement dédié la dépendance aux 309 vendeurs qui génèrent les deux tiers du GMV.
-- Développer les États hors Sud-Est : 24 États se partagent à peine plus du tiers du GMV, une marge de croissance géographique réelle.
-- Maintenir la diversité du catalogue produit, facteur de résilience à préserver.
-- Optimiser l'expérience de paiement, en particulier autour du boleto (19 % des transactions), pour ne pas freiner la conversion.
+1. Améliorer en priorité la performance logistique afin de réduire le taux de retard et son impact sur la satisfaction.
+
+2. Fidéliser les 309 vendeurs stratégiques représentant environ deux tiers du GMV.
+
+3. Développer les marchés situés en dehors du Sud-Est brésilien.
+
+4. Maintenir la diversité du catalogue produit.
+
+5. Optimiser l'expérience de paiement, notamment autour du boleto qui représente environ 19 % des transactions.
 
 ## 🛠️ Technologies
 
-Power BI Desktop · Power Query (M) · DAX (`DIVIDE`, `CROSSFILTER`, `USERELATIONSHIP`, `AVERAGEX`, `DATEDIFF`, formule de Haversine pour la distance acheteur-vendeur) · Modélisation en constellation (galaxy schema)
+**Power BI Desktop · Power Query (M) · DAX · Modélisation en constellation**
+
+Fonctions DAX principales :
+
+`DIVIDE` · `CROSSFILTER` · `USERELATIONSHIP` · `AVERAGEX` · `DATEDIFF`
+
+Autres techniques :
+
+* Formule de Haversine pour le calcul des distances acheteur-vendeur
+* Modélisation en constellation
+* Gestion des relations à sens unique
+* Relations actives et inactives
+* Préparation avancée des données avec Power Query
 
 ## 📁 Project Structure
 
@@ -133,46 +278,49 @@ analyse-performance-olist/
 │   ├── 04_Satisfaction_client.jpg
 │   └── 05_Vendeurs_Geographie.jpg
 ├── documentation/
-│   └── Documentation_Projet_PowerBI_Olist.docx   # journal complet : méthodologie, code M/DAX, EDA, annexes
-├── data/       # [À COMPLÉTER EN LOCAL]
+│   └── Documentation_Projet_PowerBI_Olist.docx
+├── data/
 └── pbix/
-    └── analyse-performance-olist.pbix   # ⚠️ à déposer manuellement (non fourni dans cet échange)
+    └── analyse-performance-olist.pbix
 ```
 
 ## ▶️ How to Explore
 
-`[À COMPLÉTER EN LOCAL]` — préciser si le `.pbix` sera publié tel quel dans `pbix/` ou si seuls les captures et la documentation seront disponibles publiquement (données Olist déjà publiques sur Kaggle, donc pas de contrainte de confidentialité a priori).
+Le dashboard est présenté à travers les cinq captures disponibles dans le dossier `screenshots`.
+
+Le fichier `.pbix` peut être ajouté dans le dossier `pbix/` afin de permettre l'exploration interactive du modèle, des relations, des mesures DAX et des différentes pages du rapport.
 
 ## ⚠️ Limitations
 
-- Aucun identifiant de transporteur dans le dataset : impossible de comparer la performance de différents transporteurs entre eux.
-- Géolocalisation approximative (moyenne par code postal, pas une adresse exacte) : suffisante pour une lecture régionale, pas pour une analyse de quartier.
-- Dataset historique arrêté à octobre 2018 : à traiter comme un extrait figé, pas comme un flux temps réel.
-- Le ROI logistique n'est pas mesuré en incrément causal : la corrélation retard/satisfaction est forte et robuste, mais ne constitue pas à elle seule une preuve d'effet marginal isolé de tout autre facteur.
+* Aucun identifiant de transporteur n'est disponible dans le dataset. La comparaison entre transporteurs n'est donc pas possible.
+* La géolocalisation est approximative car elle repose sur une moyenne par code postal.
+* Le dataset s'arrête en octobre 2018 et constitue un historique figé.
+* La relation entre retard et satisfaction est forte mais ne constitue pas, à elle seule, une preuve de causalité.
+* Les deux derniers mois du dataset sont incomplets et doivent être interprétés avec prudence.
 
-## 🚧 Vérifications non encore effectuées (documentées comme checklist avant mise en production)
+## 🚧 Vérifications avant mise en production
 
-- Tester les 6 relations une par une (segment + carte simple) pour confirmer qu'aucun filtre ne se bloque silencieusement.
-- Vérifier que `Nombre de clients` et `Note moyenne par vendeur` réagissent bien à un segment produit/vendeur (test du `CROSSFILTER`).
-- Contrôler que `customer_lat`/`customer_lng` contiennent bien des valeurs numériques dans le modèle final après toute modification ultérieure.
+* Tester les six relations une par une avec des segments et des visuels simples.
+* Vérifier que `Nombre de clients` réagit correctement aux filtres produits et vendeurs.
+* Vérifier que `Note moyenne par vendeur` réagit correctement aux filtres vendeurs.
+* Contrôler les valeurs numériques de `customer_lat` et `customer_lng` après toute modification du modèle.
 
 ## 🚀 Future Improvements
 
-- Analyse de sentiment sur les commentaires d'avis (`review_comment_message`/`review_comment_title`), déjà chargés et masqués dans le modèle, prêts à l'emploi.
-- Segmentation RFM des clients (Récence, Fréquence, Montant) pour affiner l'axe fidélisation au-delà du simple « Nouveau / Récurrent ».
-- Analyse de cohortes de rétention par mois de première commande.
-- Prévision de la demande (time series forecasting) sur le GMV mensuel, en tenant compte de la saisonnalité Black Friday détectée en EDA.
-- Simulation what-if de l'impact d'une réduction du taux de retard sur la note moyenne, en s'appuyant sur la corrélation déjà quantifiée (4,29 vs 2,27).
-
----
+* Analyse de sentiment des commentaires clients.
+* Segmentation RFM des clients.
+* Analyse de cohortes.
+* Prévision du GMV mensuel.
+* Simulation What-If de réduction du taux de retard.
+* Analyse plus avancée de la relation entre satisfaction, logistique et valeur de commande.
 
 ## 🎓 Skills Demonstrated
 
-| Compétence | Preuve |
-|---|---|
-| Data Quality | Audit systématique de 9 tables sources : concordance financière à 99,69 %, gestion explicite de 610 produits et 278 clients sans correspondance, plutôt que suppression silencieuse |
-| DAX (niveau avancé) | Diagnostic et correction d'un vrai piège de propagation de filtre (`CROSSFILTER` ciblé, écart mesuré 96 096 vs 9 145) ; time intelligence avec relation inactive (`USERELATIONSHIP`) ; formule de Haversine pour une distance géographique |
-| Power Query (M) | Transformation d'un journal GPS brut (1M lignes) en dimension propre (≈19K lignes) par agrégation moyenne/mode ; dédoublonnage déterministe d'avis (99 224 → 98 673) |
-| Data Modeling | Conception d'un schéma en constellation pour éviter le fan-out entre tables de faits à grains différents ; résolution d'un chemin ambigu (relation en losange) par désactivation de chargement |
-| Business Analysis | Isolation d'un insight dominant (retard → satisfaction) parmi plusieurs facteurs testés, traduit en recommandations priorisées pour un comité de direction |
-| Problem Solving | Distinction méthodique entre attribution vendeur et attribution transporteur dans un même délai de livraison agrégé, pour ne pas sanctionner à tort un acteur non responsable |
+| Compétence        | Preuve                                                                                                                    |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Data Quality      | Audit systématique des 9 tables sources, concordance financière à 99,69 %, gestion des données manquantes et anomalies    |
+| DAX avancé        | `CROSSFILTER`, `USERELATIONSHIP`, `DIVIDE`, `AVERAGEX`, `DATEDIFF` et diagnostic des problèmes de propagation des filtres |
+| Power Query       | Agrégation de plus d'un million de lignes de géolocalisation et dédoublonnage déterministe des avis                       |
+| Data Modeling     | Conception d'un schéma en constellation pour éviter le fan-out entre tables à grains différents                           |
+| Business Analysis | Identification de la ponctualité comme principal levier de satisfaction parmi les facteurs étudiés                        |
+| Problem Solving   | Séparation du délai vendeur et du délai transporteur pour distinguer correctement les responsabilités                     |
