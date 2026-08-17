@@ -1,4 +1,6 @@
-﻿---
+﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+---
 ---
 
 # Fabrice BOMISSO
@@ -17,19 +19,19 @@ Abidjan, Côte d'Ivoire
   </div>
 
   <div style="display:flex; flex-wrap:wrap; align-items:center; gap:8px;">
-    <img src="https://cdn.simpleicons.org/gmail" width="16" height="16" alt="Gmail" style="flex-shrink:0;">
+    <i class="fab fa-google" style="font-size: 16px; color: #EA4335;"></i>
     <a href="mailto:fabricebtibo@mail.com" style="color:inherit; text-decoration:none;">fabricebtibo@mail.com</a>
     <span aria-hidden="true">&#183;</span>
-    <img src="https://cdn.simpleicons.org/yahooemail" width="16" height="16" alt="Yahoo Mail" style="flex-shrink:0;">
+    <i class="fab fa-yahoo" style="font-size: 16px; color: #410093;"></i>
     <a href="mailto:fabricebtibo@yahoo.com" style="color:inherit; text-decoration:none;">fabricebtibo@yahoo.com</a>
   </div>
 
   <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px;">
     <a href="https://www.linkedin.com/in/fabrice-bomisso/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
-      <img src="https://cdn.simpleicons.org/linkedin" width="18" height="18" alt="LinkedIn">
+      <i class="fab fa-linkedin" style="font-size: 18px; color: #0A66C2;"></i>
     </a>
     <a href="https://github.com/fbomisso/fabrice.bomisso/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
-      <img src="https://cdn.simpleicons.org/github" width="18" height="18" alt="GitHub">
+      <i class="fab fa-github" style="font-size: 18px; color: #333;"></i>
     </a>
   </div>
 
