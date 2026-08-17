@@ -1,0 +1,193 @@
+name: Update README
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update README project structure
+        shell: bash
+        run: |
+          python <<'PY'
+          from pathlib import Path
+
+          readme = Path("README.md")
+
+          ignored = {
+              ".git",
+              ".github",
+              "img",
+              "__pycache__",
+              "node_modules"
+          }
+
+          descriptions = {
+              "PowerBI": "Projets Power BI, modélisation, DAX et dashboards",
+              "Machine-Learning": "Projets de classification, prédiction et Machine Learning",
+              "img": "Ressources visuelles du portfolio"
+          }
+
+          def folder_description(name, parent=None):
+              descriptions_by_name = {
+                  "Classification": "Projets de classification Machine Learning",
+                  "Regression": "Projets de régression Machine Learning",
+                  "Customer-Churn-Prediction": "Prédiction du churn client avec Random Forest, SHAP et Streamlit",
+                  "analyse-retail-star-schema": "Analyse retail avec modèle en étoile et Power BI",
+                  "analyse-performance-olist": "Analyse de performance e-commerce avec Power BI",
+                  "analyse-pitchside-pro-revenue": "Analyse des revenus et de la performance commerciale avec Power BI",
+                  "analyse-performance-football-europe": "Analyse de la performance du football européen avec Power BI"
+              }
+
+              return descriptions_by_name.get(
+                  name,
+                  "Projet du portfolio"
+              )
+
+          def project_link(path):
+              readme_path = path / "README.md"
+
+              if readme_path.exists():
+                  relative = path.as_posix()
+                  return f"[Voir le projet](./{relative}/README.md)"
+
+              return f"[Voir le dossier](./{path.as_posix()}/)"
+
+          lines = [
+              "## Structure du dépôt",
+              "",
+              "La structure du repository est générée automatiquement à partir des dossiers et projets présents dans le dépôt.",
+              "",
+              "<!-- AUTO_STRUCTURE_START -->",
+              ""
+          ]
+
+          root_dirs = sorted(
+              p for p in Path(".").iterdir()
+              if p.is_dir()
+              and p.name not in ignored
+              and not p.name.startswith(".")
+          )
+
+          for root in root_dirs:
+
+              description = descriptions.get(
+                  root.name,
+                  "Projets et ressources du portfolio"
+              )
+
+              lines.append(f"### `{root.name}/`")
+              lines.append("")
+              lines.append(description)
+              lines.append("")
+
+              subdirs = sorted(
+                  p for p in root.iterdir()
+                  if p.is_dir()
+                  and p.name not in ignored
+                  and not p.name.startswith(".")
+              )
+
+              if not subdirs:
+                  lines.append(project_link(root))
+                  lines.append("")
+                  continue
+
+              for subdir in subdirs:
+
+                  lines.append(
+                      f"- **`{subdir.relative_to(root)}/`** "
+                      f"({folder_description(subdir.name, root.name)})"
+                  )
+
+                  nested_dirs = sorted(
+                      p for p in subdir.rglob("*")
+                      if p.is_dir()
+                      and p.name not in ignored
+                      and not p.name.startswith(".")
+                  )
+
+                  for nested in nested_dirs:
+                      relative = nested.relative_to(root)
+
+                      if (nested / "README.md").exists():
+                          link = project_link(nested)
+                          lines.append(
+                              f"  - `{relative}/` → {link}"
+                          )
+                      else:
+                          lines.append(
+                              f"  - `{relative}/`"
+                          )
+
+                  if (subdir / "README.md").exists():
+                      lines.append(
+                          f"  - {project_link(subdir)}"
+                      )
+
+                  lines.append("")
+
+          lines.append("<!-- AUTO_STRUCTURE_END -->")
+
+          content = readme.read_text(encoding="utf-8")
+
+          start = "<!-- AUTO_STRUCTURE_START -->"
+          end = "<!-- AUTO_STRUCTURE_END -->"
+
+          if start not in content or end not in content:
+              raise ValueError(
+                  "Les balises AUTO_STRUCTURE_START et AUTO_STRUCTURE_END "
+                  "sont absentes du README.md."
+              )
+
+          start_index = content.index(start)
+          end_index = content.index(end) + len(end)
+
+          structure_start = content.rfind(
+              "## Structure du dépôt",
+              0,
+              start_index
+          )
+
+          if structure_start == -1:
+              raise ValueError(
+                  "La section '## Structure du dépôt' est introuvable."
+              )
+
+          new_section = "\n".join(lines)
+
+          content = (
+              content[:structure_start]
+              + new_section
+              + content[end_index:]
+          )
+
+          readme.write_text(
+              content,
+              encoding="utf-8"
+          )
+          PY
+
+      - name: Commit README changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add README.md
+
+          if git diff --cached --quiet; then
+            echo "Aucune modification du README."
+          else
+            git commit -m "chore: update README structure"
+            git push
+          fi

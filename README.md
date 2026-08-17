@@ -6,7 +6,7 @@ Ce repository regroupe mes projets en Business Intelligence, Data Analytics et M
 
 ## Structure du dépôt
 
-La structure du repository est générée automatiquement à partir des dossiers présents dans le projet.
+La structure du repository est générée automatiquement à partir des dossiers et projets présents dans le dépôt.
 
 <!-- AUTO_STRUCTURE_START -->
 <!-- AUTO_STRUCTURE_END -->
