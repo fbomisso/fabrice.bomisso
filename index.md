@@ -1,4 +1,4 @@
-# Fabrice BOMISSO
+﻿# Fabrice BOMISSO
 
 ### Data Analyst | Business Intelligence | Data Science
 
@@ -20,18 +20,18 @@
 &nbsp;&nbsp;&nbsp;
 
 <a href="tel:+2250545778538">
-<img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="32" alt="Téléphone">
+<img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="32" alt="Telephone">
 </a>
 
 </p>
 
 <p align="center">
 <a href="mailto:fabricebtibo@mail.com">fabricebtibo@mail.com</a>
-&nbsp;·&nbsp;
+&nbsp;|&nbsp;
 <a href="mailto:fabricebtibo@yahoo.com">fabricebtibo@yahoo.com</a>
-&nbsp;·&nbsp;
+&nbsp;|&nbsp;
 <a href="tel:+2250545778538">05 45 77 85 38</a>
-&nbsp;·&nbsp;
+&nbsp;|&nbsp;
 <a href="tel:+2250778314526">07 78 31 45 26</a>
 </p>
 
@@ -39,26 +39,24 @@
 
 Je transforme les données en informations fiables et exploitables pour faciliter la prise de décision.
 
-Mon travail couvre principalement la **Business Intelligence**, la **Data Analytics** et le **Machine Learning**, avec une attention particulière portée à la qualité des données, à la modélisation et à l'interprétation des résultats.
-
----
+Mon travail porte principalement sur la **Business Intelligence**, la **Data Analytics** et le **Machine Learning**, avec une attention particulière portée à la qualité des données, à la modélisation et à l'interprétation des résultats.
 
 ## Compétences
 
 ### Business Intelligence
 
-**Power BI · Power Query · DAX · Data Modeling · Data Visualization · Excel**
+**Power BI | Power Query | DAX | Data Modeling | Data Visualization | Excel**
 
 - Modélisation en étoile et en constellation
 - Transformation et nettoyage des données
 - Création de KPI et mesures DAX
-- Audit et contrôle de qualité des données
+- Audit et contrôle de la qualité des données
 - Analyse de performance et reporting décisionnel
 - Data storytelling
 
 ### Data Analytics & Python
 
-**Python · Pandas · NumPy · Matplotlib · Seaborn**
+**Python | Pandas | NumPy | Matplotlib | Seaborn**
 
 - Exploration et analyse de données
 - Nettoyage et préparation des données
@@ -68,7 +66,7 @@ Mon travail couvre principalement la **Business Intelligence**, la **Data Analyt
 
 ### Machine Learning
 
-**Scikit-learn · Random Forest · SHAP · Streamlit**
+**Scikit-learn | Random Forest | SHAP | Streamlit**
 
 - Classification
 - Évaluation des modèles
@@ -79,110 +77,61 @@ Mon travail couvre principalement la **Business Intelligence**, la **Data Analyt
 
 ### Outils
 
-**Git · GitHub · Jupyter Notebook · VS Code**
+**Git | GitHub | Jupyter Notebook | VS Code**
 
 ---
 
-# Projets sélectionnés
+# Projets
 
-## 01 — Customer Churn Prediction
+Une sélection de projets réalisés en **Business Intelligence, Data Analytics et Data Science**.
 
-### Machine Learning · Telco
+### Customer Churn Prediction
 
-Projet de Data Science visant à identifier les clients susceptibles de quitter une entreprise de télécommunications et à transformer les prédictions en actions de fidélisation.
+**Machine Learning | Telco**
 
-**Technologies :** Python · Pandas · NumPy · Scikit-learn · Random Forest · SHAP · Streamlit
+Prédiction du risque de churn client avec Random Forest, analyse SHAP, segmentation des risques et application Streamlit.
 
-**Résultats clés :**
+**Résultats :** Recall **77,81 %** | F1-score **63,75 %** | ROC-AUC **0,85**
 
-- 7 043 clients analysés
-- Random Forest retenu comme modèle final
-- Recall : **77,81 %**
-- F1-score : **63,75 %**
-- ROC-AUC : **0,85**
-- Segmentation des clients en trois niveaux de risque
-- Application Streamlit permettant la prédiction individuelle
+[Voir le projet](./Machine-Learning/Classification/Customer-Churn-Prediction/)
 
-[Voir le projet →](./Machine-Learning/Classification/Customer-Churn-Prediction/)
+### Retail Analytics
 
----
+**Power BI | Data Quality | DAX**
 
-## 02 — Retail Analytics — Star Schema
+Analyse retail basée sur un modèle en étoile, avec audit des indicateurs, diagnostic de bugs DAX et validation des résultats.
 
-### Power BI · Data Quality · DAX
+[Voir le projet](./PowerBI/analyse-retail-star-schema/)
 
-Projet d'analyse retail construit autour d'un modèle en étoile et d'une démarche d'audit visant à vérifier la fiabilité des indicateurs avant leur présentation aux décideurs.
+### Olist E-commerce Analytics
 
-**Technologies :** Power BI · Power Query · DAX · Data Modeling
+**Power BI | E-commerce | Data Modeling**
 
-**Points forts :**
+Analyse d'une marketplace e-commerce brésilienne avec modélisation en constellation, contrôle des différents grains de données et analyse de la performance logistique.
 
-- 1 million de transactions
-- 6 bugs DAX diagnostiqués
-- Recalcul indépendant des indicateurs
-- Validation de mesures avant présentation
-- Test et invalidation d'une hypothèse métier
-- Analyse orientée comité de direction
+[Voir le projet](./PowerBI/analyse-performance-olist/)
 
-[Voir le projet →](./PowerBI/analyse-retail-star-schema/)
+### PitchSide Pro Revenue
 
----
+**Power BI | Revenue Analytics | Business Intelligence**
 
-## 03 — Olist E-commerce Analytics
+Analyse de la croissance des revenus d'une plateforme e-commerce spécialisée dans les articles de football, avec décomposition du revenu entre trafic, conversion et panier moyen.
 
-### Power BI · E-commerce · Data Modeling
+[Voir le projet](./PowerBI/analyse-pitchside-pro-revenue/)
 
-Analyse d'une marketplace e-commerce brésilienne à partir du dataset public Olist.
+### Performance Football Européen
 
-**Technologies :** Power BI · Power Query · DAX · Modélisation en constellation
+**Power BI | Sport Analytics | Scouting**
 
-**Points forts :**
+Analyse de la performance des joueurs et des équipes du football européen, avec des volets consacrés au scouting, aux statistiques, à la valorisation et aux effectifs.
 
-- 99 441 commandes analysées
-- 96 096 clients
-- Audit de 9 tables sources
-- Gestion des différents grains de données
-- Prévention des problèmes de sur-comptage
-- Analyse de la relation entre délai de livraison et satisfaction client
+[Voir le projet](./PowerBI/analyse-performance-football-europe/)
 
-[Voir le projet →](./PowerBI/analyse-performance-olist/)
+### Tous mes projets
 
----
+[Voir mes projets Power BI](./PowerBI/)
 
-## 04 — PitchSide Pro Revenue
-
-### Power BI · Revenue Analytics · Business Intelligence
-
-Analyse de la croissance du revenu d'une plateforme e-commerce spécialisée dans les articles de football.
-
-L'objectif était de décomposer une croissance de **+43 % sur cinq ans** afin d'identifier ses véritables moteurs plutôt que de s'appuyer sur une intuition.
-
-**Technologies :** Power BI · Power Query · DAX · Data Modeling
-
-**Approche :**
-
-**Trafic → Conversion → Panier moyen → Croissance → Recommandations**
-
-[Voir le projet →](./PowerBI/analyse-pitchside-pro-revenue/)
-
----
-
-## 05 — Performance Football Européen
-
-### Power BI · Sport Analytics · Scouting
-
-Dashboard consacré à l'analyse de la performance des joueurs et des équipes du football européen.
-
-**Analyses :**
-
-- Performance individuelle
-- Scouting
-- Statistiques de joueurs
-- Valorisation
-- Effectifs
-- Analyse financière
-
-[Voir le projet →](./PowerBI/analyse-performance-football-europe/)
+[Voir mes projets Machine Learning](./Machine-Learning/)
 
 ---
 
@@ -190,17 +139,24 @@ Dashboard consacré à l'analyse de la performance des joueurs et des équipes d
 
 Je privilégie une démarche structurée allant de la donnée brute jusqu'à la décision.
 
-**Données → Audit → Nettoyage → Transformation → Modélisation → Analyse → Visualisation → Insights → Recommandations**
+**Données | Audit | Nettoyage | Transformation | Modélisation | Analyse | Visualisation | Insights | Recommandations**
 
-Une attention particulière est portée à la **qualité des données**, à la validation des indicateurs et à la distinction entre **corrélation, association et causalité**.
+Je porte une attention particulière à :
+
+- la qualité et la fiabilité des données ;
+- la validation des indicateurs ;
+- la cohérence des modèles de données ;
+- l'interprétation des résultats ;
+- la distinction entre association, corrélation et causalité ;
+- la traduction des analyses en recommandations utiles à la décision.
 
 ---
 
 # Expérience
 
-## Groupe Inova — Abidjan
+## Groupe Inova | Abidjan
 
-**Avril 2025 — Juillet 2026**
+**Avril 2025 à Juillet 2026**
 
 - Nettoyage, contrôle et préparation de données collectées par web scraping.
 - Participation à la structuration et à l'alimentation de la base de données de l'application web.
@@ -210,17 +166,25 @@ Une attention particulière est portée à la **qualité des données**, à la v
 
 # Formation
 
-### Data Analyst — GOMYCODE
+## Data Science & IA | Bootcamp
 
-**2024 — 2025**
+**Fatala Digital House | 2026 à aujourd'hui**
+
+Formation pratique en **Data Science, Machine Learning et Intelligence Artificielle**, avec un parcours axé sur Python, analyse de données, Machine Learning et réalisation de projets.
+
+[Fatala Digital House](https://academy.fatala.fr/)
+
+## Data Analyst
+
+**GOMYCODE | 2024 à 2025**
 
 Formation orientée Data Analytics, Python, analyse de données et outils décisionnels.
 
-### Master — Génie de l'Eau et de l'Environnement
+## Master | Génie de l'Eau et de l'Environnement
 
 **Université Jean Lorougnon Guédé**
 
-### Licence — Génie de l'Eau et de l'Environnement
+## Licence | Génie de l'Eau et de l'Environnement
 
 **Université Jean Lorougnon Guédé**
 
@@ -236,20 +200,24 @@ Abidjan, Côte d'Ivoire
 
 ### Réseaux professionnels
 
-[LinkedIn](https://www.linkedin.com/in/fabrice-bomisso/) · [GitHub](https://github.com/fbomisso/fabrice.bomisso)
+[LinkedIn](https://www.linkedin.com/in/fabrice-bomisso/)
+
+[GitHub](https://github.com/fbomisso/fabrice.bomisso)
 
 ### E-mails
 
-- [fabricebtibo@mail.com](mailto:fabricebtibo@mail.com)
-- [fabricebtibo@yahoo.com](mailto:fabricebtibo@yahoo.com)
+[fabricebtibo@mail.com](mailto:fabricebtibo@mail.com)
+
+[fabricebtibo@yahoo.com](mailto:fabricebtibo@yahoo.com)
 
 ### Téléphone
 
-- [05 45 77 85 38](tel:+2250545778538)
-- [07 78 31 45 26](tel:+2250778314526)
+**05 45 77 85 38**
+
+**07 78 31 45 26**
 
 ---
 
-## Portfolio
+# Portfolio
 
 Ce portfolio présente mes travaux en **Business Intelligence, Data Analytics et Data Science**, avec une approche centrée sur la qualité des données, la modélisation et l'aide à la décision.
