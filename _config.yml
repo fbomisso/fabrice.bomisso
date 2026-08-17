@@ -1,6 +1,6 @@
 title: "Fabrice BOMISSO"
-logo: img/fabrice-bomisso-portfolio.jpg
-description: "Portfolio Data Analyst & Data Science"
-show_downloads: true
+logo: /fabrice.bomisso/img/fabrice-bomisso-portfolio.jpg
+description: "Data Analyst | Business Intelligence | Data Science"
+show_downloads: false
 theme: jekyll-theme-minimal
 lang: fr
