@@ -1,8 +1,4 @@
-Oui frère. Le problème venait surtout du \*\*README qui n'utilisait pas les vrais noms de tes captures\*\* et de quelques formulations. Voici la version corrigée, directement adaptée à \*\*ta structure réelle\*\* :
-
-
-
-\# 🏬 Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI
+# 🏬 Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI
 
 
 
