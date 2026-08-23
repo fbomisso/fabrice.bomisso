@@ -1,0 +1,174 @@
+name: Update Machine Learning README
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "Machine-Learning/**"
+      - ".github/workflows/update-machine-learning-readme.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update Machine Learning README
+        shell: bash
+        run: |
+          python <<'PY'
+          from pathlib import Path
+
+          machine_learning = Path("Machine-Learning")
+          readme = machine_learning / "README.md"
+
+          ignored = {
+              ".git",
+              ".github",
+              "__pycache__",
+              "node_modules",
+              "img",
+              "Visuels_Projet",
+              "data"
+          }
+
+          category_descriptions = {
+              "Classification":
+                  "Projets de classification supervisée",
+
+              "Regression":
+                  "Projets de régression et de prédiction",
+
+              "Deep-Learning":
+                  "Projets de Deep Learning et réseaux de neurones",
+
+              "Clustering":
+                  "Projets d'apprentissage non supervisé et clustering",
+
+              "Reinforcement-Learning":
+                  "Projets d'apprentissage par renforcement"
+          }
+
+          def format_name(name):
+              return name.replace("-", " ").replace("_", " ")
+
+          lines = []
+
+          categories = sorted(
+              p for p in machine_learning.iterdir()
+              if p.is_dir()
+              and p.name not in ignored
+              and not p.name.startswith(".")
+          )
+
+          if not categories:
+              lines.append("_Aucun projet disponible pour le moment._")
+          else:
+
+              for category in categories:
+
+                  description = category_descriptions.get(
+                      category.name,
+                      "Projets Machine Learning"
+                  )
+
+                  lines.append(
+                      f"### 📁 {format_name(category.name)}"
+                  )
+                  lines.append("")
+                  lines.append(description)
+                  lines.append("")
+
+                  projects = sorted(
+                      p for p in category.iterdir()
+                      if p.is_dir()
+                      and p.name not in ignored
+                      and not p.name.startswith(".")
+                  )
+
+                  if not projects:
+                      lines.append(
+                          "_Aucun projet dans cette catégorie._"
+                      )
+                      lines.append("")
+                      continue
+
+                  for project in projects:
+
+                      project_name = format_name(project.name)
+
+                      relative_path = (
+                          project.relative_to(machine_learning)
+                          .as_posix()
+                      )
+
+                      link = (
+                          f"./{relative_path.replace(' ', '%20')}/"
+                      )
+
+                      lines.append(
+                          f"- **[{project_name}]({link})**"
+                      )
+
+                  lines.append("")
+
+          start = "<!-- AUTO_PROJECTS_START -->"
+          end = "<!-- AUTO_PROJECTS_END -->"
+
+          content = readme.read_text(encoding="utf-8")
+
+          if start not in content:
+              raise ValueError(
+                  "AUTO_PROJECTS_START est absent du README."
+              )
+
+          if end not in content:
+              raise ValueError(
+                  "AUTO_PROJECTS_END est absent du README."
+              )
+
+          start_index = content.index(start)
+          end_index = content.index(end) + len(end)
+
+          generated = (
+              start
+              + "\n\n"
+              + "\n".join(lines)
+              + "\n"
+              + end
+          )
+
+          content = (
+              content[:start_index]
+              + generated
+              + content[end_index:]
+          )
+
+          readme.write_text(
+              content,
+              encoding="utf-8"
+          )
+
+          print("README Machine Learning mis à jour.")
+          PY
+
+      - name: Commit README changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add Machine-Learning/README.md
+
+          if git diff --cached --quiet; then
+            echo "Aucune modification du README."
+          else
+            git commit -m "chore: update Machine Learning README"
+            git push
+          fi
