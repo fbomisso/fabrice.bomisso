@@ -30,12 +30,9 @@ Abidjan, Côte d'Ivoire
       <i class="fab fa-linkedin" style="font-size:18px; color:#0A66C2;"></i>
     </a>
 
-```
-<a href="https://github.com/fbomisso/fabrice.bomisso/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
-  <i class="fab fa-github" style="font-size:18px; color:#333;"></i>
-</a>
-```
-
+    <a href="https://github.com/fbomisso/fabrice.bomisso/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+      <i class="fab fa-github" style="font-size:18px; color:#333;"></i>
+    </a>
   </div>
 
 </div>
@@ -262,7 +259,6 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
 
   <div>
 
-```
 <a href="https://ujlog.edu.ci/"
    target="_blank"
    rel="noopener noreferrer"
@@ -275,7 +271,6 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
 <br>
 
 <span style="font-size:0.9em;">Daloa, Côte d'Ivoire</span>
-```
 
   </div>
 
@@ -292,7 +287,6 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
 
   <div>
 
-```
 <a href="https://ujlog.edu.ci/"
    target="_blank"
    rel="noopener noreferrer"
@@ -305,7 +299,6 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
 <br>
 
 <span style="font-size:0.9em;">Daloa, Côte d'Ivoire</span>
-```
 
   </div>
 
@@ -319,7 +312,6 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
 
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
 
-```
 <strong>
   <i class="fas fa-chart-line"></i>
   Data Analyst | GOMYCODE
@@ -334,13 +326,11 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
 <a href="./certifications/BOMISSO%20TIBO%20FABRICE-Data%20Analytics%20-%20Microsoft%20Power%20BI%20Certified_%20Certificate%20of%20Completion.pdf">
   <i class="fas fa-file-pdf"></i> Voir le certificat
 </a>
-```
 
   </div>
 
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
 
-```
 <strong>
   <i class="fas fa-project-diagram"></i>
   Gestion de projet
@@ -355,13 +345,11 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
 <a href="./certifications/Certificat%20GESTION%20DE%20PROJET.pdf">
   <i class="fas fa-file-pdf"></i> Voir le certificat
 </a>
-```
 
   </div>
 
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
 
-```
 <strong>
   <i class="fas fa-chart-pie"></i>
   MEAL
@@ -376,13 +364,11 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
 <a href="./certifications/Certificat%20MEAL.pdf">
   <i class="fas fa-file-pdf"></i> Voir le certificat
 </a>
-```
 
   </div>
 
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
 
-```
 <strong>
   <i class="fas fa-tint"></i>
   WASH dans les situations d'urgence
@@ -397,13 +383,11 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
 <a href="./certifications/Certificat%20WASH%20dans%20les%20situations%20d'urgence.pdf">
   <i class="fas fa-file-pdf"></i> Voir le certificat
 </a>
-```
 
   </div>
 
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
 
-```
 <strong>
   <i class="fas fa-shield-alt"></i>
   HSE
@@ -418,7 +402,35 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
 <a href="./certifications/Certificat%20HSE.pdf">
   <i class="fas fa-file-pdf"></i> Voir le certificat
 </a>
-```
+
+  </div>
+
+  <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
+
+<strong>
+  <i class="fas fa-file-alt"></i>
+  Rédaction d'article scientifique
+</strong>
+
+<br>
+
+<span>World Journal of Advanced Research and Reviews · 2024</span>
+
+<br>
+
+<a href="./certifications/Certifact%20redaction%20d'article%20scientifique.pdf"
+   target="_blank"
+   rel="noopener noreferrer">
+  <i class="fas fa-file-pdf"></i> Voir le certificat
+</a>
+
+<br>
+
+<a href="https://wjarr.com/content/diagnosis-open-defecation-yamoussoukro-district-central-cote-divoire"
+   target="_blank"
+   rel="noopener noreferrer">
+  <i class="fas fa-external-link-alt"></i> Lire la publication
+</a>
 
   </div>
 
