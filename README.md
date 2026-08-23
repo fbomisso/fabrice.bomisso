@@ -89,6 +89,12 @@ Projets Power BI, modélisation, DAX et dashboards
   - `pilotage-risque-credit-bancaire/screenshots/`
   - [Voir le projet](./PowerBI/pilotage-risque-credit-bancaire/README.md)
 
+### `certifications/`
+
+Projets et ressources du portfolio
+
+[Voir le dossier](./certifications/)
+
 ### `documents/`
 
 Projets et ressources du portfolio
