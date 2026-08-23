@@ -25,7 +25,22 @@ Les projets ci-dessous sont **générés automatiquement** à partir de la struc
 
 <!-- AUTO_PROJECTS_START -->
 
-Chargement des projets...
+### 📁 Classification
+
+Projets de classification supervisée
+
+- **[Customer Churn Prediction](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Classification/Customer-Churn-Prediction)**
+  - [`app/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Classification/Customer-Churn-Prediction/app)
+  - [`data/raw/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Classification/Customer-Churn-Prediction/data/raw)
+  - [`models/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Classification/Customer-Churn-Prediction/models)
+  - [`notebooks/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Classification/Customer-Churn-Prediction/notebooks)
+
+### 📁 Regression
+
+Projets de régression et de prédiction
+
+- **[Prédiction du bruit aérodynamique](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Regression/Prédiction du bruit aérodynamique)**
+  - [`data/raw/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Regression/Prédiction du bruit aérodynamique/data/raw)
 
 <!-- AUTO_PROJECTS_END -->
 
