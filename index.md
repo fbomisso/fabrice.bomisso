@@ -37,6 +37,12 @@ Abidjan, Côte d'Ivoire
 
 </div>
 
+<div style="margin:18px 0 10px 0;">
+  <a href="./documents/CV_Fabrice_Bomisso.pdf" style="display:inline-block; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600; background:#0A66C2; color:white;">
+    <i class="fas fa-file-pdf"></i>&nbsp; Télécharger mon CV
+  </a>
+</div>
+
 ---
 
 Je transforme les données en informations fiables et exploitables pour faciliter la prise de décision.
@@ -242,8 +248,66 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
 
 ## Master, Génie de l'Eau et de l'Environnement
 
-**Université Jean Lorougnon Guédé**
+<div style="display:flex; align-items:center; gap:14px; margin:10px 0 20px 0;">
+  <img src="./img/logos/Universite-Jean-Lorougnon-Guede250-1.png"
+       alt="Logo Université Jean Lorougnon Guédé"
+       width="65"
+       style="border-radius:8px;">
+  <div>
+    <a href="https://ujlog.edu.ci/"
+       target="_blank"
+       rel="noopener noreferrer"
+       style="font-size:1.05em; font-weight:600; text-decoration:none;">
+      Université Jean Lorougnon Guédé
+    </a>
+    <br>
+    <span style="font-size:0.9em;">Daloa, Côte d'Ivoire</span>
+  </div>
+</div>
 
 ## Licence, Génie de l'Eau et de l'Environnement
 
-**Université Jean Lorougnon Guédé**
+<div style="display:flex; align-items:center; gap:14px; margin:10px 0 20px 0;">
+  <img src="./img/logos/Universite-Jean-Lorougnon-Guede250-1.png"
+       alt="Logo Université Jean Lorougnon Guédé"
+       width="65"
+       style="border-radius:8px;">
+  <div>
+    <a href="https://ujlog.edu.ci/"
+       target="_blank"
+       rel="noopener noreferrer"
+       style="font-size:1.05em; font-weight:600; text-decoration:none;">
+      Université Jean Lorougnon Guédé
+    </a>
+    <br>
+    <span style="font-size:0.9em;">Daloa, Côte d'Ivoire</span>
+  </div>
+</div>
+
+---
+
+# Certifications
+
+<div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:15px;">
+
+  <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
+    <strong>Data Analyst</strong><br>
+    <span>GOMYCODE · 2025</span>
+  </div>
+
+  <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
+    <strong>Certificat MEAL</strong><br>
+    <span>Save the Children · 2024</span>
+  </div>
+
+  <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
+    <strong>Project Management</strong><br>
+    <span>Cornerstone OnDemand Foundation · 2024</span>
+  </div>
+
+  <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
+    <strong>Introduction to WASH in Emergencies</strong><br>
+    <span>Humanitarian Leadership Academy · 2024</span>
+  </div>
+
+</div>
