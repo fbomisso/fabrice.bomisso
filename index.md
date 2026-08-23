@@ -11,28 +11,45 @@ Abidjan, Côte d'Ivoire
 <div style="display:flex; flex-direction:column; gap:8px; margin:14px 0 4px 0; font-size:0.95em;">
 
   <div style="display:flex; flex-wrap:wrap; align-items:center; gap:6px;">
+
     <span aria-hidden="true">&#128222;</span>
+
     <a href="tel:+2250545778538" style="color:inherit; text-decoration:none;">(+225) 05 45 77 85 38</a>
+
     <span aria-hidden="true">|</span>
+
     <a href="tel:+2250778314526" style="color:inherit; text-decoration:none;">07 78 31 45 26</a>
+
   </div>
 
   <div style="display:flex; flex-wrap:wrap; align-items:center; gap:8px;">
+
     <span aria-hidden="true">📧</span>
+
     <a href="mailto:fabricebtibo@mail.com" style="color:inherit; text-decoration:none;">fabricebtibo@mail.com</a>
-    <span aria-hidden="true">&#183;</span>
+
+    <span aria-hidden="true">·</span>
+
     <i class="fab fa-yahoo" style="font-size:16px; color:#410093;"></i>
+
     <a href="mailto:fabricebtibo@yahoo.com" style="color:inherit; text-decoration:none;">fabricebtibo@yahoo.com</a>
+
   </div>
 
   <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px;">
+
     <a href="https://www.linkedin.com/in/fabrice-bomisso/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+
       <i class="fab fa-linkedin" style="font-size:18px; color:#0A66C2;"></i>
+
     </a>
 
     <a href="https://github.com/fbomisso/fabrice.bomisso/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+
       <i class="fab fa-github" style="font-size:18px; color:#333;"></i>
+
     </a>
+
   </div>
 
 </div>
@@ -40,7 +57,9 @@ Abidjan, Côte d'Ivoire
 <div style="margin:18px 0 10px 0;">
 
   <a href="./documents/CV_Fabrice_Bomisso.pdf" style="display:inline-block; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600; background:#0A66C2; color:white;">
+
     <i class="fas fa-file-pdf"></i>&nbsp; Télécharger mon CV
+
   </a>
 
 </div>
@@ -236,17 +255,43 @@ Je porte une attention particulière à :
 
 ## Data Science et IA, Bootcamp
 
+<div style="display:flex; align-items:center; gap:14px; margin:10px 0 20px 0;">
+
+  <img src="./img/logos/fatala.fr.png"
+       alt="Logo Fatala Digital House"
+       width="65"
+       style="border-radius:8px;">
+
+  <div>
+
 **Fatala Digital House, en cours**
 
 Formation pratique en Data Science, Machine Learning et Intelligence Artificielle, avec un parcours axé sur Python, analyse de données, Machine Learning et réalisation de projets.
 
 [Fatala Digital House](https://academy.fatala.fr/)
 
+  </div>
+
+</div>
+
 ## Data Analyst
+
+<div style="display:flex; align-items:center; gap:14px; margin:10px 0 20px 0;">
+
+  <img src="./img/logos/Gomycode.png"
+       alt="Logo GOMYCODE"
+       width="65"
+       style="border-radius:8px;">
+
+  <div>
 
 **GOMYCODE, Novembre 2024 à Mars 2025**
 
 Formation orientée Data Analytics, Python, analyse de données et outils décisionnels.
+
+  </div>
+
+</div>
 
 ## Master, Génie de l'Eau et de l'Environnement
 
@@ -267,7 +312,6 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
   Université Jean Lorougnon Guédé
 
 </a>
-
 <br>
 
 <span style="font-size:0.9em;">Daloa, Côte d'Ivoire</span>
@@ -295,7 +339,6 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
   Université Jean Lorougnon Guédé
 
 </a>
-
 <br>
 
 <span style="font-size:0.9em;">Daloa, Côte d'Ivoire</span>
@@ -313,18 +356,21 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
 
 <strong>
-  <i class="fas fa-chart-line"></i>
-  Data Analyst | GOMYCODE
-</strong>
 
+  <i class="fas fa-chart-line"></i>
+
+  Data Analyst | GOMYCODE
+
+</strong>
 <br>
 
 <span>Microsoft Power BI · Certificat de réussite</span>
-
 <br>
 
 <a href="./certifications/BOMISSO%20TIBO%20FABRICE-Data%20Analytics%20-%20Microsoft%20Power%20BI%20Certified_%20Certificate%20of%20Completion.pdf">
+
   <i class="fas fa-file-pdf"></i> Voir le certificat
+
 </a>
 
   </div>
@@ -332,18 +378,21 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
 
 <strong>
-  <i class="fas fa-project-diagram"></i>
-  Gestion de projet
-</strong>
 
+  <i class="fas fa-project-diagram"></i>
+
+  Gestion de projet
+
+</strong>
 <br>
 
 <span>Certificat de formation</span>
-
 <br>
 
 <a href="./certifications/Certificat%20GESTION%20DE%20PROJET.pdf">
+
   <i class="fas fa-file-pdf"></i> Voir le certificat
+
 </a>
 
   </div>
@@ -351,18 +400,21 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
 
 <strong>
-  <i class="fas fa-chart-pie"></i>
-  MEAL
-</strong>
 
+  <i class="fas fa-chart-pie"></i>
+
+  MEAL
+
+</strong>
 <br>
 
 <span>Certificat MEAL</span>
-
 <br>
 
 <a href="./certifications/Certificat%20MEAL.pdf">
+
   <i class="fas fa-file-pdf"></i> Voir le certificat
+
 </a>
 
   </div>
@@ -370,18 +422,21 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
 
 <strong>
-  <i class="fas fa-tint"></i>
-  WASH dans les situations d'urgence
-</strong>
 
+  <i class="fas fa-tint"></i>
+
+  WASH dans les situations d'urgence
+
+</strong>
 <br>
 
 <span>Certificat de formation</span>
-
 <br>
 
 <a href="./certifications/Certificat%20WASH%20dans%20les%20situations%20d'urgence.pdf">
+
   <i class="fas fa-file-pdf"></i> Voir le certificat
+
 </a>
 
   </div>
@@ -389,18 +444,21 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
 
 <strong>
-  <i class="fas fa-shield-alt"></i>
-  HSE
-</strong>
 
+  <i class="fas fa-shield-alt"></i>
+
+  HSE
+
+</strong>
 <br>
 
 <span>Certificat HSE</span>
-
 <br>
 
 <a href="./certifications/Certificat%20HSE.pdf">
+
   <i class="fas fa-file-pdf"></i> Voir le certificat
+
 </a>
 
   </div>
@@ -408,28 +466,32 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
 
 <strong>
-  <i class="fas fa-file-alt"></i>
-  Rédaction d'article scientifique
-</strong>
 
+  <i class="fas fa-file-alt"></i>
+
+  Rédaction d'article scientifique
+
+</strong>
 <br>
 
 <span>World Journal of Advanced Research and Reviews · 2024</span>
-
 <br>
 
 <a href="./certifications/Certifact%20redaction%20d'article%20scientifique.pdf"
    target="_blank"
    rel="noopener noreferrer">
-  <i class="fas fa-file-pdf"></i> Voir le certificat
-</a>
 
+  <i class="fas fa-file-pdf"></i> Voir le certificat
+
+</a>
 <br>
 
 <a href="https://wjarr.com/content/diagnosis-open-defecation-yamoussoukro-district-central-cote-divoire"
    target="_blank"
    rel="noopener noreferrer">
+
   <i class="fas fa-external-link-alt"></i> Lire la publication
+
 </a>
 
   </div>
