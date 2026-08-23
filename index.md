@@ -1,7 +1,6 @@
 ﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 ---
----
 
 # Fabrice BOMISSO
 
@@ -22,25 +21,31 @@ Abidjan, Côte d'Ivoire
     <span aria-hidden="true">📧</span>
     <a href="mailto:fabricebtibo@mail.com" style="color:inherit; text-decoration:none;">fabricebtibo@mail.com</a>
     <span aria-hidden="true">&#183;</span>
-    <i class="fab fa-yahoo" style="font-size: 16px; color: #410093;"></i>
+    <i class="fab fa-yahoo" style="font-size:16px; color:#410093;"></i>
     <a href="mailto:fabricebtibo@yahoo.com" style="color:inherit; text-decoration:none;">fabricebtibo@yahoo.com</a>
   </div>
 
   <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px;">
     <a href="https://www.linkedin.com/in/fabrice-bomisso/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
-      <i class="fab fa-linkedin" style="font-size: 18px; color: #0A66C2;"></i>
+      <i class="fab fa-linkedin" style="font-size:18px; color:#0A66C2;"></i>
     </a>
-    <a href="https://github.com/fbomisso/fabrice.bomisso/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
-      <i class="fab fa-github" style="font-size: 18px; color: #333;"></i>
-    </a>
+
+```
+<a href="https://github.com/fbomisso/fabrice.bomisso/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+  <i class="fab fa-github" style="font-size:18px; color:#333;"></i>
+</a>
+```
+
   </div>
 
 </div>
 
 <div style="margin:18px 0 10px 0;">
+
   <a href="./documents/CV_Fabrice_Bomisso.pdf" style="display:inline-block; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600; background:#0A66C2; color:white;">
     <i class="fas fa-file-pdf"></i>&nbsp; Télécharger mon CV
   </a>
+
 </div>
 
 ---
@@ -57,33 +62,33 @@ Mon travail porte principalement sur la **Business Intelligence**, la **Data Ana
 
 **Power BI, Power Query, DAX, Data Modeling, Data Visualization, Excel**
 
-- Modélisation en étoile et en constellation
-- Transformation et nettoyage des données
-- Création de KPI et mesures DAX
-- Audit et contrôle de la qualité des données
-- Analyse de performance et reporting décisionnel
-- Data storytelling
+* Modélisation en étoile et en constellation
+* Transformation et nettoyage des données
+* Création de KPI et mesures DAX
+* Audit et contrôle de la qualité des données
+* Analyse de performance et reporting décisionnel
+* Data storytelling
 
 ### Data Analytics et Python
 
 **Python, Pandas, NumPy, Matplotlib, Seaborn**
 
-- Exploration et analyse de données
-- Nettoyage et préparation des données
-- Analyse statistique
-- Feature Engineering
-- Visualisation de données
+* Exploration et analyse de données
+* Nettoyage et préparation des données
+* Analyse statistique
+* Feature Engineering
+* Visualisation de données
 
 ### Machine Learning
 
 **Scikit-learn, Random Forest, SHAP, Streamlit**
 
-- Classification
-- Évaluation des modèles
-- Analyse des variables importantes
-- Explainability
-- Segmentation des risques
-- Déploiement d'applications de prédiction
+* Classification
+* Évaluation des modèles
+* Analyse des variables importantes
+* Explainability
+* Segmentation des risques
+* Déploiement d'applications de prédiction
 
 ### Outils
 
@@ -177,21 +182,21 @@ Travail de recherche consacré au diagnostic de la défécation à l'air libre d
 
 **Méthodologie :**
 
-- Enquête auprès de 373 ménages
-- Collecte de données sur le terrain
-- Entretiens semi-structurés
-- Observations directes
-- Analyse de données socio-économiques et sanitaires
-- Traitement et interprétation des résultats
+* Enquête auprès de 373 ménages
+* Collecte de données sur le terrain
+* Entretiens semi-structurés
+* Observations directes
+* Analyse de données socio-économiques et sanitaires
+* Traitement et interprétation des résultats
 
 **Principaux axes d'analyse :**
 
-- Accès aux infrastructures d'assainissement
-- Pratiques de défécation à l'air libre
-- Facteurs économiques, sociaux et culturels
-- Niveau d'éducation et pratiques sanitaires
-- Identification des leviers d'intervention
-- Proposition de stratégies adaptées au contexte local
+* Accès aux infrastructures d'assainissement
+* Pratiques de défécation à l'air libre
+* Facteurs économiques, sociaux et culturels
+* Niveau d'éducation et pratiques sanitaires
+* Identification des leviers d'intervention
+* Proposition de stratégies adaptées au contexte local
 
 **Publication :** World Journal of Advanced Research and Reviews, 2024, 24(1), 1119-1125
 
@@ -209,12 +214,12 @@ Données -> Audit -> Nettoyage -> Transformation -> Modélisation -> Analyse -> 
 
 Je porte une attention particulière à :
 
-- la qualité et la fiabilité des données ;
-- la validation des indicateurs ;
-- la cohérence des modèles de données ;
-- l'interprétation des résultats ;
-- la distinction entre association, corrélation et causalité ;
-- la traduction des analyses en recommandations utiles à la décision.
+* la qualité et la fiabilité des données ;
+* la validation des indicateurs ;
+* la cohérence des modèles de données ;
+* l'interprétation des résultats ;
+* la distinction entre association, corrélation et causalité ;
+* la traduction des analyses en recommandations utiles à la décision.
 
 ---
 
@@ -224,9 +229,9 @@ Je porte une attention particulière à :
 
 **Avril 2025 à Juillet 2026**
 
-- Nettoyage, contrôle et préparation de données collectées par web scraping.
-- Participation à la structuration et à l'alimentation de la base de données de l'application web.
-- Contrôle de la qualité et de la cohérence des données avant intégration.
+* Nettoyage, contrôle et préparation de données collectées par web scraping.
+* Participation à la structuration et à l'alimentation de la base de données de l'application web.
+* Contrôle de la qualité et de la cohérence des données avant intégration.
 
 ---
 
@@ -249,39 +254,61 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
 ## Master, Génie de l'Eau et de l'Environnement
 
 <div style="display:flex; align-items:center; gap:14px; margin:10px 0 20px 0;">
-  <img src="./img/logos/Universite-Jean-Lorougnon-Guede250-1.png"
-       alt="Logo Université Jean Lorougnon Guédé"
-       width="65"
-       style="border-radius:8px;">
+
+<img src="./img/logos/Universite-Jean-Lorougnon-Guede250-1.png"
+    alt="Logo Université Jean Lorougnon Guédé"
+    width="65"
+    style="border-radius:8px;">
+
   <div>
-    <a href="https://ujlog.edu.ci/"
-       target="_blank"
-       rel="noopener noreferrer"
-       style="font-size:1.05em; font-weight:600; text-decoration:none;">
-      Université Jean Lorougnon Guédé
-    </a>
-    <br>
-    <span style="font-size:0.9em;">Daloa, Côte d'Ivoire</span>
+
+```
+<a href="https://ujlog.edu.ci/"
+   target="_blank"
+   rel="noopener noreferrer"
+   style="font-size:1.05em; font-weight:600; text-decoration:none;">
+
+  Université Jean Lorougnon Guédé
+
+</a>
+
+<br>
+
+<span style="font-size:0.9em;">Daloa, Côte d'Ivoire</span>
+```
+
   </div>
+
 </div>
 
 ## Licence, Génie de l'Eau et de l'Environnement
 
 <div style="display:flex; align-items:center; gap:14px; margin:10px 0 20px 0;">
-  <img src="./img/logos/Universite-Jean-Lorougnon-Guede250-1.png"
-       alt="Logo Université Jean Lorougnon Guédé"
-       width="65"
-       style="border-radius:8px;">
+
+<img src="./img/logos/Universite-Jean-Lorougnon-Guede250-1.png"
+    alt="Logo Université Jean Lorougnon Guédé"
+    width="65"
+    style="border-radius:8px;">
+
   <div>
-    <a href="https://ujlog.edu.ci/"
-       target="_blank"
-       rel="noopener noreferrer"
-       style="font-size:1.05em; font-weight:600; text-decoration:none;">
-      Université Jean Lorougnon Guédé
-    </a>
-    <br>
-    <span style="font-size:0.9em;">Daloa, Côte d'Ivoire</span>
+
+```
+<a href="https://ujlog.edu.ci/"
+   target="_blank"
+   rel="noopener noreferrer"
+   style="font-size:1.05em; font-weight:600; text-decoration:none;">
+
+  Université Jean Lorougnon Guédé
+
+</a>
+
+<br>
+
+<span style="font-size:0.9em;">Daloa, Côte d'Ivoire</span>
+```
+
   </div>
+
 </div>
 
 ---
@@ -291,23 +318,108 @@ Formation orientée Data Analytics, Python, analyse de données et outils décis
 <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:15px;">
 
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
-    <strong>Data Analyst</strong><br>
-    <span>GOMYCODE · 2025</span>
+
+```
+<strong>
+  <i class="fas fa-chart-line"></i>
+  Data Analyst | GOMYCODE
+</strong>
+
+<br>
+
+<span>Microsoft Power BI · Certificat de réussite</span>
+
+<br>
+
+<a href="./certifications/BOMISSO%20TIBO%20FABRICE-Data%20Analytics%20-%20Microsoft%20Power%20BI%20Certified_%20Certificate%20of%20Completion.pdf">
+  <i class="fas fa-file-pdf"></i> Voir le certificat
+</a>
+```
+
   </div>
 
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
-    <strong>Certificat MEAL</strong><br>
-    <span>Save the Children · 2024</span>
+
+```
+<strong>
+  <i class="fas fa-project-diagram"></i>
+  Gestion de projet
+</strong>
+
+<br>
+
+<span>Certificat de formation</span>
+
+<br>
+
+<a href="./certifications/Certificat%20GESTION%20DE%20PROJET.pdf">
+  <i class="fas fa-file-pdf"></i> Voir le certificat
+</a>
+```
+
   </div>
 
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
-    <strong>Project Management</strong><br>
-    <span>Cornerstone OnDemand Foundation · 2024</span>
+
+```
+<strong>
+  <i class="fas fa-chart-pie"></i>
+  MEAL
+</strong>
+
+<br>
+
+<span>Certificat MEAL</span>
+
+<br>
+
+<a href="./certifications/Certificat%20MEAL.pdf">
+  <i class="fas fa-file-pdf"></i> Voir le certificat
+</a>
+```
+
   </div>
 
   <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
-    <strong>Introduction to WASH in Emergencies</strong><br>
-    <span>Humanitarian Leadership Academy · 2024</span>
+
+```
+<strong>
+  <i class="fas fa-tint"></i>
+  WASH dans les situations d'urgence
+</strong>
+
+<br>
+
+<span>Certificat de formation</span>
+
+<br>
+
+<a href="./certifications/Certificat%20WASH%20dans%20les%20situations%20d'urgence.pdf">
+  <i class="fas fa-file-pdf"></i> Voir le certificat
+</a>
+```
+
+  </div>
+
+  <div style="border:1px solid #e5e7eb; border-radius:10px; padding:15px; min-width:220px; flex:1;">
+
+```
+<strong>
+  <i class="fas fa-shield-alt"></i>
+  HSE
+</strong>
+
+<br>
+
+<span>Certificat HSE</span>
+
+<br>
+
+<a href="./certifications/Certificat%20HSE.pdf">
+  <i class="fas fa-file-pdf"></i> Voir le certificat
+</a>
+```
+
   </div>
 
 </div>
