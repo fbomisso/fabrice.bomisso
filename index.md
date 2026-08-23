@@ -1,4 +1,4 @@
-﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+﻿﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 ---
 
@@ -264,11 +264,11 @@ Je porte une attention particulière à :
 
   <div>
 
-**Fatala Digital House, en cours**
-
-Formation pratique en Data Science, Machine Learning et Intelligence Artificielle, avec un parcours axé sur Python, analyse de données, Machine Learning et réalisation de projets.
-
-[Fatala Digital House](https://academy.fatala.fr/)
+<span style="font-size:1.05em; font-weight:600;">Fatala Digital House, en cours</span>
+<br>
+<span style="font-size:0.9em;">Formation pratique en Data Science, Machine Learning et Intelligence Artificielle, avec un parcours axé sur Python, analyse de données, Machine Learning et réalisation de projets.</span>
+<br>
+<a href="https://academy.fatala.fr/" target="_blank" rel="noopener noreferrer" style="font-size:0.9em;">Fatala Digital House</a>
 
   </div>
 
@@ -285,9 +285,11 @@ Formation pratique en Data Science, Machine Learning et Intelligence Artificiell
 
   <div>
 
-**GOMYCODE, Novembre 2024 à Mars 2025**
-
-Formation orientée Data Analytics, Python, analyse de données et outils décisionnels.
+<span style="font-size:1.05em; font-weight:600;">GOMYCODE, Novembre 2024 à Mars 2025</span>
+<br>
+<span style="font-size:0.9em;">Formation orientée Data Analytics, Python, analyse de données et outils décisionnels.</span>
+<br>
+<a href="https://gomycode.com/ic/fr/" target="_blank" rel="noopener noreferrer" style="font-size:0.9em;">GOMYCODE</a>
 
   </div>
 
