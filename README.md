@@ -22,6 +22,12 @@ Projets de classification, prédiction et Machine Learning
   - `Classification/Customer-Churn-Prediction/models/`
   - `Classification/Customer-Churn-Prediction/notebooks/`
 
+- **`Regression/`** (Projets de régression Machine Learning)
+  - `Regression/Prédiction du bruit aérodynamique/` → [Voir le projet](./Machine-Learning/Regression/Prédiction du bruit aérodynamique/README.md)
+  - `Regression/Prédiction du bruit aérodynamique/Visuels_Projet/`
+  - `Regression/Prédiction du bruit aérodynamique/data/`
+  - `Regression/Prédiction du bruit aérodynamique/data/raw/`
+
 ### `PowerBI/`
 
 Projets Power BI, modélisation, DAX et dashboards
