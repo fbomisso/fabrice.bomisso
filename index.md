@@ -278,7 +278,7 @@ Formation pratique en Data Science, Machine Learning et Intelligence Artificiell
 
 <div style="display:flex; align-items:center; gap:14px; margin:10px 0 20px 0;">
 
-  <img src="./img/logos/Gomycode.png"
+  <img src="./img/logos/Gomycode.webp"
        alt="Logo GOMYCODE"
        width="65"
        style="border-radius:8px;">
