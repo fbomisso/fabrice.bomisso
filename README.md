@@ -32,6 +32,12 @@ Projets Power BI, modélisation, DAX et dashboards
   - `GAP_SERVICE/screenshots/`
   - [Voir le projet](./PowerBI/GAP_SERVICE/README.md)
 
+- **`Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI/`** (Projet du portfolio)
+  - `Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI/Data/`
+  - `Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI/Documentation/`
+  - `Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI/screenshots/`
+  - [Voir le projet](./PowerBI/Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI/README.md)
+
 - **`_template/`** (Projet du portfolio)
   - [Voir le projet](./PowerBI/_template/README.md)
 
