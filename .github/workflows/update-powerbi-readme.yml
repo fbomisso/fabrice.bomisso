@@ -1,0 +1,196 @@
+name: Update Power BI README
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "PowerBI/**"
+      - ".github/workflows/update-powerbi-readme.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: powerbi-readme
+  cancel-in-progress: true
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate Power BI README
+        shell: bash
+        run: |
+          python <<'PY'
+          from pathlib import Path
+
+          root = Path("PowerBI")
+          readme = root / "README.md"
+
+          ignored = {
+              ".git",
+              ".github",
+              "__pycache__",
+              "node_modules",
+              "data",
+              "screenshots",
+              "documentation"
+          }
+
+          project_descriptions = {
+              "GAP_SERVICE":
+                  "Analyse et pilotage de la performance du service",
+
+              "Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI":
+                  "Pilotage décisionnel d'un réseau de distribution multi-magasins",
+
+              "_template":
+                  "Template pour les futurs projets Power BI",
+
+              "analyse-coupe-du-monde-fifa-2026":
+                  "Analyse et visualisation de la Coupe du Monde FIFA 2026",
+
+              "analyse-performance-football-europe":
+                  "Analyse de la performance du football européen",
+
+              "analyse-performance-olist":
+                  "Analyse de performance e-commerce avec Power BI",
+
+              "analyse-pitchside-pro-revenue":
+                  "Analyse des revenus et de la performance commerciale",
+
+              "analyse-retail-star-schema":
+                  "Analyse retail avec modèle en étoile",
+
+              "assurance-automobile-dashboard":
+                  "Analyse et pilotage de la performance d'un portefeuille automobile",
+
+              "pilotage-risque-credit-bancaire":
+                  "Analyse et pilotage du risque de crédit bancaire"
+          }
+
+          def display_name(name):
+              return name.replace("-", " ").replace("_", " ")
+
+          def github_link(path):
+              relative = path.as_posix()
+              return (
+                  "https://github.com/fbomisso/fabrice.bomisso/"
+                  f"tree/main/{relative}"
+              )
+
+          lines = []
+
+          projects = sorted(
+              folder
+              for folder in root.iterdir()
+              if folder.is_dir()
+              and folder.name not in ignored
+              and not folder.name.startswith(".")
+          )
+
+          if not projects:
+              lines.append("_Aucun projet disponible pour le moment._")
+          else:
+
+              for project in projects:
+
+                  project_name = display_name(project.name)
+
+                  description = project_descriptions.get(
+                      project.name,
+                      "Projet du portfolio Power BI"
+                  )
+
+                  project_url = github_link(project)
+
+                  lines.append(
+                      f"### 📁 [{project_name}]({project_url})"
+                  )
+                  lines.append("")
+                  lines.append(description)
+                  lines.append("")
+
+                  nested_dirs = sorted(
+                      folder
+                      for folder in project.rglob("*")
+                      if folder.is_dir()
+                      and folder.name not in ignored
+                      and not folder.name.startswith(".")
+                  )
+
+                  for nested in nested_dirs:
+
+                      relative = nested.relative_to(project)
+
+                      nested_url = github_link(nested)
+
+                      lines.append(
+                          f"- [`{relative}/`]({nested_url})"
+                      )
+
+                  lines.append("")
+
+          start = "<!-- AUTO_PROJECTS_START -->"
+          end = "<!-- AUTO_PROJECTS_END -->"
+
+          content = readme.read_text(
+              encoding="utf-8"
+          )
+
+          if start not in content:
+              raise ValueError(
+                  "AUTO_PROJECTS_START est absent du README."
+              )
+
+          if end not in content:
+              raise ValueError(
+                  "AUTO_PROJECTS_END est absent du README."
+              )
+
+          start_index = content.index(start)
+          end_index = content.index(end) + len(end)
+
+          generated = (
+              start
+              + "\n\n"
+              + "\n".join(lines)
+              + "\n"
+              + end
+          )
+
+          content = (
+              content[:start_index]
+              + generated
+              + content[end_index:]
+          )
+
+          readme.write_text(
+              content,
+              encoding="utf-8"
+          )
+
+          print(
+              "README Power BI mis à jour avec succès."
+          )
+          PY
+
+      - name: Commit README changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add PowerBI/README.md
+
+          if git diff --cached --quiet; then
+            echo "Aucune modification du README Power BI."
+          else
+            git commit -m "chore: update Power BI README"
+            git push
+          fi
