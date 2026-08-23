@@ -13,34 +13,32 @@ permissions:
 
 concurrency:
   group: machine-learning-readme
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   update-readme:
-    if: github.event.head_commit.message != 'chore: update Machine Learning README'
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Update Machine Learning README
+      - name: Generate Machine Learning README
         shell: bash
         run: |
           python <<'PY'
           from pathlib import Path
 
-          machine_learning = Path("Machine-Learning")
-          readme = machine_learning / "README.md"
+          root = Path("Machine-Learning")
+          readme = root / "README.md"
 
           ignored = {
               ".git",
               ".github",
               "__pycache__",
               "node_modules",
-              "img",
-              "Visuels_Projet",
-              "data"
+              "data",
+              "Visuels_Projet"
           }
 
           category_descriptions = {
@@ -51,22 +49,33 @@ jobs:
               "Reinforcement-Learning": "Projets d'apprentissage par renforcement"
           }
 
-          def format_name(name):
+          def display_name(name):
               return name.replace("-", " ").replace("_", " ")
+
+          def github_link(path):
+              relative = path.as_posix()
+              return (
+                  "https://github.com/fbomisso/fabrice.bomisso/"
+                  f"tree/main/{relative}"
+              )
 
           lines = []
 
           categories = sorted(
-              p for p in machine_learning.iterdir()
-              if p.is_dir()
-              and p.name not in ignored
-              and not p.name.startswith(".")
+              folder
+              for folder in root.iterdir()
+              if folder.is_dir()
+              and folder.name not in ignored
+              and not folder.name.startswith(".")
           )
 
           if not categories:
               lines.append("_Aucun projet disponible pour le moment._")
           else:
+
               for category in categories:
+
+                  category_name = display_name(category.name)
 
                   description = category_descriptions.get(
                       category.name,
@@ -74,17 +83,18 @@ jobs:
                   )
 
                   lines.append(
-                      f"### 📁 {format_name(category.name)}"
+                      f"### 📁 {category_name}"
                   )
                   lines.append("")
                   lines.append(description)
                   lines.append("")
 
                   projects = sorted(
-                      p for p in category.iterdir()
-                      if p.is_dir()
-                      and p.name not in ignored
-                      and not p.name.startswith(".")
+                      folder
+                      for folder in category.iterdir()
+                      if folder.is_dir()
+                      and folder.name not in ignored
+                      and not folder.name.startswith(".")
                   )
 
                   if not projects:
@@ -96,27 +106,40 @@ jobs:
 
                   for project in projects:
 
-                      project_name = format_name(project.name)
+                      project_name = display_name(project.name)
 
-                      relative_path = (
-                          project.relative_to(machine_learning)
-                          .as_posix()
-                      )
-
-                      link = (
-                          f"./{relative_path.replace(' ', '%20')}/"
-                      )
+                      project_url = github_link(project)
 
                       lines.append(
-                          f"- **[{project_name}]({link})**"
+                          f"- **[{project_name}]({project_url})**"
                       )
+
+                      nested_dirs = sorted(
+                          folder
+                          for folder in project.rglob("*")
+                          if folder.is_dir()
+                          and folder.name not in ignored
+                          and not folder.name.startswith(".")
+                      )
+
+                      for nested in nested_dirs:
+
+                          relative = nested.relative_to(project)
+
+                          nested_url = github_link(nested)
+
+                          lines.append(
+                              f"  - [`{relative}/`]({nested_url})"
+                          )
 
                   lines.append("")
 
           start = "<!-- AUTO_PROJECTS_START -->"
           end = "<!-- AUTO_PROJECTS_END -->"
 
-          content = readme.read_text(encoding="utf-8")
+          content = readme.read_text(
+              encoding="utf-8"
+          )
 
           if start not in content:
               raise ValueError(
@@ -150,7 +173,9 @@ jobs:
               encoding="utf-8"
           )
 
-          print("README Machine Learning mis à jour.")
+          print(
+              "README Machine Learning mis à jour avec succès."
+          )
           PY
 
       - name: Commit README changes
@@ -162,7 +187,7 @@ jobs:
           git add Machine-Learning/README.md
 
           if git diff --cached --quiet; then
-            echo "Aucune modification du README."
+            echo "Aucune modification du README Machine Learning."
           else
             git commit -m "chore: update Machine Learning README"
             git push
