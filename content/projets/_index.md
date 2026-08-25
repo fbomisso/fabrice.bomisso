@@ -1,6 +1,6 @@
 ﻿---
-
-## title: "Projets"
+title: "Projets"
+---
 
 Une sélection de projets réalisés en Business Intelligence, Data Analytics et Data Science.
 
