@@ -25,9 +25,34 @@ Les projets ci-dessous sont **générés automatiquement** à partir de la struc
 
 <!-- AUTO_PROJECTS_START -->
 
+### 📁 [Analyse des ventes de vélos](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Analyse des ventes de vélos)
+
+Projet du portfolio Power BI
+
+
+### 📁 [Espérance de vie (OMS)](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Espérance de vie (OMS))
+
+Projet du portfolio Power BI
+
+
 ### 📁 [GAP SERVICE](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/GAP_SERVICE)
 
 Analyse et pilotage de la performance du service
+
+
+### 📁 [HR Employee Attrition](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/HR-Employee-Attrition)
+
+Projet du portfolio Power BI
+
+
+### 📁 [Inclusion financière en Afrique](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Inclusion financière en Afrique)
+
+Projet du portfolio Power BI
+
+
+### 📁 [Lending Club Loan Data](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Lending Club Loan Data)
+
+Projet du portfolio Power BI
 
 
 ### 📁 [Pilotage Décisionnel d'un Réseau de Distribution Multi Magasins avec Power BI](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI)
@@ -72,9 +97,19 @@ Analyse retail avec modèle en étoile
 Analyse et pilotage de la performance d'un portefeuille automobile
 
 
+### 📁 [digital marketing campaign](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/digital_marketing_campaign)
+
+Projet du portfolio Power BI
+
+
 ### 📁 [pilotage risque credit bancaire](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-risque-credit-bancaire)
 
 Analyse et pilotage du risque de crédit bancaire
+
+
+### 📁 [réchauffement climatique](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/réchauffement climatique)
+
+Projet du portfolio Power BI
 
 
 <!-- AUTO_PROJECTS_END -->
