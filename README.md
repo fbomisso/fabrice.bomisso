@@ -32,11 +32,26 @@ Projets de classification, prédiction et Machine Learning
 
 Projets Power BI, modélisation, DAX et dashboards
 
+- **`Analyse des ventes de vélos/`** (Projet du portfolio)
+  - `Analyse des ventes de vélos/data/`
+
+- **`Espérance de vie (OMS)/`** (Projet du portfolio)
+  - `Espérance de vie (OMS)/data/`
+
 - **`GAP_SERVICE/`** (Projet du portfolio)
   - `GAP_SERVICE/data/`
   - `GAP_SERVICE/documentation/`
   - `GAP_SERVICE/screenshots/`
   - [Voir le projet](./PowerBI/GAP_SERVICE/README.md)
+
+- **`HR-Employee-Attrition/`** (Projet du portfolio)
+  - `HR-Employee-Attrition/data/`
+
+- **`Inclusion financière en Afrique/`** (Projet du portfolio)
+  - `Inclusion financière en Afrique/data/`
+
+- **`Lending Club Loan Data/`** (Projet du portfolio)
+  - `Lending Club Loan Data/data/`
 
 - **`Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI/`** (Projet du portfolio)
   - `Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI/Data/`
@@ -83,11 +98,24 @@ Projets Power BI, modélisation, DAX et dashboards
   - `assurance-automobile-dashboard/screenshots/`
   - [Voir le projet](./PowerBI/assurance-automobile-dashboard/README.md)
 
+- **`digital_marketing_campaign/`** (Projet du portfolio)
+  - `digital_marketing_campaign/data/`
+
 - **`pilotage-risque-credit-bancaire/`** (Projet du portfolio)
   - `pilotage-risque-credit-bancaire/data/`
   - `pilotage-risque-credit-bancaire/documentation/`
   - `pilotage-risque-credit-bancaire/screenshots/`
   - [Voir le projet](./PowerBI/pilotage-risque-credit-bancaire/README.md)
+
+- **`réchauffement climatique/`** (Projet du portfolio)
+  - `réchauffement climatique/data/`
+
+### `assets/`
+
+Projets et ressources du portfolio
+
+- **`css/`** (Projet du portfolio)
+  - `css/extended/`
 
 ### `certifications/`
 
@@ -95,11 +123,46 @@ Projets et ressources du portfolio
 
 [Voir le dossier](./certifications/)
 
+### `content/`
+
+Projets et ressources du portfolio
+
+- **`a-propos/`** (Projet du portfolio)
+
+- **`certifications/`** (Projet du portfolio)
+
+- **`contact/`** (Projet du portfolio)
+
+- **`formation/`** (Projet du portfolio)
+
+- **`projets/`** (Projet du portfolio)
+
+- **`recherche/`** (Projet du portfolio)
+
 ### `documents/`
 
 Projets et ressources du portfolio
 
 [Voir le dossier](./documents/)
+
+### `sql/`
+
+Projets et ressources du portfolio
+
+[Voir le dossier](./sql/)
+
+### `static/`
+
+Projets et ressources du portfolio
+
+- **`documents/`** (Projet du portfolio)
+  - `documents/certifications/`
+
+### `themes/`
+
+Projets et ressources du portfolio
+
+- **`PaperMod/`** (Projet du portfolio)
 
 <!-- AUTO_STRUCTURE_END -->
 
