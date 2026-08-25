@@ -1,0 +1,49 @@
+baseURL = "https://fbomisso.github.io/fabrice.bomisso/"
+title = "Fabrice Bomisso"
+theme = "PaperMod"
+
+ignoreLogs = ["warning-goldmark-raw-html"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  author = "Fabrice Bomisso"
+  description = "Data Analyst | Business Intelligence | Data Science"
+  defaultTheme = "auto"
+  disableThemeToggle = false
+  ShowReadingTime = false
+  ShowShareButtons = false
+  ShowPostNavLinks = false
+  ShowBreadCrumbs = false
+  ShowCodeCopyButtons = false
+  disableSpecial1stPost = true
+
+[menu]
+
+  [[menu.main]]
+    name = "\u00C0 propos"
+    url = "/a-propos/"
+    weight = 10
+
+  [[menu.main]]
+    name = "Projets"
+    url = "/projets/"
+    weight = 20
+
+  [[menu.main]]
+    name = "Recherche"
+    url = "/recherche/"
+    weight = 30
+
+  [[menu.main]]
+    name = "Formation"
+    url = "/formation/"
+    weight = 40
+
+  [[menu.main]]
+    name = "Certifications"
+    url = "/certifications/"
+    weight = 50

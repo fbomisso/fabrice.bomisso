@@ -1,0 +1,147 @@
+.hero-home {
+    padding: 60px 0 40px;
+}
+
+.hero-intro {
+    max-width: 850px;
+}
+
+.hero-intro h1 {
+    margin-bottom: 12px;
+}
+
+.hero-intro h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.hero-intro p {
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+.social-links a:not(.cv-link) {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 10px;
+    color: var(--primary);
+    text-decoration: none;
+    transition: transform .2s ease, color .2s ease, background .2s ease;
+}
+
+.social-links a:not(.cv-link):hover {
+    transform: translateY(-3px);
+    color: var(--theme);
+    background: var(--code-bg);
+}
+
+.social-links a:not(.cv-link) svg {
+    display: block !important;
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+}
+
+.social-links .cv-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: var(--primary);
+    color: var(--theme);
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform .2s ease, opacity .2s ease;
+}
+
+.social-links .cv-link:hover {
+    opacity: .85;
+    transform: translateY(-2px);
+}
+
+.contact-home {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.contact-home a {
+    text-decoration: none;
+}
+
+#contact {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .hero-home {
+        padding: 40px 0 30px;
+    }
+
+    .hero-intro h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-intro h2 {
+        font-size: 1.1rem;
+    }
+
+    .social-links {
+        gap: 10px;
+    }
+}
+ 
+.institution-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin: 4px 0 12px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.institution-link:hover {
+    text-decoration: none;
+}
+
+.institution-logo {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform .2s ease;
+}
+
+.institution-link:hover .institution-logo {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .institution-logo {
+        width: 46px;
+        height: 46px;
+    }
+}
+
+.about-page img {
+    width: 220px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}

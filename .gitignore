@@ -1,2 +1,9 @@
 PowerBI/analyse-retail-star-schema/data/fact_sales.csv
 Portfolio/
+
+.hugo_build.lock
+public/
+
+# Gros fichiers de données - ne pas publier sur GitHub
+PowerBI/analyse-performance-olist/data/olist_geolocation_dataset.csv
+PowerBI/analyse-retail-star-schema/data/fact_sales_normalized.csv
