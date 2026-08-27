@@ -1,4 +1,4 @@
-name: Update README
+﻿name: Update README
 
 on:
   push:
@@ -24,118 +24,207 @@ jobs:
 
           readme = Path("README.md")
 
-          ignored = {
+          # Dossiers racine techniques à ne jamais afficher
+          ignored_root_dirs = {
               ".git",
               ".github",
+              "assets",
+              "content",
+              "static",
+              "themes",
               "img",
               "__pycache__",
-              "node_modules"
+              "node_modules",
+              "venv",
+              ".venv",
           }
 
-          descriptions = {
+          # Dossiers internes techniques à ne pas afficher
+          ignored_project_dirs = {
+              "data",
+              "documentation",
+              "screenshots",
+              "notebooks",
+              "models",
+              "app",
+              "Visuels_Projet",
+              "Data",
+              "Documentation",
+          }
+
+          # Dossiers qui ne sont pas des projets
+          ignored_projects = {
+              "_template",
+          }
+
+          root_descriptions = {
               "PowerBI": "Projets Power BI, modélisation, DAX et dashboards",
               "Machine-Learning": "Projets de classification, prédiction et Machine Learning",
-              "img": "Ressources visuelles du portfolio"
           }
 
-          def folder_description(name, parent=None):
-              descriptions_by_name = {
-                  "Classification": "Projets de classification Machine Learning",
-                  "Regression": "Projets de régression Machine Learning",
-                  "Customer-Churn-Prediction": "Prédiction du churn client avec Random Forest, SHAP et Streamlit",
-                  "analyse-retail-star-schema": "Analyse retail avec modèle en étoile et Power BI",
-                  "analyse-performance-olist": "Analyse de performance e-commerce avec Power BI",
-                  "analyse-pitchside-pro-revenue": "Analyse des revenus et de la performance commerciale avec Power BI",
-                  "analyse-performance-football-europe": "Analyse de la performance du football européen avec Power BI"
-              }
+          project_descriptions = {
+              "analyse-coupe-du-monde-fifa-2026":
+                  "Analyse et visualisation de la Coupe du Monde FIFA 2026 avec Power BI",
 
-              return descriptions_by_name.get(
-                  name,
-                  "Projet du portfolio"
-              )
+              "analyse-performance-football-europe":
+                  "Analyse de la performance du football européen avec Power BI",
+
+              "analyse-performance-olist":
+                  "Analyse de performance e-commerce avec Power BI",
+
+              "analyse-pitchside-pro-revenue":
+                  "Analyse des revenus et de la performance commerciale avec Power BI",
+
+              "analyse-retail-star-schema":
+                  "Analyse retail avec modèle en étoile et Power BI",
+
+              "assurance-automobile-dashboard":
+                  "Analyse et pilotage de la performance d'un portefeuille automobile",
+
+              "gap-service":
+                  "Analyse et pilotage de la performance du service",
+
+              "pilotage-reseau-distribution-multimagasins":
+                  "Pilotage décisionnel d'un réseau de distribution multi-magasins avec Power BI",
+
+              "pilotage-risque-credit-bancaire":
+                  "Analyse et pilotage du risque de crédit bancaire",
+
+              "01_Prediction_progression_diabete":
+                  "Prédiction de la progression du diabète",
+
+              "02_Prediction_bruit_aerodynamique":
+                  "Prédiction du bruit aérodynamique",
+
+              "03_PhysioPredict":
+                  "Projet de prédiction appliquée aux données physiologiques",
+
+              "01_Customer_Churn":
+                  "Prédiction du churn client",
+          }
 
           def project_link(path):
               readme_path = path / "README.md"
 
               if readme_path.exists():
-                  relative = path.as_posix()
-                  return f"[Voir le projet](./{relative}/README.md)"
+                  return f"[Voir le projet](./{path.as_posix()}/README.md)"
 
               return f"[Voir le dossier](./{path.as_posix()}/)"
 
           lines = [
-              "## Structure du dépôt",
+              "## Projets",
               "",
-              "La structure du repository est générée automatiquement à partir des dossiers et projets présents dans le dépôt.",
+              "La liste des projets est générée automatiquement à partir de la structure du dépôt.",
               "",
               "<!-- AUTO_STRUCTURE_START -->",
               ""
           ]
 
-          root_dirs = sorted(
-              p for p in Path(".").iterdir()
-              if p.is_dir()
-              and p.name not in ignored
-              and not p.name.startswith(".")
-          )
+          # ---------------------------------------------------------
+          # Machine Learning
+          # ---------------------------------------------------------
 
-          for root in root_dirs:
+          ml_root = Path("Machine-Learning")
 
-              description = descriptions.get(
-                  root.name,
-                  "Projets et ressources du portfolio"
-              )
+          if ml_root.exists():
 
-              lines.append(f"### `{root.name}/`")
+              lines.append("### 🧠 Machine Learning")
               lines.append("")
-              lines.append(description)
+              lines.append(
+                  "Projets de classification, prédiction et Machine Learning."
+              )
               lines.append("")
 
-              subdirs = sorted(
-                  p for p in root.iterdir()
-                  if p.is_dir()
-                  and p.name not in ignored
-                  and not p.name.startswith(".")
-              )
+              ml_projects = []
 
-              if not subdirs:
-                  lines.append(project_link(root))
-                  lines.append("")
-                  continue
+              # Recherche limitée aux README de projets.
+              # On ne parcourt pas les dossiers techniques.
+              for readme_path in ml_root.rglob("README.md"):
 
-              for subdir in subdirs:
+                  project_dir = readme_path.parent
+
+                  if project_dir == ml_root:
+                      continue
+
+                  parts = project_dir.parts
+
+                  if any(part in ignored_project_dirs for part in parts):
+                      continue
+
+                  # README des catégories intermédiaires
+                  if project_dir.name in {
+                      "I_Apprentissage_supervise",
+                      "A_Regression",
+                      "B_Classification",
+                  }:
+                      continue
+
+                  ml_projects.append(project_dir)
+
+              # Évite les doublons
+              ml_projects = sorted(set(ml_projects))
+
+              for project in ml_projects:
+
+                  description = project_descriptions.get(
+                      project.name,
+                      "Projet Machine Learning"
+                  )
 
                   lines.append(
-                      f"- **`{subdir.relative_to(root)}/`** "
-                      f"({folder_description(subdir.name, root.name)})"
+                      f"- **{description}** — {project_link(project)}"
                   )
 
-                  nested_dirs = sorted(
-                      p for p in subdir.rglob("*")
-                      if p.is_dir()
-                      and p.name not in ignored
-                      and not p.name.startswith(".")
+              lines.append("")
+
+          # ---------------------------------------------------------
+          # Power BI
+          # ---------------------------------------------------------
+
+          powerbi_root = Path("PowerBI")
+
+          if powerbi_root.exists():
+
+              lines.append("### 📊 Power BI")
+              lines.append("")
+              lines.append(
+                  "Projets de Business Intelligence, analyse de données, "
+                  "modélisation, DAX et dashboards."
+              )
+              lines.append("")
+
+              powerbi_projects = []
+
+              for project in powerbi_root.iterdir():
+
+                  if not project.is_dir():
+                      continue
+
+                  if project.name in ignored_projects:
+                      continue
+
+                  if project.name in ignored_project_dirs:
+                      continue
+
+                  if project.name.startswith("."):
+                      continue
+
+                  # Un vrai projet possède un README.
+                  if (project / "README.md").exists():
+                      powerbi_projects.append(project)
+
+              for project in sorted(powerbi_projects, key=lambda p: p.name.lower()):
+
+                  description = project_descriptions.get(
+                      project.name,
+                      "Projet du portfolio Power BI"
                   )
 
-                  for nested in nested_dirs:
-                      relative = nested.relative_to(root)
+                  lines.append(
+                      f"- **{description}** — {project_link(project)}"
+                  )
 
-                      if (nested / "README.md").exists():
-                          link = project_link(nested)
-                          lines.append(
-                              f"  - `{relative}/` → {link}"
-                          )
-                      else:
-                          lines.append(
-                              f"  - `{relative}/`"
-                          )
-
-                  if (subdir / "README.md").exists():
-                      lines.append(
-                          f"  - {project_link(subdir)}"
-                      )
-
-                  lines.append("")
+              lines.append("")
 
           lines.append("<!-- AUTO_STRUCTURE_END -->")
 
@@ -154,14 +243,14 @@ jobs:
           end_index = content.index(end) + len(end)
 
           structure_start = content.rfind(
-              "## Structure du dépôt",
+              "## Projets",
               0,
               start_index
           )
 
           if structure_start == -1:
               raise ValueError(
-                  "La section '## Structure du dépôt' est introuvable."
+                  "La section '## Projets' est introuvable."
               )
 
           new_section = "\n".join(lines)
