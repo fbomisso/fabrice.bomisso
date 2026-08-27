@@ -19,3 +19,5 @@ Python, Pandas, NumPy, Scikit-learn, Power BI, Power Query, DAX, SQL, Excel, Git
 ## Contact
 
 LinkedIn : https://www.linkedin.com/in/fabrice-bomisso/
+
+
