@@ -24,12 +24,7 @@ jobs:
 
           readme = Path("README.md")
 
-          # =========================================================
-          # Configuration
-          # =========================================================
-
           project_descriptions = {
-              # Power BI
               "analyse-coupe-du-monde-fifa-2026":
                   "Analyse et visualisation de la Coupe du Monde FIFA 2026 avec Power BI",
 
@@ -57,7 +52,6 @@ jobs:
               "pilotage-risque-credit-bancaire":
                   "Analyse et pilotage du risque de crédit bancaire",
 
-              # Machine Learning
               "01_Prediction_progression_diabete":
                   "Prédiction de la progression du diabète",
 
@@ -71,8 +65,6 @@ jobs:
                   "Prédiction du churn client",
           }
 
-          # Dossiers techniques qui ne sont jamais considérés
-          # comme des projets.
           ignored_dirs = {
               "data",
               "documentation",
@@ -86,11 +78,13 @@ jobs:
               "_template",
           }
 
+          category_dirs = {
+              "I_Apprentissage_supervise",
+              "A_Regression",
+              "B_Classification",
+          }
+
           def is_real_project(path):
-              """
-              Un projet est un dossier contenant directement
-              un README.md et n'étant pas un dossier technique.
-              """
               return (
                   path.is_dir()
                   and path.name not in ignored_dirs
@@ -99,16 +93,12 @@ jobs:
               )
 
           def project_link(path):
-              return (
-                  f"[Voir le projet]"
-                  f"(./{path.as_posix()}/README.md)"
-              )
+              return f"[Voir le projet](./{path.as_posix()}/README.md)"
 
           lines = [
               "## Projets",
               "",
-              "La liste des projets est générée automatiquement à partir "
-              "des projets présents dans le dépôt.",
+              "La liste des projets est générée automatiquement à partir des projets présents dans le dépôt.",
               "",
               "<!-- AUTO_STRUCTURE_START -->",
               "",
@@ -131,33 +121,22 @@ jobs:
 
               ml_projects = []
 
-              # Les projets ML peuvent être imbriqués dans plusieurs
-              # niveaux de catégories.
-              for readme in ml_root.rglob("README.md"):
+              for readme_path in ml_root.rglob("README.md"):
 
-                  project = readme.parent
+                  project = readme_path.parent
 
                   if project == ml_root:
                       continue
 
-                  if any(
-                      part in ignored_dirs
-                      for part in project.parts
-                  ):
+                  if any(part in ignored_dirs for part in project.parts):
                       continue
 
-                  # Exclure les dossiers de catégories.
-                  if project.name in {
-                      "I_Apprentissage_supervise",
-                      "A_Regression",
-                      "B_Classification",
-                  }:
+                  if project.name in category_dirs:
                       continue
 
                   if is_real_project(project):
                       ml_projects.append(project)
 
-              # Suppression des doublons
               ml_projects = sorted(
                   set(ml_projects),
                   key=lambda p: p.as_posix().lower()
@@ -187,14 +166,12 @@ jobs:
               lines.extend([
                   "### 📊 Power BI",
                   "",
-                  "Projets de Business Intelligence, analyse de données, "
-                  "modélisation, DAX et dashboards.",
+                  "Projets de Business Intelligence, analyse de données, modélisation, DAX et dashboards.",
                   "",
               ])
 
               powerbi_projects = []
 
-              # Les projets Power BI sont directement dans PowerBI/.
               for project in powerbi_root.iterdir():
 
                   if is_real_project(project):
@@ -221,7 +198,7 @@ jobs:
           lines.append("<!-- AUTO_STRUCTURE_END -->")
 
           # =========================================================
-          # Mise à jour du README
+          # MISE À JOUR DU README
           # =========================================================
 
           content = readme.read_text(encoding="utf-8")
@@ -231,31 +208,28 @@ jobs:
 
           if start not in content or end not in content:
               raise ValueError(
-                  "Les balises AUTO_STRUCTURE_START et "
-                  "AUTO_STRUCTURE_END sont absentes du README.md."
+                  "Les balises AUTO_STRUCTURE_START et AUTO_STRUCTURE_END sont absentes du README.md."
               )
 
           start_index = content.index(start)
           end_index = content.index(end) + len(end)
 
           section_start = content.rfind(
-              "## Structure du dépôt",
+              "## Projets",
               0,
               start_index
           )
 
           if section_start == -1:
-
               section_start = content.rfind(
-                  "## Projets",
+                  "## Structure du dépôt",
                   0,
                   start_index
               )
 
           if section_start == -1:
               raise ValueError(
-                  "Impossible de trouver le début de la section "
-                  "automatique du README."
+                  "Impossible de trouver le début de la section automatique du README."
               )
 
           new_section = "\n".join(lines)
