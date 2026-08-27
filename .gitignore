@@ -7,3 +7,17 @@ public/
 # Gros fichiers de données - ne pas publier sur GitHub
 PowerBI/analyse-performance-olist/data/olist_geolocation_dataset.csv
 PowerBI/analyse-retail-star-schema/data/fact_sales_normalized.csv
+
+resources/_gen/
+
+# Projet ML en cours de développement - uniquement en local
+Machine-Learning/I_Apprentissage_supervise/B_Classification/02_breast_cancer/
+
+# Projets Power BI conservés uniquement en local
+PowerBI/analyse-ventes-velos/
+PowerBI/digital-marketing-campaign/
+PowerBI/esperance-vie-oms/
+PowerBI/inclusion-financiere-afrique/
+PowerBI/lending-club-loan-data/
+PowerBI/rechauffement-climatique/
+PowerBI/HR-Employee-Attrition/
