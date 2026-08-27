@@ -14,57 +14,31 @@ La structure du repository est générée automatiquement à partir des dossiers
 
 Projets de classification, prédiction et Machine Learning
 
-- **`01_Apprentissage_supervise/`** (Projet du portfolio)
-  - `01_Apprentissage_supervise/01_Classification/`
-  - `01_Apprentissage_supervise/01_Classification/01_Customer_Churn/` → [Voir le projet](./Machine-Learning/01_Apprentissage_supervise/01_Classification/01_Customer_Churn/README.md)
-  - `01_Apprentissage_supervise/01_Classification/01_Customer_Churn/app/`
-  - `01_Apprentissage_supervise/01_Classification/01_Customer_Churn/data/`
-  - `01_Apprentissage_supervise/01_Classification/01_Customer_Churn/data/raw/`
-  - `01_Apprentissage_supervise/01_Classification/01_Customer_Churn/models/`
-  - `01_Apprentissage_supervise/01_Classification/01_Customer_Churn/notebooks/`
-  - `01_Apprentissage_supervise/02_Regression/`
-  - `01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/` → [Voir le projet](./Machine-Learning/01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/README.md)
-  - `01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/`
-  - `01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/01_eda_univariee/`
-  - `01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/02_eda_bivariee/`
-  - `01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/03_diagnostic_modeles/`
-  - `01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/05_interpretation/`
-  - `01_Apprentissage_supervise/02_Regression/02_Prediction_bruit_aerodynamique/` → [Voir le projet](./Machine-Learning/01_Apprentissage_supervise/02_Regression/02_Prediction_bruit_aerodynamique/README.md)
-  - `01_Apprentissage_supervise/02_Regression/02_Prediction_bruit_aerodynamique/Visuels_Projet/`
-  - `01_Apprentissage_supervise/02_Regression/02_Prediction_bruit_aerodynamique/data/`
-  - `01_Apprentissage_supervise/02_Regression/02_Prediction_bruit_aerodynamique/data/raw/`
-  - [Voir le projet](./Machine-Learning/01_Apprentissage_supervise/README.md)
+- **`I_Apprentissage_supervise/`** (Projet du portfolio)
+  - `I_Apprentissage_supervise/A_Regression/`
+  - `I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete/` → [Voir le projet](./Machine-Learning/I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete/README.md)
+  - `I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete/Visuels_Projet/`
+  - `I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete/Visuels_Projet/01_eda_univariee/`
+  - `I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete/Visuels_Projet/02_eda_bivariee/`
+  - `I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete/Visuels_Projet/03_diagnostic_modeles/`
+  - `I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete/Visuels_Projet/05_interpretation/`
+  - `I_Apprentissage_supervise/A_Regression/02_Prediction_bruit_aerodynamique/` → [Voir le projet](./Machine-Learning/I_Apprentissage_supervise/A_Regression/02_Prediction_bruit_aerodynamique/README.md)
+  - `I_Apprentissage_supervise/A_Regression/02_Prediction_bruit_aerodynamique/Visuels_Projet/`
+  - `I_Apprentissage_supervise/A_Regression/02_Prediction_bruit_aerodynamique/data/`
+  - `I_Apprentissage_supervise/A_Regression/02_Prediction_bruit_aerodynamique/data/raw/`
+  - `I_Apprentissage_supervise/A_Regression/03_PhysioPredict/`
+  - `I_Apprentissage_supervise/B_Classification/`
+  - `I_Apprentissage_supervise/B_Classification/01_Customer_Churn/` → [Voir le projet](./Machine-Learning/I_Apprentissage_supervise/B_Classification/01_Customer_Churn/README.md)
+  - `I_Apprentissage_supervise/B_Classification/01_Customer_Churn/app/`
+  - `I_Apprentissage_supervise/B_Classification/01_Customer_Churn/data/`
+  - `I_Apprentissage_supervise/B_Classification/01_Customer_Churn/data/raw/`
+  - `I_Apprentissage_supervise/B_Classification/01_Customer_Churn/models/`
+  - `I_Apprentissage_supervise/B_Classification/01_Customer_Churn/notebooks/`
+  - [Voir le projet](./Machine-Learning/I_Apprentissage_supervise/README.md)
 
 ### `PowerBI/`
 
 Projets Power BI, modélisation, DAX et dashboards
-
-- **`Analyse des ventes de vélos/`** (Projet du portfolio)
-  - `Analyse des ventes de vélos/data/`
-
-- **`Espérance de vie (OMS)/`** (Projet du portfolio)
-  - `Espérance de vie (OMS)/data/`
-
-- **`GAP_SERVICE/`** (Projet du portfolio)
-  - `GAP_SERVICE/data/`
-  - `GAP_SERVICE/documentation/`
-  - `GAP_SERVICE/screenshots/`
-  - [Voir le projet](./PowerBI/GAP_SERVICE/README.md)
-
-- **`HR-Employee-Attrition/`** (Projet du portfolio)
-  - `HR-Employee-Attrition/data/`
-
-- **`Inclusion financière en Afrique/`** (Projet du portfolio)
-  - `Inclusion financière en Afrique/data/`
-
-- **`Lending Club Loan Data/`** (Projet du portfolio)
-  - `Lending Club Loan Data/data/`
-
-- **`Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI/`** (Projet du portfolio)
-  - `Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI/Data/`
-  - `Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI/Documentation/`
-  - `Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI/screenshots/`
-  - [Voir le projet](./PowerBI/Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI/README.md)
 
 - **`_template/`** (Projet du portfolio)
   - [Voir le projet](./PowerBI/_template/README.md)
@@ -105,17 +79,23 @@ Projets Power BI, modélisation, DAX et dashboards
   - `assurance-automobile-dashboard/screenshots/`
   - [Voir le projet](./PowerBI/assurance-automobile-dashboard/README.md)
 
-- **`digital_marketing_campaign/`** (Projet du portfolio)
-  - `digital_marketing_campaign/data/`
+- **`gap-service/`** (Projet du portfolio)
+  - `gap-service/data/`
+  - `gap-service/documentation/`
+  - `gap-service/screenshots/`
+  - [Voir le projet](./PowerBI/gap-service/README.md)
+
+- **`pilotage-reseau-distribution-multimagasins/`** (Projet du portfolio)
+  - `pilotage-reseau-distribution-multimagasins/Data/`
+  - `pilotage-reseau-distribution-multimagasins/Documentation/`
+  - `pilotage-reseau-distribution-multimagasins/screenshots/`
+  - [Voir le projet](./PowerBI/pilotage-reseau-distribution-multimagasins/README.md)
 
 - **`pilotage-risque-credit-bancaire/`** (Projet du portfolio)
   - `pilotage-risque-credit-bancaire/data/`
   - `pilotage-risque-credit-bancaire/documentation/`
   - `pilotage-risque-credit-bancaire/screenshots/`
   - [Voir le projet](./PowerBI/pilotage-risque-credit-bancaire/README.md)
-
-- **`réchauffement climatique/`** (Projet du portfolio)
-  - `réchauffement climatique/data/`
 
 ### `assets/`
 
@@ -151,12 +131,6 @@ Projets et ressources du portfolio
 Projets et ressources du portfolio
 
 [Voir le dossier](./documents/)
-
-### `sql/`
-
-Projets et ressources du portfolio
-
-[Voir le dossier](./sql/)
 
 ### `static/`
 
