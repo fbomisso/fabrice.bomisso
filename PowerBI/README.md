@@ -1,154 +1,54 @@
-# 📊 Power BI
+﻿# 📊 Power BI
 
 Bienvenue dans ma section **Power BI** 👋
 
-Cette partie de mon portfolio présente mes différents projets réalisés autour de la Business Intelligence, de l'analyse de données et de la visualisation décisionnelle.
+Cette partie de mon portfolio regroupe mes projets réalisés autour de la **Business Intelligence**, de l'**analyse de données**, de la **visualisation** et du **pilotage décisionnel** avec Power BI.
 
-Les projets couvrent notamment :
+Les projets sont organisés par dossiers afin de séparer clairement les fichiers Power BI, les données utilisées, la documentation et les captures des tableaux de bord.
 
-- 📊 Analyse de données
-- 📈 Data Visualization
-- 🧮 DAX
-- 🔄 Power Query
-- 🧩 Modélisation des données
-- ⭐ Modèles en étoile
-- 📋 KPI et indicateurs de performance
-- 🎯 Tableaux de bord décisionnels
+## 📂 Organisation des projets
 
-L'objectif est de transformer les données en informations exploitables pour faciliter l'analyse, le suivi de la performance et la prise de décision.
+Chaque projet Power BI suit autant que possible une structure commune :
 
----
+    PowerBI/
+    │
+    ├── nom-du-projet/
+    │   ├── nom-du-projet.pbix
+    │   ├── README.md
+    │   ├── data/
+    │   ├── documentation/
+    │   └── screenshots/
+    │
+    ├── autre-projet/
+    │   ├── autre-projet.pbix
+    │   ├── README.md
+    │   ├── data/
+    │   ├── documentation/
+    │   └── screenshots/
+    │
+    └── _template/
+        └── README.md
 
-## 📂 Projets Power BI
+### 📁 `data/`
 
-Les projets ci-dessous sont **générés automatiquement** à partir de la structure du dépôt.
+Contient les données sources utilisées pour les analyses et les modèles Power BI.
 
-<!-- AUTO_PROJECTS_START -->
+### 📁 `documentation/`
 
-### 📁 [Analyse des ventes de vélos](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Analyse des ventes de vélos)
+Contient la documentation associée aux projets : cahier des charges, méthodologie, documentation technique et autres ressources.
 
-Projet du portfolio Power BI
+### 📁 `screenshots/`
 
+Contient les captures des différentes pages des tableaux de bord.
 
-### 📁 [Espérance de vie (OMS)](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Espérance de vie (OMS))
+### 📄 `README.md`
 
-Projet du portfolio Power BI
+Présente le contexte, les objectifs, les données, la méthodologie et les principaux résultats de chaque projet.
 
+### 📄 `.pbix`
 
-### 📁 [GAP SERVICE](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/GAP_SERVICE)
-
-Analyse et pilotage de la performance du service
-
-
-### 📁 [HR Employee Attrition](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/HR-Employee-Attrition)
-
-Projet du portfolio Power BI
-
-
-### 📁 [Inclusion financière en Afrique](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Inclusion financière en Afrique)
-
-Projet du portfolio Power BI
-
-
-### 📁 [Lending Club Loan Data](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Lending Club Loan Data)
-
-Projet du portfolio Power BI
-
-
-### 📁 [Pilotage Décisionnel d'un Réseau de Distribution Multi Magasins avec Power BI](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI)
-
-Pilotage décisionnel d'un réseau de distribution multi-magasins
-
-- [`Data/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI/Data)
-- [`Documentation/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI/Documentation)
-
-### 📁 [ template](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/_template)
-
-Template pour les futurs projets Power BI
-
-
-### 📁 [analyse coupe du monde fifa 2026](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-coupe-du-monde-fifa-2026)
-
-Analyse et visualisation de la Coupe du Monde FIFA 2026
-
-
-### 📁 [analyse performance football europe](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-football-europe)
-
-Analyse de la performance du football européen
-
-
-### 📁 [analyse performance olist](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-olist)
-
-Analyse de performance e-commerce avec Power BI
-
-
-### 📁 [analyse pitchside pro revenue](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-pitchside-pro-revenue)
-
-Analyse des revenus et de la performance commerciale
-
-
-### 📁 [analyse retail star schema](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-retail-star-schema)
-
-Analyse retail avec modèle en étoile
-
-
-### 📁 [assurance automobile dashboard](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/assurance-automobile-dashboard)
-
-Analyse et pilotage de la performance d'un portefeuille automobile
-
-
-### 📁 [digital marketing campaign](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/digital_marketing_campaign)
-
-Projet du portfolio Power BI
-
-
-### 📁 [pilotage risque credit bancaire](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-risque-credit-bancaire)
-
-Analyse et pilotage du risque de crédit bancaire
-
-
-### 📁 [réchauffement climatique](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/réchauffement climatique)
-
-Projet du portfolio Power BI
-
-
-<!-- AUTO_PROJECTS_END -->
+Fichier principal du projet Power BI contenant le modèle de données, les transformations Power Query, les mesures DAX et les visualisations.
 
 ---
 
-## 🛠️ Technologies utilisées
-
-- Power BI
-- DAX
-- Power Query
-- M
-- Excel
-- SQL
-- Data Modeling
-- Star Schema
-
----
-
-## 🎯 Objectif
-
-Construire progressivement un portfolio de projets Power BI permettant de démontrer mes compétences en :
-
-**Data Analysis → Business Intelligence → Data Visualization → Data Storytelling**
-
----
-
-## 👤 À propos
-
-Je suis **Fabrice Bomisso**, Data Analyst orienté Business Intelligence et Data Science.
-
-📍 Côte d'Ivoire
-
-🔗 [Portfolio](https://fbomisso.github.io/fabrice.bomisso/)
-
-💼 [LinkedIn](https://www.linkedin.com/in/fabrice-bomisso/)
-
-💻 [GitHub](https://github.com/fbomisso)
-
----
-
-*La liste des projets est mise à jour automatiquement avec GitHub Actions.*
+**Retour au portfolio :** [fabrice.bomisso](https://fbomisso.github.io/fabrice.bomisso/)
