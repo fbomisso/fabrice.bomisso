@@ -14,19 +14,26 @@ La structure du repository est générée automatiquement à partir des dossiers
 
 Projets de classification, prédiction et Machine Learning
 
-- **`Classification/`** (Projets de classification Machine Learning)
-  - `Classification/Customer-Churn-Prediction/` → [Voir le projet](./Machine-Learning/Classification/Customer-Churn-Prediction/README.md)
-  - `Classification/Customer-Churn-Prediction/app/`
-  - `Classification/Customer-Churn-Prediction/data/`
-  - `Classification/Customer-Churn-Prediction/data/raw/`
-  - `Classification/Customer-Churn-Prediction/models/`
-  - `Classification/Customer-Churn-Prediction/notebooks/`
-
-- **`Regression/`** (Projets de régression Machine Learning)
-  - `Regression/Prédiction du bruit aérodynamique/` → [Voir le projet](./Machine-Learning/Regression/Prédiction du bruit aérodynamique/README.md)
-  - `Regression/Prédiction du bruit aérodynamique/Visuels_Projet/`
-  - `Regression/Prédiction du bruit aérodynamique/data/`
-  - `Regression/Prédiction du bruit aérodynamique/data/raw/`
+- **`01_Apprentissage_supervise/`** (Projet du portfolio)
+  - `01_Apprentissage_supervise/01_Classification/`
+  - `01_Apprentissage_supervise/01_Classification/01_Customer_Churn/` → [Voir le projet](./Machine-Learning/01_Apprentissage_supervise/01_Classification/01_Customer_Churn/README.md)
+  - `01_Apprentissage_supervise/01_Classification/01_Customer_Churn/app/`
+  - `01_Apprentissage_supervise/01_Classification/01_Customer_Churn/data/`
+  - `01_Apprentissage_supervise/01_Classification/01_Customer_Churn/data/raw/`
+  - `01_Apprentissage_supervise/01_Classification/01_Customer_Churn/models/`
+  - `01_Apprentissage_supervise/01_Classification/01_Customer_Churn/notebooks/`
+  - `01_Apprentissage_supervise/02_Regression/`
+  - `01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/` → [Voir le projet](./Machine-Learning/01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/README.md)
+  - `01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/`
+  - `01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/01_eda_univariee/`
+  - `01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/02_eda_bivariee/`
+  - `01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/03_diagnostic_modeles/`
+  - `01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/05_interpretation/`
+  - `01_Apprentissage_supervise/02_Regression/02_Prediction_bruit_aerodynamique/` → [Voir le projet](./Machine-Learning/01_Apprentissage_supervise/02_Regression/02_Prediction_bruit_aerodynamique/README.md)
+  - `01_Apprentissage_supervise/02_Regression/02_Prediction_bruit_aerodynamique/Visuels_Projet/`
+  - `01_Apprentissage_supervise/02_Regression/02_Prediction_bruit_aerodynamique/data/`
+  - `01_Apprentissage_supervise/02_Regression/02_Prediction_bruit_aerodynamique/data/raw/`
+  - [Voir le projet](./Machine-Learning/01_Apprentissage_supervise/README.md)
 
 ### `PowerBI/`
 
