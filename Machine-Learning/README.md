@@ -25,22 +25,24 @@ Les projets ci-dessous sont **générés automatiquement** à partir de la struc
 
 <!-- AUTO_PROJECTS_START -->
 
-### 📁 Classification
+### 📁 01 Apprentissage supervise
 
-Projets de classification supervisée
+Projets Machine Learning
 
-- **[Customer Churn Prediction](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Classification/Customer-Churn-Prediction)**
-  - [`app/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Classification/Customer-Churn-Prediction/app)
-  - [`data/raw/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Classification/Customer-Churn-Prediction/data/raw)
-  - [`models/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Classification/Customer-Churn-Prediction/models)
-  - [`notebooks/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Classification/Customer-Churn-Prediction/notebooks)
-
-### 📁 Regression
-
-Projets de régression et de prédiction
-
-- **[Prédiction du bruit aérodynamique](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Regression/Prédiction du bruit aérodynamique)**
-  - [`data/raw/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Regression/Prédiction du bruit aérodynamique/data/raw)
+- **[01 Classification](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/01_Classification)**
+  - [`01_Customer_Churn/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/01_Classification/01_Customer_Churn)
+  - [`01_Customer_Churn/app/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/01_Classification/01_Customer_Churn/app)
+  - [`01_Customer_Churn/data/raw/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/01_Classification/01_Customer_Churn/data/raw)
+  - [`01_Customer_Churn/models/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/01_Classification/01_Customer_Churn/models)
+  - [`01_Customer_Churn/notebooks/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/01_Classification/01_Customer_Churn/notebooks)
+- **[02 Regression](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression)**
+  - [`01_Prediction_progression_diabete/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete)
+  - [`01_Prediction_progression_diabete/Visuels_Projet/01_eda_univariee/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/01_eda_univariee)
+  - [`01_Prediction_progression_diabete/Visuels_Projet/02_eda_bivariee/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/02_eda_bivariee)
+  - [`01_Prediction_progression_diabete/Visuels_Projet/03_diagnostic_modeles/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/03_diagnostic_modeles)
+  - [`01_Prediction_progression_diabete/Visuels_Projet/05_interpretation/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/05_interpretation)
+  - [`02_Prediction_bruit_aerodynamique/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression/02_Prediction_bruit_aerodynamique)
+  - [`02_Prediction_bruit_aerodynamique/data/raw/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression/02_Prediction_bruit_aerodynamique/data/raw)
 
 <!-- AUTO_PROJECTS_END -->
 
