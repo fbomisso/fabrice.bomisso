@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Update README project structure
+      - name: Generate project structure
         shell: bash
         run: |
           python <<'PY'
@@ -24,45 +24,12 @@ jobs:
 
           readme = Path("README.md")
 
-          # Dossiers racine techniques à ne jamais afficher
-          ignored_root_dirs = {
-              ".git",
-              ".github",
-              "assets",
-              "content",
-              "static",
-              "themes",
-              "img",
-              "__pycache__",
-              "node_modules",
-              "venv",
-              ".venv",
-          }
-
-          # Dossiers internes techniques à ne pas afficher
-          ignored_project_dirs = {
-              "data",
-              "documentation",
-              "screenshots",
-              "notebooks",
-              "models",
-              "app",
-              "Visuels_Projet",
-              "Data",
-              "Documentation",
-          }
-
-          # Dossiers qui ne sont pas des projets
-          ignored_projects = {
-              "_template",
-          }
-
-          root_descriptions = {
-              "PowerBI": "Projets Power BI, modélisation, DAX et dashboards",
-              "Machine-Learning": "Projets de classification, prédiction et Machine Learning",
-          }
+          # =========================================================
+          # Configuration
+          # =========================================================
 
           project_descriptions = {
+              # Power BI
               "analyse-coupe-du-monde-fifa-2026":
                   "Analyse et visualisation de la Coupe du Monde FIFA 2026 avec Power BI",
 
@@ -90,6 +57,7 @@ jobs:
               "pilotage-risque-credit-bancaire":
                   "Analyse et pilotage du risque de crédit bancaire",
 
+              # Machine Learning
               "01_Prediction_progression_diabete":
                   "Prédiction de la progression du diabète",
 
@@ -103,66 +71,97 @@ jobs:
                   "Prédiction du churn client",
           }
 
+          # Dossiers techniques qui ne sont jamais considérés
+          # comme des projets.
+          ignored_dirs = {
+              "data",
+              "documentation",
+              "screenshots",
+              "notebooks",
+              "models",
+              "app",
+              "Visuels_Projet",
+              "Data",
+              "Documentation",
+              "_template",
+          }
+
+          def is_real_project(path):
+              """
+              Un projet est un dossier contenant directement
+              un README.md et n'étant pas un dossier technique.
+              """
+              return (
+                  path.is_dir()
+                  and path.name not in ignored_dirs
+                  and not path.name.startswith(".")
+                  and (path / "README.md").is_file()
+              )
+
           def project_link(path):
-              readme_path = path / "README.md"
-
-              if readme_path.exists():
-                  return f"[Voir le projet](./{path.as_posix()}/README.md)"
-
-              return f"[Voir le dossier](./{path.as_posix()}/)"
+              return (
+                  f"[Voir le projet]"
+                  f"(./{path.as_posix()}/README.md)"
+              )
 
           lines = [
               "## Projets",
               "",
-              "La liste des projets est générée automatiquement à partir de la structure du dépôt.",
+              "La liste des projets est générée automatiquement à partir "
+              "des projets présents dans le dépôt.",
               "",
               "<!-- AUTO_STRUCTURE_START -->",
-              ""
+              "",
           ]
 
-          # ---------------------------------------------------------
-          # Machine Learning
-          # ---------------------------------------------------------
+          # =========================================================
+          # MACHINE LEARNING
+          # =========================================================
 
           ml_root = Path("Machine-Learning")
 
-          if ml_root.exists():
+          if ml_root.is_dir():
 
-              lines.append("### 🧠 Machine Learning")
-              lines.append("")
-              lines.append(
-                  "Projets de classification, prédiction et Machine Learning."
-              )
-              lines.append("")
+              lines.extend([
+                  "### 🧠 Machine Learning",
+                  "",
+                  "Projets de classification, prédiction et Machine Learning.",
+                  "",
+              ])
 
               ml_projects = []
 
-              # Recherche limitée aux README de projets.
-              # On ne parcourt pas les dossiers techniques.
-              for readme_path in ml_root.rglob("README.md"):
+              # Les projets ML peuvent être imbriqués dans plusieurs
+              # niveaux de catégories.
+              for readme in ml_root.rglob("README.md"):
 
-                  project_dir = readme_path.parent
+                  project = readme.parent
 
-                  if project_dir == ml_root:
+                  if project == ml_root:
                       continue
 
-                  parts = project_dir.parts
-
-                  if any(part in ignored_project_dirs for part in parts):
+                  if any(
+                      part in ignored_dirs
+                      for part in project.parts
+                  ):
                       continue
 
-                  # README des catégories intermédiaires
-                  if project_dir.name in {
+                  # Exclure les dossiers de catégories.
+                  if project.name in {
                       "I_Apprentissage_supervise",
                       "A_Regression",
                       "B_Classification",
                   }:
                       continue
 
-                  ml_projects.append(project_dir)
+                  if is_real_project(project):
+                      ml_projects.append(project)
 
-              # Évite les doublons
-              ml_projects = sorted(set(ml_projects))
+              # Suppression des doublons
+              ml_projects = sorted(
+                  set(ml_projects),
+                  key=lambda p: p.as_posix().lower()
+              )
 
               for project in ml_projects:
 
@@ -177,43 +176,36 @@ jobs:
 
               lines.append("")
 
-          # ---------------------------------------------------------
-          # Power BI
-          # ---------------------------------------------------------
+          # =========================================================
+          # POWER BI
+          # =========================================================
 
           powerbi_root = Path("PowerBI")
 
-          if powerbi_root.exists():
+          if powerbi_root.is_dir():
 
-              lines.append("### 📊 Power BI")
-              lines.append("")
-              lines.append(
+              lines.extend([
+                  "### 📊 Power BI",
+                  "",
                   "Projets de Business Intelligence, analyse de données, "
-                  "modélisation, DAX et dashboards."
-              )
-              lines.append("")
+                  "modélisation, DAX et dashboards.",
+                  "",
+              ])
 
               powerbi_projects = []
 
+              # Les projets Power BI sont directement dans PowerBI/.
               for project in powerbi_root.iterdir():
 
-                  if not project.is_dir():
-                      continue
-
-                  if project.name in ignored_projects:
-                      continue
-
-                  if project.name in ignored_project_dirs:
-                      continue
-
-                  if project.name.startswith("."):
-                      continue
-
-                  # Un vrai projet possède un README.
-                  if (project / "README.md").exists():
+                  if is_real_project(project):
                       powerbi_projects.append(project)
 
-              for project in sorted(powerbi_projects, key=lambda p: p.name.lower()):
+              powerbi_projects = sorted(
+                  powerbi_projects,
+                  key=lambda p: p.name.lower()
+              )
+
+              for project in powerbi_projects:
 
                   description = project_descriptions.get(
                       project.name,
@@ -228,6 +220,10 @@ jobs:
 
           lines.append("<!-- AUTO_STRUCTURE_END -->")
 
+          # =========================================================
+          # Mise à jour du README
+          # =========================================================
+
           content = readme.read_text(encoding="utf-8")
 
           start = "<!-- AUTO_STRUCTURE_START -->"
@@ -235,39 +231,52 @@ jobs:
 
           if start not in content or end not in content:
               raise ValueError(
-                  "Les balises AUTO_STRUCTURE_START et AUTO_STRUCTURE_END "
-                  "sont absentes du README.md."
+                  "Les balises AUTO_STRUCTURE_START et "
+                  "AUTO_STRUCTURE_END sont absentes du README.md."
               )
 
           start_index = content.index(start)
           end_index = content.index(end) + len(end)
 
-          structure_start = content.rfind(
-              "## Projets",
+          section_start = content.rfind(
+              "## Structure du dépôt",
               0,
               start_index
           )
 
-          if structure_start == -1:
+          if section_start == -1:
+
+              section_start = content.rfind(
+                  "## Projets",
+                  0,
+                  start_index
+              )
+
+          if section_start == -1:
               raise ValueError(
-                  "La section '## Projets' est introuvable."
+                  "Impossible de trouver le début de la section "
+                  "automatique du README."
               )
 
           new_section = "\n".join(lines)
 
           content = (
-              content[:structure_start]
+              content[:section_start]
               + new_section
               + content[end_index:]
           )
 
           readme.write_text(
               content,
-              encoding="utf-8"
+              encoding="utf-8",
+              newline="\n"
           )
+
+          print("README.md mis à jour avec succès.")
           PY
 
       - name: Commit README changes
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
