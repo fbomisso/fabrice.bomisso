@@ -1,55 +1,111 @@
-﻿---
+---
 title: "Projets"
 ---
 
 Une sélection de projets réalisés en Business Intelligence, Data Analytics et Data Science.
 
-## Customer Churn Prediction
+## 🤖 Machine Learning
 
-**Machine Learning · Telco**
+### 01 Prediction progression diabete
 
-Prédiction du risque de churn client avec Random Forest, analyse SHAP, segmentation des risques et application Streamlit.
+**Machine Learning**
 
-**Résultats :** Recall 77,81 % · F1-score 63,75 % · ROC-AUC 0,85
+Projet de régression visant à prédire la progression du diabète à partir de variables cliniques.
 
-[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/Classification/Customer-Churn-Prediction)
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete)
 
-## Retail Analytics
+### 02 Prediction bruit aerodynamique
 
-**Power BI · Data Quality · DAX**
+**Machine Learning**
 
-Analyse retail basée sur un modèle en étoile, avec audit des indicateurs, diagnostic de bugs DAX et validation des résultats.
+Projet de régression consacré à la prédiction du bruit aérodynamique.
 
-[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-retail-star-schema)
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/02_Prediction_bruit_aerodynamique)
 
-## Olist E-commerce Analytics
+### 01 Customer Churn
 
-**Power BI · E-commerce · Data Modeling**
+**Machine Learning**
 
-Analyse d'une marketplace e-commerce brésilienne avec modélisation en constellation, contrôle des différents grains de données et analyse de la performance logistique.
+Prédiction du churn client avec Random Forest, analyse SHAP, segmentation des risques et application Streamlit.
+
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/B_Classification/01_Customer_Churn)
+
+## 📊 Power BI
+
+### analyse coupe du monde fifa 2026
+
+**Power BI · Business Intelligence**
+
+Analyse et visualisation de la Coupe du Monde FIFA 2026 avec Power BI.
+
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-coupe-du-monde-fifa-2026)
+
+### analyse performance football europe
+
+**Power BI · Business Intelligence**
+
+Analyse de la performance du football européen avec Power BI.
+
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-football-europe)
+
+### analyse performance olist
+
+**Power BI · Business Intelligence**
+
+Analyse de performance e-commerce avec Power BI.
 
 [Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-olist)
 
-## PitchSide Pro Revenue
+### analyse pitchside pro revenue
 
-**Power BI · Revenue Analytics · Business Intelligence**
+**Power BI · Business Intelligence**
 
-Analyse de la croissance des revenus d'une plateforme e-commerce spécialisée dans les articles de football.
+Analyse des revenus et de la performance commerciale avec Power BI.
 
 [Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-pitchside-pro-revenue)
 
-## Performance Football Européen
+### analyse retail star schema
 
-**Power BI · Sport Analytics · Scouting**
+**Power BI · Business Intelligence**
 
-Analyse de la performance des joueurs et des équipes du football européen, avec des volets consacrés au scouting, aux statistiques, à la valorisation et aux effectifs.
+Analyse retail avec modèle en étoile, audit DAX et validation des indicateurs.
 
-[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-football-europe)
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-retail-star-schema)
+
+### assurance automobile dashboard
+
+**Power BI · Business Intelligence**
+
+Analyse et pilotage de la performance d'un portefeuille automobile.
+
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/assurance-automobile-dashboard)
+
+### gap service
+
+**Power BI · Business Intelligence**
+
+Analyse et pilotage de la performance du service.
+
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/gap-service)
+
+### pilotage reseau distribution multimagasins
+
+**Power BI · Business Intelligence**
+
+Projet de Business Intelligence réalisé avec Power BI.
+
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-reseau-distribution-multimagasins)
+
+### pilotage risque credit bancaire
+
+**Power BI · Business Intelligence**
+
+Analyse et pilotage du risque de crédit bancaire.
+
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-risque-credit-bancaire)
 
 ## Tous mes projets
 
 [Voir mes projets Power BI](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI)
 
 [Voir mes projets Machine Learning](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning)
-
-[Voir mes projets SQL](https://github.com/fbomisso/fabrice.bomisso/tree/main/sql)
