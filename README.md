@@ -12,6 +12,7 @@ La liste des projets est générée automatiquement à partir des projets prése
 
 ### 🤖 Machine Learning
 
+- [I Apprentissage supervise](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise)
 - [01 Prediction progression diabete](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete)
 - [02 Prediction bruit aerodynamique](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/02_Prediction_bruit_aerodynamique)
 - [01 Customer Churn](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/B_Classification/01_Customer_Churn)

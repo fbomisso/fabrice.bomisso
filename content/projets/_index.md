@@ -6,6 +6,14 @@ Une sélection de projets réalisés en Business Intelligence, Data Analytics et
 
 ## 🤖 Machine Learning
 
+### I Apprentissage supervise
+
+**Machine Learning**
+
+Projet de Machine Learning consacré à l'analyse, la modélisation et la prédiction à partir de données.
+
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise)
+
 ### 01 Prediction progression diabete
 
 **Machine Learning**
@@ -34,7 +42,7 @@ Prédiction du churn client avec Random Forest, analyse SHAP, segmentation des r
 
 ### analyse coupe du monde fifa 2026
 
-**Power BI · Business Intelligence**
+**Power BI**
 
 Analyse et visualisation de la Coupe du Monde FIFA 2026 avec Power BI.
 
@@ -42,7 +50,7 @@ Analyse et visualisation de la Coupe du Monde FIFA 2026 avec Power BI.
 
 ### analyse performance football europe
 
-**Power BI · Business Intelligence**
+**Power BI**
 
 Analyse de la performance du football européen avec Power BI.
 
@@ -50,7 +58,7 @@ Analyse de la performance du football européen avec Power BI.
 
 ### analyse performance olist
 
-**Power BI · Business Intelligence**
+**Power BI**
 
 Analyse de performance e-commerce avec Power BI.
 
@@ -58,7 +66,7 @@ Analyse de performance e-commerce avec Power BI.
 
 ### analyse pitchside pro revenue
 
-**Power BI · Business Intelligence**
+**Power BI**
 
 Analyse des revenus et de la performance commerciale avec Power BI.
 
@@ -66,7 +74,7 @@ Analyse des revenus et de la performance commerciale avec Power BI.
 
 ### analyse retail star schema
 
-**Power BI · Business Intelligence**
+**Power BI**
 
 Analyse retail avec modèle en étoile, audit DAX et validation des indicateurs.
 
@@ -74,7 +82,7 @@ Analyse retail avec modèle en étoile, audit DAX et validation des indicateurs.
 
 ### assurance automobile dashboard
 
-**Power BI · Business Intelligence**
+**Power BI**
 
 Analyse et pilotage de la performance d'un portefeuille automobile.
 
@@ -82,7 +90,7 @@ Analyse et pilotage de la performance d'un portefeuille automobile.
 
 ### gap service
 
-**Power BI · Business Intelligence**
+**Power BI**
 
 Analyse et pilotage de la performance du service.
 
@@ -90,7 +98,7 @@ Analyse et pilotage de la performance du service.
 
 ### pilotage reseau distribution multimagasins
 
-**Power BI · Business Intelligence**
+**Power BI**
 
 Projet de Business Intelligence réalisé avec Power BI.
 
@@ -98,7 +106,7 @@ Projet de Business Intelligence réalisé avec Power BI.
 
 ### pilotage risque credit bancaire
 
-**Power BI · Business Intelligence**
+**Power BI**
 
 Analyse et pilotage du risque de crédit bancaire.
 
@@ -106,6 +114,5 @@ Analyse et pilotage du risque de crédit bancaire.
 
 ## Tous mes projets
 
-[Voir mes projets Power BI](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI)
-
-[Voir mes projets Machine Learning](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning)
+- [Voir mes projets Machine Learning](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning)
+- [Voir mes projets Power BI](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI)
