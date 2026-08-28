@@ -35,18 +35,6 @@ La liste des projets est générée automatiquement à partir des projets prése
 - [08 pilotage reseau distribution multimagasins](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-reseau-distribution-multimagasins)
 - [09 pilotage risque credit bancaire](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-risque-credit-bancaire)
 
-### 📗 Excel
-
-- [01 Analyse financiere](https://github.com/fbomisso/fabrice.bomisso/tree/main/Excel/01_Analyse_financiere)
-
-### 🐍 Python
-
-- [01 Analyse donnees](https://github.com/fbomisso/fabrice.bomisso/tree/main/Python/01_Analyse_donnees)
-
-### 🗄️ SQL
-
-- [01 Analyse base de donnees](https://github.com/fbomisso/fabrice.bomisso/tree/main/sql/01_Analyse_base_de_donnees)
-
 <!-- AUTO_STRUCTURE_END -->
 
 ## Stack technique
