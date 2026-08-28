@@ -6,8 +6,8 @@ Ce projet porte sur la **classification de tumeurs du sein** à partir de caract
 
 L'objectif est de construire un modèle capable de distinguer deux classes :
 
-- 🔴 **Malignant** : tumeur maligne
-- 🟢 **Benign** : tumeur bénigne
+* 🔴 **Malignant** : tumeur maligne
+* 🟢 **Benign** : tumeur bénigne
 
 Le projet couvre les principales étapes d'un projet de Machine Learning supervisé, depuis l'exploration et la préparation des données jusqu'à la comparaison des modèles, l'optimisation des hyperparamètres, l'évaluation et l'intégration du modèle final dans une application Streamlit.
 
@@ -21,20 +21,20 @@ Le projet couvre les principales étapes d'un projet de Machine Learning supervi
 
 ## 🎯 Objectifs du projet
 
-- Explorer le jeu de données Breast Cancer Wisconsin
-- Comprendre la structure et la distribution des variables
-- Analyser les relations entre les caractéristiques et la cible
-- Préparer les données pour la modélisation
-- Standardiser les variables explicatives
-- Construire une baseline de classification
-- Comparer plusieurs algorithmes de classification
-- Optimiser les modèles avec `GridSearchCV`
-- Évaluer les performances avec plusieurs métriques
-- Analyser les matrices de confusion et les courbes ROC
-- Sélectionner le meilleur modèle
-- Sauvegarder le pipeline final avec Joblib
-- Intégrer le modèle dans une application Streamlit
-- Tester le modèle sur des observations réelles du dataset
+* Explorer le jeu de données Breast Cancer Wisconsin
+* Comprendre la structure et la distribution des variables
+* Analyser les relations entre les caractéristiques et la cible
+* Préparer les données pour la modélisation
+* Standardiser les variables explicatives
+* Construire une baseline de classification
+* Comparer plusieurs algorithmes de classification
+* Optimiser les modèles avec `GridSearchCV`
+* Évaluer les performances avec plusieurs métriques
+* Analyser les matrices de confusion et les courbes ROC
+* Sélectionner le meilleur modèle
+* Sauvegarder le pipeline final avec Joblib
+* Intégrer le modèle dans une application Streamlit
+* Tester le modèle sur des observations réelles du dataset
 
 ---
 
@@ -44,16 +44,18 @@ Le projet couvre les principales étapes d'un projet de Machine Learning supervi
 
 Le projet utilise le jeu de données **Breast Cancer Wisconsin (Diagnostic)** disponible directement via `scikit-learn` avec :
 
-`sklearn.datasets.load_breast_cancer`
+```python
+sklearn.datasets.load_breast_cancer
+```
 
 ### Taille du dataset
 
 Le dataset contient :
 
-- **569 observations**
-- **30 variables explicatives**
-- **1 variable cible**
-- **31 colonnes au total après ajout de la cible**
+* **569 observations**
+* **30 variables explicatives**
+* **1 variable cible**
+* **31 colonnes au total après ajout de la cible**
 
 Les 30 caractéristiques décrivent différentes propriétés morphologiques des noyaux cellulaires observés dans les tumeurs.
 
@@ -61,55 +63,55 @@ Les 30 caractéristiques décrivent différentes propriétés morphologiques des
 
 ## 🧬 Variables utilisées
 
-Les variables sont organisées autour de trois groupes de mesures :
+Les variables sont organisées autour de trois groupes de mesures.
 
 ### Mesures moyennes
 
-- `mean radius`
-- `mean texture`
-- `mean perimeter`
-- `mean area`
-- `mean smoothness`
-- `mean compactness`
-- `mean concavity`
-- `mean concave points`
-- `mean symmetry`
-- `mean fractal dimension`
+* `mean radius`
+* `mean texture`
+* `mean perimeter`
+* `mean area`
+* `mean smoothness`
+* `mean compactness`
+* `mean concavity`
+* `mean concave points`
+* `mean symmetry`
+* `mean fractal dimension`
 
 ### Erreurs standard
 
-- `radius error`
-- `texture error`
-- `perimeter error`
-- `area error`
-- `smoothness error`
-- `compactness error`
-- `concavity error`
-- `concave points error`
-- `symmetry error`
-- `fractal dimension error`
+* `radius error`
+* `texture error`
+* `perimeter error`
+* `area error`
+* `smoothness error`
+* `compactness error`
+* `concavity error`
+* `concave points error`
+* `symmetry error`
+* `fractal dimension error`
 
 ### Mesures des valeurs extrêmes
 
-- `worst radius`
-- `worst texture`
-- `worst perimeter`
-- `worst area`
-- `worst smoothness`
-- `worst compactness`
-- `worst concavity`
-- `worst concave points`
-- `worst symmetry`
-- `worst fractal dimension`
+* `worst radius`
+* `worst texture`
+* `worst perimeter`
+* `worst area`
+* `worst smoothness`
+* `worst compactness`
+* `worst concavity`
+* `worst concave points`
+* `worst symmetry`
+* `worst fractal dimension`
 
 ### Variable cible
 
 La cible est codée selon la convention du dataset :
 
-| Valeur | Classe |
-|---:|---|
-| `0` | 🔴 Malignant |
-| `1` | 🟢 Benign |
+| Valeur | Classe       |
+| -----: | ------------ |
+|    `0` | 🔴 Malignant |
+|    `1` | 🟢 Benign    |
 
 ---
 
@@ -125,21 +127,17 @@ Le projet suit le pipeline suivant :
 
 L'analyse exploratoire a permis de vérifier :
 
-- les dimensions du dataset ;
-- les types de données ;
-- les valeurs manquantes ;
-- la distribution des variables ;
-- la distribution des classes ;
-- les corrélations entre les variables ;
-- les relations entre les caractéristiques et la variable cible.
+* les dimensions du dataset ;
+* les types de données ;
+* les valeurs manquantes ;
+* la distribution des variables ;
+* la distribution des classes ;
+* les corrélations entre les variables ;
+* les relations entre les caractéristiques et la variable cible.
 
 Le dataset présente également une forte corrélation entre plusieurs variables morphologiques.
 
 Cette situation constitue un point important pour l'interprétation des coefficients de la régression logistique.
-
-### Analyse exploratoire
-
-![Analyse exploratoire](images/eda.png)
 
 ---
 
@@ -149,18 +147,18 @@ Les variables explicatives ont été séparées de la variable cible.
 
 Le dataset a ensuite été divisé en deux parties :
 
-- **80 % pour l'entraînement**
-- **20 % pour le test**
+* **80 % pour l'entraînement**
+* **20 % pour le test**
 
 La séparation a été réalisée avec une **stratification sur la variable cible** afin de conserver une répartition comparable des classes dans les deux ensembles.
 
 ### Répartition
 
-| Ensemble | Observations | Variables |
-|---|---:|---:|
-| Entraînement | 455 | 30 |
-| Test | 114 | 30 |
-| Total | 569 | 30 |
+| Ensemble     | Observations | Variables |
+| ------------ | -----------: | --------: |
+| Entraînement |          455 |        30 |
+| Test         |          114 |        30 |
+| Total        |          569 |        30 |
 
 ---
 
@@ -192,19 +190,19 @@ Cette étape permet de vérifier que les modèles entraînés apportent une rée
 
 Plusieurs algorithmes de classification ont été étudiés :
 
-- Régression logistique
-- KNN
-- Arbre de décision
-- Random Forest
-- SVM
+* Régression logistique
+* KNN
+* Arbre de décision
+* Random Forest
+* SVM
 
 Les modèles ont été évalués à partir de plusieurs métriques :
 
-- Accuracy
-- Précision
-- Rappel
-- F1-score
-- ROC-AUC
+* Accuracy
+* Précision
+* Rappel
+* F1-score
+* ROC-AUC
 
 Cette comparaison permet d'éviter de sélectionner un modèle uniquement sur la base de l'Accuracy.
 
@@ -214,7 +212,9 @@ Cette comparaison permet d'éviter de sélectionner un modèle uniquement sur la
 
 La régression logistique a été intégrée dans un pipeline comprenant :
 
-`StandardScaler → LogisticRegression`
+```text
+StandardScaler → LogisticRegression
+```
 
 La recherche du meilleur hyperparamètre `C` a été réalisée avec `GridSearchCV`.
 
@@ -226,16 +226,16 @@ C = [0.001, 0.01, 0.1, 1, 10, 100]
 
 La validation croisée stratifiée utilise :
 
-- **5 folds**
-- `shuffle=True`
-- `random_state=42`
-- métrique d'optimisation : **ROC-AUC**
+* **5 folds**
+* `shuffle=True`
+* `random_state=42`
+* métrique d'optimisation : **ROC-AUC**
 
 ### Meilleur paramètre
 
-| Paramètre | Valeur |
-|---|---:|
-| `C` | **1** |
+| Paramètre  |      Valeur |
+| ---------- | ----------: |
+| `C`        |       **1** |
 | ROC-AUC CV | **99,59 %** |
 
 Le modèle final est donc une **régression logistique avec `C = 1`**, précédée d'une standardisation.
@@ -246,13 +246,13 @@ Le modèle final est donc une **régression logistique avec `C = 1`**, précéd�
 
 La régression logistique optimisée obtient les performances suivantes sur le jeu de test :
 
-| Métrique | Résultat |
-|---|---:|
-| **Accuracy** | **98,25 %** |
+| Métrique      |    Résultat |
+| ------------- | ----------: |
+| **Accuracy**  | **98,25 %** |
 | **Précision** | **98,61 %** |
-| **Rappel** | **98,61 %** |
-| **F1-score** | **98,61 %** |
-| **ROC-AUC** | **99,54 %** |
+| **Rappel**    | **98,61 %** |
+| **F1-score**  | **98,61 %** |
+| **ROC-AUC**   | **99,54 %** |
 
 Le modèle classe correctement :
 
@@ -271,25 +271,21 @@ La validation croisée confirme également la stabilité du modèle avec une ROC
 La matrice de confusion du modèle final montre :
 
 | Classe réelle / prédite | Malignant | Benign |
-|---|---:|---:|
-| **Malignant** | **41** | **1** |
-| **Benign** | **1** | **71** |
+| ----------------------- | --------: | -----: |
+| **Malignant**           |    **41** |  **1** |
+| **Benign**              |     **1** | **71** |
 
 Le modèle identifie donc correctement :
 
-- **41 cas Malignant sur 42**
-- **71 cas Benign sur 72**
+* **41 cas Malignant sur 42**
+* **71 cas Benign sur 72**
 
 Il produit :
 
-- **1 faux négatif**
-- **1 faux positif**
+* **1 faux négatif**
+* **1 faux positif**
 
 Cette matrice montre que le modèle présente une classification équilibrée entre les deux classes sur le jeu de test.
-
-### Matrice de confusion
-
-![Matrice de confusion](images/matrice_confusion.png)
 
 ---
 
@@ -297,13 +293,13 @@ Cette matrice montre que le modèle présente une classification équilibrée en
 
 Les différents modèles optimisés ont été comparés sur le jeu de test.
 
-| Modèle | Accuracy | Précision | Rappel | F1-score | ROC-AUC |
-|---|---:|---:|---:|---:|---:|
-| 🥇 **Régression logistique optimisée** | **98,25 %** | **98,61 %** | **98,61 %** | **98,61 %** | **99,54 %** |
-| 🥈 KNN optimisé | 97,37 % | 96,00 % | **100,00 %** | 97,96 % | 99,44 % |
-| 🥉 SVM optimisé | 97,37 % | 97,26 % | 98,61 % | 97,93 % | 99,27 % |
-| Random Forest optimisé | 95,61 % | 95,89 % | 97,22 % | 96,55 % | 99,24 % |
-| Arbre de décision optimisé | 91,23 % | 95,59 % | 90,28 % | 92,86 % | 96,56 % |
+| Modèle                                 |    Accuracy |   Précision |       Rappel |    F1-score |     ROC-AUC |
+| -------------------------------------- | ----------: | ----------: | -----------: | ----------: | ----------: |
+| 🥇 **Régression logistique optimisée** | **98,25 %** | **98,61 %** |  **98,61 %** | **98,61 %** | **99,54 %** |
+| 🥈 KNN optimisé                        |     97,37 % |     96,00 % | **100,00 %** |     97,96 % |     99,44 % |
+| 🥉 SVM optimisé                        |     97,37 % |     97,26 % |      98,61 % |     97,93 % |     99,27 % |
+| Random Forest optimisé                 |     95,61 % |     95,89 % |      97,22 % |     96,55 % |     99,24 % |
+| Arbre de décision optimisé             |     91,23 % |     95,59 % |      90,28 % |     92,86 % |     96,56 % |
 
 ### Analyse
 
@@ -311,11 +307,11 @@ La **régression logistique optimisée** obtient les meilleures performances glo
 
 Elle présente notamment :
 
-- la meilleure Accuracy ;
-- le meilleur F1-score ;
-- la meilleure ROC-AUC test ;
-- un rappel élevé ;
-- une bonne stabilité entre validation croisée et test.
+* la meilleure Accuracy ;
+* le meilleur F1-score ;
+* la meilleure ROC-AUC test ;
+* un rappel élevé ;
+* une bonne stabilité entre validation croisée et test.
 
 Le KNN présente néanmoins un rappel de **100 %**, ce qui constitue une caractéristique intéressante lorsque la priorité est de limiter les faux négatifs.
 
@@ -329,10 +325,6 @@ La courbe ROC permet d'évaluer la capacité du modèle à distinguer les deux c
 
 La régression logistique optimisée obtient une **ROC-AUC de 99,54 %** sur le jeu de test.
 
-### Courbe ROC
-
-![Courbe ROC](images/courbe_roc.png)
-
 ---
 
 # 11. Interprétation du modèle
@@ -343,12 +335,12 @@ L'analyse des coefficients du modèle final montre notamment l'importance de plu
 
 Parmi les coefficients les plus importants figurent notamment :
 
-- `worst texture`
-- `radius error`
-- `worst concave points`
-- `worst area`
-- `mean compactness`
-- `compactness error`
+* `worst texture`
+* `radius error`
+* `worst concave points`
+* `worst area`
+* `mean compactness`
+* `compactness error`
 
 Cependant, plusieurs variables présentent une forte multicolinéarité.
 
@@ -388,9 +380,9 @@ modele_logistique_final.pkl
 
 Le fichier contient le pipeline complet, incluant :
 
-- la standardisation ;
-- la régression logistique ;
-- les paramètres du modèle.
+* la standardisation ;
+* la régression logistique ;
+* les paramètres du modèle.
 
 Une vérification du modèle sauvegardé a également été réalisée.
 
@@ -419,14 +411,6 @@ L'application permet de :
 
 **Sélection d'une observation → Affichage des caractéristiques → Prédiction → Probabilités → Validation**
 
-### Interface de l'application
-
-![Application Streamlit](images/streamlit_accueil.png)
-
-### Exemple de prédiction
-
-![Résultat de prédiction](images/streamlit_prediction.png)
-
 > ⚠️ L'application est destinée à la démonstration du modèle de Machine Learning. Elle ne constitue pas un outil de diagnostic médical.
 
 ---
@@ -441,33 +425,26 @@ L'application permet de :
 ├── modele_logistique_final.pkl
 ├── requirements.txt
 ├── .gitignore
-├── README.md
-│
-└── images/
-    ├── eda.png
-    ├── matrice_confusion.png
-    ├── courbe_roc.png
-    ├── streamlit_accueil.png
-    └── streamlit_prediction.png
+└── README.md
 ```
 
 ---
 
 # 16. Technologies utilisées
 
-| Domaine | Technologies |
-|---|---|
-| Langage | Python |
-| Manipulation des données | Pandas, NumPy |
-| Visualisation | Matplotlib, Seaborn |
-| Machine Learning | Scikit-learn |
-| Modèle final | Régression logistique |
-| Optimisation | GridSearchCV |
-| Prétraitement | StandardScaler |
-| Évaluation | Accuracy, Precision, Recall, F1-score, ROC-AUC |
-| Sauvegarde | Joblib |
-| Application | Streamlit |
-| Environnement | Jupyter Notebook, VS Code |
+| Domaine                  | Technologies                                   |
+| ------------------------ | ---------------------------------------------- |
+| Langage                  | Python                                         |
+| Manipulation des données | Pandas, NumPy                                  |
+| Visualisation            | Matplotlib, Seaborn                            |
+| Machine Learning         | Scikit-learn                                   |
+| Modèle final             | Régression logistique                          |
+| Optimisation             | GridSearchCV                                   |
+| Prétraitement            | StandardScaler                                 |
+| Évaluation               | Accuracy, Precision, Recall, F1-score, ROC-AUC |
+| Sauvegarde               | Joblib                                         |
+| Application              | Streamlit                                      |
+| Environnement            | Jupyter Notebook, VS Code                      |
 
 ---
 
@@ -555,38 +532,38 @@ Elle constitue une démonstration technique et non une application clinique.
 
 Plusieurs évolutions pourraient être envisagées :
 
-- intégrer une interface permettant la saisie manuelle des 30 caractéristiques ;
-- ajouter une visualisation plus détaillée des probabilités ;
-- intégrer une courbe ROC interactive ;
-- afficher une matrice de confusion directement dans l'application ;
-- ajouter une analyse de l'importance des variables ;
-- intégrer une méthode d'explicabilité comme SHAP ;
-- tester le modèle sur un jeu de données externe ;
-- mettre en place une validation externe ;
-- ajouter une surveillance des performances après déploiement ;
-- conteneuriser l'application avec Docker ;
-- déployer l'application sur une infrastructure cloud.
+* intégrer une interface permettant la saisie manuelle des 30 caractéristiques ;
+* ajouter une visualisation plus détaillée des probabilités ;
+* intégrer une courbe ROC interactive ;
+* afficher une matrice de confusion directement dans l'application ;
+* ajouter une analyse de l'importance des variables ;
+* intégrer une méthode d'explicabilité comme SHAP ;
+* tester le modèle sur un jeu de données externe ;
+* mettre en place une validation externe ;
+* ajouter une surveillance des performances après déploiement ;
+* conteneuriser l'application avec Docker ;
+* déployer l'application sur une infrastructure cloud.
 
 ---
 
 # 20. Résultats clés
 
-| Indicateur | Résultat |
-|---|---:|
-| Observations | **569** |
-| Variables | **30** |
-| Jeu d'entraînement | **455** |
-| Jeu de test | **114** |
-| Meilleur modèle | **Régression logistique optimisée** |
-| Meilleur `C` | **1** |
-| Accuracy test | **98,25 %** |
-| Précision test | **98,61 %** |
-| Rappel test | **98,61 %** |
-| F1-score test | **98,61 %** |
-| ROC-AUC test | **99,54 %** |
-| ROC-AUC CV | **99,59 %** |
-| Prédictions correctes | **112 / 114** |
-| Erreurs | **2** |
+| Indicateur            |                            Résultat |
+| --------------------- | ----------------------------------: |
+| Observations          |                             **569** |
+| Variables             |                              **30** |
+| Jeu d'entraînement    |                             **455** |
+| Jeu de test           |                             **114** |
+| Meilleur modèle       | **Régression logistique optimisée** |
+| Meilleur `C`          |                               **1** |
+| Accuracy test         |                         **98,25 %** |
+| Précision test        |                         **98,61 %** |
+| Rappel test           |                         **98,61 %** |
+| F1-score test         |                         **98,61 %** |
+| ROC-AUC test          |                         **99,54 %** |
+| ROC-AUC CV            |                         **99,59 %** |
+| Prédictions correctes |                       **112 / 114** |
+| Erreurs               |                               **2** |
 
 ---
 
