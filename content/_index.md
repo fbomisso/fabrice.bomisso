@@ -15,51 +15,6 @@ Bienvenue dans mon espace numérique où je transforme les données
 en informations fiables et exploitables pour faciliter la prise de décision.
 </p>
 
-<div class="tools-section">
-
-<h3>Outils</h3>
-
-<div class="tools-grid">
-
-<div class="tool-item">
-<img src="/fabrice.bomisso/img/logos/power bi logo.webp" alt="Power BI">
-<span>Power BI</span>
-</div>
-
-<div class="tool-item">
-<img src="/fabrice.bomisso/img/logos/python-powered.png" alt="Python">
-<span>Python</span>
-</div>
-
-<div class="tool-item">
-<img src="/fabrice.bomisso/img/logos/Excel logo.webp" alt="Excel">
-<span>Excel</span>
-</div>
-
-<div class="tool-item">
-<img src="/fabrice.bomisso/img/logos/SQL server logo.webp" alt="SQL Server">
-<span>SQL</span>
-</div>
-
-<div class="tool-item">
-<img src="/fabrice.bomisso/img/logos/Git logo.png" alt="Git">
-<span>Git</span>
-</div>
-
-<div class="tool-item">
-<img src="/fabrice.bomisso/img/logos/GitHub logo.webp" alt="GitHub">
-<span>GitHub</span>
-</div>
-
-<div class="tool-item">
-<img src="/fabrice.bomisso/img/logos/VS Code logo.webp" alt="Visual Studio Code">
-<span>VS Code</span>
-</div>
-
-</div>
-
-</div>
-
 <div class="social-links">
 
 <a href="https://github.com/fbomisso" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
@@ -96,6 +51,8 @@ Télécharger mon CV
 
 ## 🪴 Projets phares
 
+### 🤖 Projets Machine Learning
+
 ### Customer Churn Prediction
 
 **Machine Learning · Telco**
@@ -104,7 +61,9 @@ Prédiction du risque de churn client avec Random Forest, analyse SHAP, segmenta
 
 **Recall 77,81 % · F1-score 63,75 % · ROC-AUC 0,85**
 
-[Voir le projet]({{< relref "/projets/" >}})
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/B_Classification/01_Customer_Churn)
+
+### 📊 Projets Power BI
 
 ### Retail Analytics
 
@@ -112,7 +71,7 @@ Prédiction du risque de churn client avec Random Forest, analyse SHAP, segmenta
 
 Analyse retail basée sur un modèle en étoile, avec audit des indicateurs et validation des résultats.
 
-[Voir le projet]({{< relref "/projets/" >}})
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-retail-star-schema)
 
 ### Olist E-commerce Analytics
 
@@ -120,7 +79,7 @@ Analyse retail basée sur un modèle en étoile, avec audit des indicateurs et v
 
 Analyse d'une marketplace e-commerce brésilienne avec modélisation en constellation et analyse de la performance logistique.
 
-[Voir le projet]({{< relref "/projets/" >}})
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-olist)
 
 ### PitchSide Pro Revenue
 
@@ -128,7 +87,7 @@ Analyse d'une marketplace e-commerce brésilienne avec modélisation en constell
 
 Analyse de la croissance des revenus d'une plateforme e-commerce spécialisée dans les articles de football.
 
-[Voir le projet]({{< relref "/projets/" >}})
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-pitchside-pro-revenue)
 
 ### Performance Football Européen
 
@@ -136,7 +95,7 @@ Analyse de la croissance des revenus d'une plateforme e-commerce spécialisée d
 
 Analyse de la performance des joueurs et des équipes du football européen, avec des volets consacrés au scouting, aux statistiques et à la valorisation.
 
-[Voir le projet]({{< relref "/projets/" >}})
+[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-football-europe)
 
 ## À propos
 
@@ -165,3 +124,48 @@ Formation en Data Science, Data Analytics et Génie de l'Eau et de l'Environneme
 Certifications en Data Analytics, Microsoft Power BI, gestion de projet, MEAL, WASH et HSE.
 
 [Voir mes certifications]({{< relref "/certifications/" >}})
+
+<div class="tools-section">
+
+<h2>Outils</h2>
+
+<div class="tools-grid">
+
+<div class="tool-item">
+<img src="/fabrice.bomisso/icons/python.svg" alt="Python">
+<span>Python</span>
+</div>
+
+<div class="tool-item">
+<img src="/fabrice.bomisso/icons/git.svg" alt="Git">
+<span>Git</span>
+</div>
+
+<div class="tool-item">
+<img src="/fabrice.bomisso/icons/github.svg" alt="GitHub">
+<span>GitHub</span>
+</div>
+
+<div class="tool-item">
+<img src="/fabrice.bomisso/icons/powerbi.svg" alt="Power BI">
+<span>Power BI</span>
+</div>
+
+<div class="tool-item">
+<img src="/fabrice.bomisso/icons/excel.svg" alt="Excel">
+<span>Excel</span>
+</div>
+
+<div class="tool-item">
+<img src="/fabrice.bomisso/icons/sqlserver.svg" alt="SQL Server">
+<span>SQL Server</span>
+</div>
+
+<div class="tool-item">
+<img src="/fabrice.bomisso/icons/vscode.svg" alt="Visual Studio Code">
+<span>VS Code</span>
+</div>
+
+</div>
+
+</div>
