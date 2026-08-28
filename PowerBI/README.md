@@ -6,28 +6,34 @@ Cette partie de mon portfolio regroupe mes projets réalisés autour de la **Bus
 
 Les projets sont organisés par dossiers afin de séparer clairement les fichiers Power BI, les données utilisées, la documentation et les captures des tableaux de bord.
 
+<!-- AUTO_PROJECTS_START -->
+
+<!-- AUTO_PROJECTS_END -->
+
 ## 📂 Organisation des projets
 
 Chaque projet Power BI suit autant que possible une structure commune :
 
-    PowerBI/
-    │
-    ├── nom-du-projet/
-    │   ├── nom-du-projet.pbix
-    │   ├── README.md
-    │   ├── data/
-    │   ├── documentation/
-    │   └── screenshots/
-    │
-    ├── autre-projet/
-    │   ├── autre-projet.pbix
-    │   ├── README.md
-    │   ├── data/
-    │   ├── documentation/
-    │   └── screenshots/
-    │
-    └── _template/
-        └── README.md
+```
+PowerBI/
+│
+├── nom-du-projet/
+│   ├── nom-du-projet.pbix
+│   ├── README.md
+│   ├── data/
+│   ├── documentation/
+│   └── screenshots/
+│
+├── autre-projet/
+│   ├── autre-projet.pbix
+│   ├── README.md
+│   ├── data/
+│   ├── documentation/
+│   └── screenshots/
+│
+└── _template/
+    └── README.md
+```
 
 ### 📁 `data/`
 
