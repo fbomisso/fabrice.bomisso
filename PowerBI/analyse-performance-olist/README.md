@@ -153,7 +153,7 @@ Le rapport comprend cinq pages décisionnelles.
 
 Une note de fiabilité signale que les deux derniers mois du dataset sont incomplets.
 
-![Vue d'ensemble](screenshots/02_Vue_ensemble.jpg)
+![Vue d'ensemble](screenshots/01_Vue_ensemble.jpg)
 
 ### Page 2 — Performance commerciale
 
@@ -168,7 +168,7 @@ Une note de fiabilité signale que les deux derniers mois du dataset sont incomp
 
 Les mois de septembre à décembre 2016 sont exclus de l'analyse du panier moyen en raison d'un volume de commandes insuffisant.
 
-![Performance commerciale](screenshots/01_Performance_commerciale.jpg)
+![Performance commerciale](screenshots/02_Performance_commerciale.jpg)
 
 ### Page 3 — Logistique
 
