@@ -6,33 +6,25 @@ Une sélection de projets réalisés en Business Intelligence, Data Analytics et
 
 ## 🤖 Machine Learning
 
-### I Apprentissage supervise
+### [I Apprentissage supervise](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise)
 
-**Machine Learning**
+#### [A Regression](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression)
 
-Projet de Machine Learning consacré à l'analyse, la modélisation et la prédiction à partir de données.
-
-[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise)
-
-### 01 Prediction progression diabete
-
-**Machine Learning**
+**Prediction progression diabete**
 
 Projet de régression visant à prédire la progression du diabète à partir de variables cliniques.
 
 [Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete)
 
-### 02 Prediction bruit aerodynamique
-
-**Machine Learning**
+**Prediction bruit aerodynamique**
 
 Projet de régression consacré à la prédiction du bruit aérodynamique.
 
 [Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/02_Prediction_bruit_aerodynamique)
 
-### 01 Customer Churn
+#### [B Classification](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/B_Classification)
 
-**Machine Learning**
+**Customer Churn**
 
 Prédiction du churn client avec Random Forest, analyse SHAP, segmentation des risques et application Streamlit.
 
@@ -40,7 +32,7 @@ Prédiction du churn client avec Random Forest, analyse SHAP, segmentation des r
 
 ## 📊 Power BI
 
-### analyse coupe du monde fifa 2026
+### 01 analyse coupe du monde fifa 2026
 
 **Power BI**
 
@@ -48,7 +40,7 @@ Analyse et visualisation de la Coupe du Monde FIFA 2026 avec Power BI.
 
 [Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-coupe-du-monde-fifa-2026)
 
-### analyse performance football europe
+### 02 analyse performance football europe
 
 **Power BI**
 
@@ -56,15 +48,15 @@ Analyse de la performance du football européen avec Power BI.
 
 [Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-football-europe)
 
-### analyse performance olist
+### 03 analyse performance olist
 
 **Power BI**
 
-Analyse de performance e-commerce avec Power BI.
+Analyse de la performance e-commerce avec Power BI.
 
 [Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-olist)
 
-### analyse pitchside pro revenue
+### 04 analyse pitchside pro revenue
 
 **Power BI**
 
@@ -72,7 +64,7 @@ Analyse des revenus et de la performance commerciale avec Power BI.
 
 [Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-pitchside-pro-revenue)
 
-### analyse retail star schema
+### 05 analyse retail star schema
 
 **Power BI**
 
@@ -80,7 +72,7 @@ Analyse retail avec modèle en étoile, audit DAX et validation des indicateurs.
 
 [Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-retail-star-schema)
 
-### assurance automobile dashboard
+### 06 assurance automobile dashboard
 
 **Power BI**
 
@@ -88,7 +80,7 @@ Analyse et pilotage de la performance d'un portefeuille automobile.
 
 [Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/assurance-automobile-dashboard)
 
-### gap service
+### 07 gap service
 
 **Power BI**
 
@@ -96,15 +88,15 @@ Analyse et pilotage de la performance du service.
 
 [Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/gap-service)
 
-### pilotage reseau distribution multimagasins
+### 08 pilotage reseau distribution multimagasins
 
 **Power BI**
 
-Projet de Business Intelligence réalisé avec Power BI.
+Pilotage décisionnel d'un réseau de distribution multi-magasins avec Power BI.
 
 [Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-reseau-distribution-multimagasins)
 
-### pilotage risque credit bancaire
+### 09 pilotage risque credit bancaire
 
 **Power BI**
 
