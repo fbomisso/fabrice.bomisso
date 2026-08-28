@@ -6,17 +6,21 @@ Une sélection de projets réalisés en Business Intelligence, Data Analytics et
 
 ## 🤖 Machine Learning
 
-### [I Apprentissage supervise](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise)
+### [I Apprentissage supervisé](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise)
 
-#### [A Regression](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression)
+#### [A Régression](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression)
 
-**Prediction progression diabete**
+##### 01 01 Prediction progression diabete
+
+**Machine Learning**
 
 Projet de régression visant à prédire la progression du diabète à partir de variables cliniques.
 
 [Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete)
 
-**Prediction bruit aerodynamique**
+##### 02 02 Prediction bruit aerodynamique
+
+**Machine Learning**
 
 Projet de régression consacré à la prédiction du bruit aérodynamique.
 
@@ -24,7 +28,9 @@ Projet de régression consacré à la prédiction du bruit aérodynamique.
 
 #### [B Classification](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/B_Classification)
 
-**Customer Churn**
+##### 01 01 Customer Churn
+
+**Machine Learning**
 
 Prédiction du churn client avec Random Forest, analyse SHAP, segmentation des risques et application Streamlit.
 
@@ -106,5 +112,6 @@ Analyse et pilotage du risque de crédit bancaire.
 
 ## Tous mes projets
 
-- [Voir mes projets Machine Learning](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning)
-- [Voir mes projets Power BI](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI)
+- [Machine Learning](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning)
+
+- [Power BI](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI)

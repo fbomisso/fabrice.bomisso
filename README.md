@@ -12,29 +12,28 @@ La liste des projets est générée automatiquement à partir des projets prése
 
 ### 🤖 Machine Learning
 
-#### [I Apprentissage supervise](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise)
+#### [I Apprentissage supervisé](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise)
 
-**[A Regression](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression)**
+**[A Régression](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression)**
 
-- [01 Prediction progression diabete](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete)
-- [02 Prediction bruit aerodynamique](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/02_Prediction_bruit_aerodynamique)
+- 01 [01 Prediction progression diabete](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete)
+- 02 [02 Prediction bruit aerodynamique](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/02_Prediction_bruit_aerodynamique)
 
 **[B Classification](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/B_Classification)**
 
-- [03 Customer Churn](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/B_Classification/01_Customer_Churn)
-
+- 01 [01 Customer Churn](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/B_Classification/01_Customer_Churn)
 
 ### 📊 Power BI
 
-- [01 analyse coupe du monde fifa 2026](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-coupe-du-monde-fifa-2026)
-- [02 analyse performance football europe](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-football-europe)
-- [03 analyse performance olist](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-olist)
-- [04 analyse pitchside pro revenue](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-pitchside-pro-revenue)
-- [05 analyse retail star schema](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-retail-star-schema)
-- [06 assurance automobile dashboard](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/assurance-automobile-dashboard)
-- [07 gap service](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/gap-service)
-- [08 pilotage reseau distribution multimagasins](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-reseau-distribution-multimagasins)
-- [09 pilotage risque credit bancaire](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-risque-credit-bancaire)
+- 01 [analyse coupe du monde fifa 2026](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-coupe-du-monde-fifa-2026)
+- 02 [analyse performance football europe](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-football-europe)
+- 03 [analyse performance olist](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-olist)
+- 04 [analyse pitchside pro revenue](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-pitchside-pro-revenue)
+- 05 [analyse retail star schema](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-retail-star-schema)
+- 06 [assurance automobile dashboard](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/assurance-automobile-dashboard)
+- 07 [gap service](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/gap-service)
+- 08 [pilotage reseau distribution multimagasins](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-reseau-distribution-multimagasins)
+- 09 [pilotage risque credit bancaire](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-risque-credit-bancaire)
 
 <!-- AUTO_STRUCTURE_END -->
 
