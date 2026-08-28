@@ -28,13 +28,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - name: Detect projects and generate README + Hugo
+      - name: Generate README and Hugo projects page
         shell: bash
         run: |
           python <<'PY'
@@ -46,9 +45,17 @@ jobs:
           README_PATH = Path("README.md")
           HUGO_PATH = Path("content/projets/_index.md")
 
-          # ============================================================
-          # DOSSIERS TECHNIQUES A IGNORER
-          # ============================================================
+          # ================================================================
+          # CONFIGURATION
+          # ================================================================
+
+          ROOTS = {
+              "Machine Learning": Path("Machine-Learning"),
+              "Power BI": Path("PowerBI"),
+              "Excel": Path("Excel"),
+              "Python": Path("Python"),
+              "SQL": Path("sql"),
+          }
 
           IGNORED_DIRS = {
               ".git",
@@ -59,7 +66,6 @@ jobs:
               ".venv",
               "env",
               ".env",
-
               "data",
               "Data",
               "raw",
@@ -77,416 +83,260 @@ jobs:
               "_template",
           }
 
-          # ============================================================
-          # STRUCTURE MACHINE LEARNING
+          # ================================================================
+          # PROJETS MIS EN AVANT SUR LA PAGE HUGO
           #
-          # La numérotation est réinitialisée dans chaque sous-catégorie.
+          # IMPORTANT :
+          # Cette liste est volontairement indépendante de la détection
+          # automatique du README.
           #
-          # A_Regression
-          #   01 Projet
-          #   02 Projet
-          #
-          # B_Classification
-          #   01 Projet
-          #   02 Projet
-          #
-          # ============================================================
+          # La page Hugo n'affichera QUE ces projets.
+          # ================================================================
 
-          ML_STRUCTURE = [
-              (
-                  "I_Apprentissage_supervise",
-                  "I Apprentissage supervisé",
-                  [
-                      ("A_Regression", "A Régression"),
-                      ("B_Classification", "B Classification"),
-                  ],
-              ),
-              (
-                  "II_Apprentissage_non_supervise",
-                  "II Apprentissage non supervisé",
-                  [
-                      ("A_Clustering", "A Clustering"),
-                      ("B_Detection_anomalies", "B Détection d'anomalies"),
-                      ("C_Reduction_dimension", "C Réduction de dimension"),
-                  ],
-              ),
-              (
-                  "III_Apprentissage par renforcement",
-                  "III Apprentissage par renforcement",
-                  [],
-              ),
-              (
-                  "IV_Deep Learning",
-                  "IV Deep Learning",
-                  [],
-              ),
+          FEATURED_PROJECTS = [
+              {
+                  "path": "Machine-Learning/I_Apprentissage_supervise/"
+                         "A_Regression/01_Prediction_progression_diabete",
+                  "category": "Machine Learning",
+                  "title": "Progression de la prédiction du diabète",
+                  "type": "Machine Learning · Régression",
+                  "description":
+                      "Projet de régression visant à prédire la progression "
+                      "du diabète à partir de variables cliniques.",
+              },
+              {
+                  "path": "Machine-Learning/I_Apprentissage_supervise/"
+                         "A_Regression/02_Prediction_bruit_aerodynamique",
+                  "category": "Machine Learning",
+                  "title": "Prédiction du bruit aérodynamique",
+                  "type": "Machine Learning · Régression",
+                  "description":
+                      "Projet de régression consacré à la prédiction du "
+                      "bruit aérodynamique.",
+              },
+              {
+                  "path": "Machine-Learning/I_Apprentissage_supervise/"
+                         "B_Classification/01_Customer_Churn",
+                  "category": "Machine Learning",
+                  "title": "Churn client",
+                  "type": "Machine Learning · Classification",
+                  "description":
+                      "Prédiction du churn client avec Random Forest, "
+                      "analyse SHAP, segmentation des risques et "
+                      "application Streamlit.",
+              },
+              {
+                  "path": "PowerBI/analyse-coupe-du-monde-fifa-2026",
+                  "category": "Power BI",
+                  "title": "Analyse de la Coupe du Monde FIFA 2026",
+                  "type": "Power BI",
+                  "description":
+                      "Analyse et visualisation de la Coupe du Monde "
+                      "FIFA 2026 avec Power BI.",
+              },
+              {
+                  "path": "PowerBI/analyse-performance-football-europe",
+                  "category": "Power BI",
+                  "title": "Analyse de la performance du football européen",
+                  "type": "Power BI",
+                  "description":
+                      "Analyse de la performance du football européen "
+                      "avec Power BI.",
+              },
           ]
 
-          # ============================================================
-          # DESCRIPTIONS PERSONNALISEES
-          # ============================================================
-
-          CUSTOM_DESCRIPTIONS = {
-
-              "Machine-Learning/I_Apprentissage_supervise/"
-              "A_Regression/01_Prediction_progression_diabete":
-                  "Projet de régression visant à prédire la progression "
-                  "du diabète à partir de variables cliniques.",
-
-              "Machine-Learning/I_Apprentissage_supervise/"
-              "A_Regression/02_Prediction_bruit_aerodynamique":
-                  "Projet de régression consacré à la prédiction du "
-                  "bruit aérodynamique.",
-
-              "Machine-Learning/I_Apprentissage_supervise/"
-              "B_Classification/01_Customer_Churn":
-                  "Prédiction du churn client avec Random Forest, "
-                  "analyse SHAP, segmentation des risques et "
-                  "application Streamlit.",
-
-              "PowerBI/analyse-coupe-du-monde-fifa-2026":
-                  "Analyse et visualisation de la Coupe du Monde FIFA "
-                  "2026 avec Power BI.",
-
-              "PowerBI/analyse-performance-football-europe":
-                  "Analyse de la performance du football européen "
-                  "avec Power BI.",
-
-              "PowerBI/analyse-performance-olist":
-                  "Analyse de la performance e-commerce avec Power BI.",
-
-              "PowerBI/analyse-pitchside-pro-revenue":
-                  "Analyse des revenus et de la performance commerciale "
-                  "avec Power BI.",
-
-              "PowerBI/analyse-retail-star-schema":
-                  "Analyse retail avec modèle en étoile, audit DAX "
-                  "et validation des indicateurs.",
-
-              "PowerBI/assurance-automobile-dashboard":
-                  "Analyse et pilotage de la performance d'un "
-                  "portefeuille automobile.",
-
-              "PowerBI/gap-service":
-                  "Analyse et pilotage de la performance du service.",
-
-              "PowerBI/pilotage-reseau-distribution-multimagasins":
-                  "Pilotage décisionnel d'un réseau de distribution "
-                  "multi-magasins avec Power BI.",
-
-              "PowerBI/pilotage-risque-credit-bancaire":
-                  "Analyse et pilotage du risque de crédit bancaire.",
-          }
-
-          # ============================================================
+          # ================================================================
           # OUTILS
-          # ============================================================
+          # ================================================================
 
-          def is_hidden(path: Path):
-              return any(
-                  part.startswith(".")
-                  for part in path.parts
-              )
+          def is_hidden(path):
+              return any(part.startswith(".") for part in path.parts)
 
-          def is_ignored(path: Path):
-              return any(
-                  part in IGNORED_DIRS
-                  for part in path.parts
-              )
+          def is_ignored(path):
+              return any(part in IGNORED_DIRS for part in path.parts)
 
-          def has_readme(path: Path):
+          def has_readme(path):
               return (path / "README.md").is_file()
 
-          def clean_name(name: str):
+          def clean_name(name):
               name = name.replace("_", " ")
               name = name.replace("-", " ")
-              name = re.sub(r"\s+", " ", name).strip()
-              return name
+              name = re.sub(r"\s+", " ", name)
+              return name.strip()
 
-          def github_url(path: Path):
+          def github_url(path):
               return (
                   f"{REPO_URL}/tree/main/"
                   f"{path.as_posix()}"
               )
 
-          def description(path: Path, category: str):
-              key = path.as_posix()
+          def has_readme_child(path):
+              try:
+                  for child in path.iterdir():
+                      if not child.is_dir():
+                          continue
 
-              if key in CUSTOM_DESCRIPTIONS:
-                  return CUSTOM_DESCRIPTIONS[key]
+                      if is_hidden(child) or is_ignored(child):
+                          continue
 
-              descriptions = {
-                  "Power BI":
-                      "Projet de Business Intelligence réalisé "
-                      "avec Power BI.",
+                      if has_readme(child):
+                          return True
 
-                  "Excel":
-                      "Projet d'analyse et de traitement de données "
-                      "réalisé avec Excel.",
+              except OSError:
+                  return False
 
-                  "Python":
-                      "Projet d'analyse et de traitement de données "
-                      "réalisé avec Python.",
+              return False
 
-                  "SQL":
-                      "Projet d'analyse et de traitement de données "
-                      "réalisé avec SQL.",
-
-                  "Machine Learning":
-                      "Projet de Machine Learning consacré à "
-                      "l'analyse, la modélisation et la prédiction "
-                      "à partir de données.",
-              }
-
-              return descriptions.get(
-                  category,
-                  "Projet présenté dans le portfolio."
-              )
-
-          # ============================================================
-          # DETECTION DES PROJETS D'UNE CATEGORIE DIRECTE
+          # ================================================================
+          # DETECTION MACHINE LEARNING
+          #
+          # Les dossiers organisationnels ne sont PAS considérés comme
+          # des projets.
           #
           # Exemple :
           #
+          # I_Apprentissage_supervise/
+          # ├── README.md
+          # ├── A_Regression/
+          # │   ├── README.md
+          # │   ├── 01_Projet/
+          # │   │   └── README.md
+          # │   └── 02_Projet/
+          # │       └── README.md
+          #
+          # Seuls 01_Projet et 02_Projet sont détectés comme projets.
+          # ================================================================
+
+          def is_real_ml_project(path):
+              return (
+                  path.is_dir()
+                  and not is_hidden(path)
+                  and not is_ignored(path)
+                  and has_readme(path)
+                  and not has_readme_child(path)
+              )
+
+          ml_projects = []
+
+          ml_root = ROOTS["Machine Learning"]
+
+          if ml_root.is_dir():
+              for path in ml_root.rglob("*"):
+                  if is_real_ml_project(path):
+                      ml_projects.append(path)
+
+          ml_projects = sorted(
+              set(ml_projects),
+              key=lambda p: p.as_posix().lower()
+          )
+
+          # ================================================================
+          # DETECTION CATEGORIES DIRECTES
+          #
           # PowerBI/
-          #   projet1/
-          #     README.md
-          #
           # Excel/
-          #   projet1/
-          #     README.md
+          # Python/
+          # sql/
           #
-          # ============================================================
+          # Un projet = dossier contenant README.md.
+          # ================================================================
 
-          def detect_direct_projects(root: Path):
-
+          def detect_direct_projects(root):
               projects = []
 
               if not root.is_dir():
                   return projects
 
               for path in root.iterdir():
-
-                  if not path.is_dir():
-                      continue
-
-                  if is_hidden(path):
-                      continue
-
-                  if is_ignored(path):
-                      continue
-
-                  if not has_readme(path):
-                      continue
-
-                  projects.append(path)
+                  if (
+                      path.is_dir()
+                      and not is_hidden(path)
+                      and not is_ignored(path)
+                      and has_readme(path)
+                  ):
+                      projects.append(path)
 
               return sorted(
-                  projects,
+                  set(projects),
                   key=lambda p: p.name.lower()
               )
 
-          # ============================================================
-          # DETECTION MACHINE LEARNING
-          #
-          # IMPORTANT :
-          # Les dossiers organisationnels ne sont jamais affichés comme
-          # projets.
-          #
-          # La numérotation est locale à chaque sous-catégorie.
-          # ============================================================
-
-          ml_categories = []
-
-          ml_root = Path("Machine-Learning")
-
-          for category_folder, category_name, subcategories in ML_STRUCTURE:
-
-              category_path = ml_root / category_folder
-
-              if not category_path.is_dir():
-                  continue
-
-              category_data = []
-
-              # --------------------------------------------------------
-              # Catégories avec sous-catégories
-              # --------------------------------------------------------
-
-              if subcategories:
-
-                  for subfolder, subfolder_name in subcategories:
-
-                      sub_path = category_path / subfolder
-
-                      if not sub_path.is_dir():
-                          continue
-
-                      projects = []
-
-                      for project in sub_path.iterdir():
-
-                          if not project.is_dir():
-                              continue
-
-                          if is_hidden(project):
-                              continue
-
-                          if is_ignored(project):
-                              continue
-
-                          if not has_readme(project):
-                              continue
-
-                          projects.append(project)
-
-                      projects = sorted(
-                          projects,
-                          key=lambda p: p.name.lower()
-                      )
-
-                      if projects:
-                          category_data.append(
-                              (
-                                  subfolder_name,
-                                  projects
-                              )
-                          )
-
-              # --------------------------------------------------------
-              # Catégories sans sous-catégories
-              #
-              # III Apprentissage par renforcement
-              # IV Deep Learning
-              # --------------------------------------------------------
-
-              else:
-
-                  projects = []
-
-                  for project in category_path.iterdir():
-
-                      if not project.is_dir():
-                          continue
-
-                      if is_hidden(project):
-                          continue
-
-                      if is_ignored(project):
-                          continue
-
-                      if not has_readme(project):
-                          continue
-
-                      projects.append(project)
-
-                  projects = sorted(
-                      projects,
-                      key=lambda p: p.name.lower()
-                  )
-
-                  if projects:
-                      category_data.append(
-                          (
-                              None,
-                              projects
-                          )
-                      )
-
-              if category_data:
-                  ml_categories.append(
-                      (
-                          category_name,
-                          category_data
-                      )
-                  )
-
-          # ============================================================
-          # POWER BI
-          # ============================================================
-
           powerbi_projects = detect_direct_projects(
-              Path("PowerBI")
+              ROOTS["Power BI"]
           )
-
-          # ============================================================
-          # EXCEL
-          # ============================================================
 
           excel_projects = detect_direct_projects(
-              Path("Excel")
+              ROOTS["Excel"]
           )
-
-          # ============================================================
-          # PYTHON
-          # ============================================================
 
           python_projects = detect_direct_projects(
-              Path("Python")
+              ROOTS["Python"]
           )
-
-          # ============================================================
-          # SQL
-          # ============================================================
 
           sql_projects = detect_direct_projects(
-              Path("sql")
+              ROOTS["SQL"]
           )
 
-          # ============================================================
+          projects_by_category = {
+              "Machine Learning": ml_projects,
+              "Power BI": powerbi_projects,
+              "Excel": excel_projects,
+              "Python": python_projects,
+              "SQL": sql_projects,
+          }
+
+          # ================================================================
+          # HIERARCHIE MACHINE LEARNING
+          # ================================================================
+
+          def relative_ml_parts(path):
+              parts = path.relative_to(
+                  ROOTS["Machine Learning"]
+              ).parts
+
+              return parts
+
+          def category_label(part):
+              return clean_name(
+                  re.sub(r"^[IVX]+_", "", part)
+              )
+
+          def subgroup_label(part):
+              return clean_name(
+                  re.sub(r"^[A-Z]_", "", part)
+              )
+
+          def project_number(projects, index):
+              return f"{index:02d}"
+
+          # ================================================================
           # LOGS
-          # ============================================================
+          # ================================================================
 
           print()
           print("=" * 70)
           print("PROJETS DETECTES")
           print("=" * 70)
 
-          print()
-          print("MACHINE LEARNING")
-
-          for category_name, subcategories in ml_categories:
-
-              print(f"  {category_name}")
-
-              for subcategory_name, projects in subcategories:
-
-                  if subcategory_name:
-                      print(f"    {subcategory_name}")
-
-                  for index, project in enumerate(projects, 1):
-
-                      print(
-                          f"      {index:02d} - "
-                          f"{project.as_posix()}"
-                      )
-
-          for category_name, projects in [
-              ("Power BI", powerbi_projects),
-              ("Excel", excel_projects),
-              ("Python", python_projects),
-              ("SQL", sql_projects),
-          ]:
-
+          for category, projects in projects_by_category.items():
               print()
               print(
-                  f"{category_name} : "
-                  f"{len(projects)} projet(s)"
+                  f"{category}: {len(projects)} projet(s)"
               )
 
-              for index, project in enumerate(projects, 1):
-
+              for project in projects:
                   print(
-                      f"  {index:02d} - "
-                      f"{project.as_posix()}"
+                      f"  - {project.as_posix()}"
                   )
 
           print()
           print("=" * 70)
 
-          # ============================================================
+          # ================================================================
           # README
-          # ============================================================
+          #
+          # Le README contient TOUS les projets.
+          # ================================================================
 
           START = "<!-- AUTO_STRUCTURE_START -->"
           END = "<!-- AUTO_STRUCTURE_END -->"
@@ -497,12 +347,12 @@ jobs:
 
           if START not in readme_content:
               raise ValueError(
-                  "AUTO_STRUCTURE_START est absent du README.md."
+                  "AUTO_STRUCTURE_START absent de README.md"
               )
 
           if END not in readme_content:
               raise ValueError(
-                  "AUTO_STRUCTURE_END est absent du README.md."
+                  "AUTO_STRUCTURE_END absent de README.md"
               )
 
           readme_lines = [
@@ -510,144 +360,164 @@ jobs:
               "",
           ]
 
-          # ------------------------------------------------------------
+          # ------------------------------------------------
           # MACHINE LEARNING
-          # ------------------------------------------------------------
+          # ------------------------------------------------
 
-          if ml_categories:
+          if ml_projects:
 
               readme_lines.extend([
-                  "### 🤖 Machine Learning",
+                  "### 🤖 Apprentissage automatique",
                   "",
               ])
 
-              for category_name, subcategories in ml_categories:
+              # Regroupement par niveau :
+              # I / II / III / IV
+              ml_tree = {}
 
-                  category_path = next(
-                      (
-                          ml_root / folder
-                          for folder, name, subs in ML_STRUCTURE
-                          if name == category_name
-                      ),
-                      None
+              for project in ml_projects:
+                  parts = relative_ml_parts(project)
+
+                  if len(parts) < 2:
+                      continue
+
+                  level = parts[0]
+                  subgroup = parts[1] if len(parts) >= 3 else None
+
+                  ml_tree.setdefault(
+                      level,
+                      {}
+                  ).setdefault(
+                      subgroup,
+                      []
+                  ).append(project)
+
+              for level in sorted(
+                  ml_tree,
+                  key=lambda x: x.lower()
+              ):
+
+                  level_path = (
+                      ROOTS["Machine Learning"] / level
                   )
 
-                  if category_path:
+                  level_url = github_url(level_path)
+
+                  readme_lines.extend([
+                      f"#### [{category_label(level)}]"
+                      f"({level_url})",
+                      "",
+                  ])
+
+                  subgroups = ml_tree[level]
+
+                  for subgroup in sorted(
+                      subgroups,
+                      key=lambda x: str(x).lower()
+                  ):
+
+                      if subgroup is None:
+                          continue
+
+                      subgroup_path = (
+                          level_path / subgroup
+                      )
+
+                      subgroup_url = github_url(
+                          subgroup_path
+                      )
 
                       readme_lines.extend([
-                          f"#### [{category_name}]"
-                          f"({github_url(category_path)})",
+                          f"##### [{subgroup_label(subgroup)}]"
+                          f"({subgroup_url})",
                           "",
                       ])
 
-                  for subcategory_name, projects in subcategories:
-
-                      if subcategory_name:
-
-                          # Trouver le chemin de la sous-catégorie
-                          sub_path = None
-
-                          for folder, name, subs in ML_STRUCTURE:
-
-                              if name == category_name:
-
-                                  for subfolder, subname in subs:
-
-                                      if subname == subcategory_name:
-
-                                          sub_path = (
-                                              ml_root
-                                              / folder
-                                              / subfolder
-                                          )
-
-                          if sub_path:
-
-                              readme_lines.extend([
-                                  f"**[{subcategory_name}]"
-                                  f"({github_url(sub_path)})**",
-                                  "",
-                              ])
+                      projects = sorted(
+                          subgroups[subgroup],
+                          key=lambda p: p.name.lower()
+                      )
 
                       for index, project in enumerate(
                           projects,
-                          1
+                          start=1
                       ):
 
+                          name = clean_name(
+                              re.sub(
+                                  r"^\d+_",
+                                  "",
+                                  project.name
+                              )
+                          )
+
                           readme_lines.append(
-                              f"- {index:02d} "
-                              f"[{clean_name(project.name)}]"
+                              f"- [{index:02d} {name}]"
                               f"({github_url(project)})"
                           )
 
                       readme_lines.append("")
 
-          # ------------------------------------------------------------
-          # CATEGORIES DIRECTES
-          # ------------------------------------------------------------
+          # ------------------------------------------------
+          # AUTRES CATEGORIES
+          #
+          # Numérotation indépendante :
+          #
+          # Power BI : 01, 02, 03...
+          # Excel    : 01, 02, 03...
+          # Python   : 01, 02, 03...
+          # SQL      : 01, 02, 03...
+          # ------------------------------------------------
 
-          direct_categories = [
-              (
-                  "Power BI",
-                  "📊",
-                  powerbi_projects
-              ),
-              (
-                  "Excel",
-                  "📗",
-                  excel_projects
-              ),
-              (
-                  "Python",
-                  "🐍",
-                  python_projects
-              ),
-              (
-                  "SQL",
-                  "🗄️",
-                  sql_projects
-              ),
-          ]
+          category_titles = {
+              "Power BI": "### 📊 Power BI",
+              "Excel": "### 📗 Excel",
+              "Python": "### 🐍 Python",
+              "SQL": "### 🗄️ SQL",
+          }
 
-          for category, emoji, projects in direct_categories:
+          for category in [
+              "Power BI",
+              "Excel",
+              "Python",
+              "SQL",
+          ]:
+
+              projects = projects_by_category[category]
 
               if not projects:
                   continue
 
               readme_lines.extend([
-                  f"### {emoji} {category}",
+                  category_titles[category],
                   "",
               ])
 
               for index, project in enumerate(
                   projects,
-                  1
+                  start=1
               ):
 
+                  name = clean_name(
+                      re.sub(
+                          r"^\d+_",
+                          "",
+                          project.name
+                      )
+                  )
+
                   readme_lines.append(
-                      f"- {index:02d} "
-                      f"[{clean_name(project.name)}]"
+                      f"- [{index:02d} {name}]"
                       f"({github_url(project)})"
                   )
 
               readme_lines.append("")
 
-          if not any([
-              ml_categories,
-              powerbi_projects,
-              excel_projects,
-              python_projects,
-              sql_projects,
-          ]):
-
-              readme_lines.extend([
-                  "_Aucun projet disponible pour le moment._",
-                  "",
-              ])
-
           readme_lines.append(END)
 
-          generated_readme = "\n".join(readme_lines)
+          generated_readme = "\n".join(
+              readme_lines
+          )
 
           start_index = readme_content.index(START)
 
@@ -665,12 +535,14 @@ jobs:
           README_PATH.write_text(
               new_readme,
               encoding="utf-8",
-              newline="\n",
+              newline="\n"
           )
 
-          # ============================================================
+          # ================================================================
           # HUGO
-          # ============================================================
+          #
+          # UNIQUEMENT LES 5 PROJETS VITRINES.
+          # ================================================================
 
           hugo_lines = [
               "---",
@@ -678,168 +550,172 @@ jobs:
               "---",
               "",
               "Une sélection de projets réalisés en "
-              "Business Intelligence, Data Analytics et "
-              "Data Science.",
+              "Business Intelligence, Data Analytics "
+              "et Data Science.",
               "",
           ]
 
-          # ------------------------------------------------------------
-          # MACHINE LEARNING HUGO
-          # ------------------------------------------------------------
+          # ------------------------------------------------
+          # Vérification des projets vitrines
+          # ------------------------------------------------
 
-          if ml_categories:
+          featured_existing = []
+
+          for featured in FEATURED_PROJECTS:
+
+              path = Path(featured["path"])
+
+              if not path.is_dir():
+                  print(
+                      f"AVERTISSEMENT : projet vitrine "
+                      f"absent : {path}"
+                  )
+                  continue
+
+              if not has_readme(path):
+                  print(
+                      f"AVERTISSEMENT : README absent : "
+                      f"{path}"
+                  )
+                  continue
+
+              featured_existing.append(featured)
+
+          # ------------------------------------------------
+          # MACHINE LEARNING
+          # ------------------------------------------------
+
+          featured_ml = [
+              p for p in featured_existing
+              if p["category"] == "Machine Learning"
+          ]
+
+          if featured_ml:
 
               hugo_lines.extend([
                   "## 🤖 Machine Learning",
                   "",
               ])
 
-              for category_name, subcategories in ml_categories:
-
-                  category_path = next(
-                      (
-                          ml_root / folder
-                          for folder, name, subs in ML_STRUCTURE
-                          if name == category_name
-                      ),
-                      None
-                  )
-
-                  if category_path:
-
-                      hugo_lines.extend([
-                          f"### [{category_name}]"
-                          f"({github_url(category_path)})",
-                          "",
-                      ])
-
-                  for subcategory_name, projects in subcategories:
-
-                      if subcategory_name:
-
-                          sub_path = None
-
-                          for folder, name, subs in ML_STRUCTURE:
-
-                              if name == category_name:
-
-                                  for subfolder, subname in subs:
-
-                                      if subname == subcategory_name:
-
-                                          sub_path = (
-                                              ml_root
-                                              / folder
-                                              / subfolder
-                                          )
-
-                          if sub_path:
-
-                              hugo_lines.extend([
-                                  f"#### [{subcategory_name}]"
-                                  f"({github_url(sub_path)})",
-                                  "",
-                              ])
-
-                      for index, project in enumerate(
-                          projects,
-                          1
-                      ):
-
-                          hugo_lines.extend([
-                              f"##### {index:02d} "
-                              f"{clean_name(project.name)}",
-                              "",
-                              "**Machine Learning**",
-                              "",
-                              description(
-                                  project,
-                                  "Machine Learning"
-                              ),
-                              "",
-                              f"[Voir le projet]"
-                              f"({github_url(project)})",
-                              "",
-                          ])
-
-          # ------------------------------------------------------------
-          # POWER BI / EXCEL / PYTHON / SQL HUGO
-          # ------------------------------------------------------------
-
-          for category, emoji, projects in direct_categories:
-
-              if not projects:
-                  continue
+              # -----------------------------
+              # I Apprentissage supervise
+              # -----------------------------
 
               hugo_lines.extend([
-                  f"## {emoji} {category}",
+                  "### [I Apprentissage supervise]"
+                  f"({github_url(Path("
+                  "'Machine-Learning/"
+                  "I_Apprentissage_supervise'"
+                  "))})",
                   "",
               ])
 
-              for index, project in enumerate(
-                  projects,
-                  1
+              featured_regression = [
+                  p for p in featured_ml
+                  if "/A_Regression/" in p["path"]
+              ]
+
+              if featured_regression:
+
+                  hugo_lines.extend([
+                      "#### [A Regression]"
+                      f"({github_url(Path("
+                      "'Machine-Learning/"
+                      "I_Apprentissage_supervise/"
+                      "A_Regression'"
+                      "))})",
+                      "",
+                  ])
+
+                  for featured in featured_regression:
+
+                      hugo_lines.extend([
+                          f"**{featured['title']}**",
+                          "",
+                          featured["description"],
+                          "",
+                          f"[Voir le projet]"
+                          f"({github_url(Path(featured['path']))})",
+                          "",
+                      ])
+
+              featured_classification = [
+                  p for p in featured_ml
+                  if "/B_Classification/" in p["path"]
+              ]
+
+              if featured_classification:
+
+                  hugo_lines.extend([
+                      "#### [B Classification]"
+                      f"({github_url(Path("
+                      "'Machine-Learning/"
+                      "I_Apprentissage_supervise/"
+                      "B_Classification'"
+                      "))})",
+                      "",
+                  ])
+
+                  for featured in featured_classification:
+
+                      hugo_lines.extend([
+                          f"**{featured['title']}**",
+                          "",
+                          featured["description"],
+                          "",
+                          f"[Voir le projet]"
+                          f"({github_url(Path(featured['path']))})",
+                          "",
+                      ])
+
+          # ------------------------------------------------
+          # POWER BI
+          # ------------------------------------------------
+
+          featured_powerbi = [
+              p for p in featured_existing
+              if p["category"] == "Power BI"
+          ]
+
+          if featured_powerbi:
+
+              hugo_lines.extend([
+                  "## 📊 Power BI",
+                  "",
+              ])
+
+              for index, featured in enumerate(
+                  featured_powerbi,
+                  start=1
               ):
 
                   hugo_lines.extend([
                       f"### {index:02d} "
-                      f"{clean_name(project.name)}",
+                      f"{featured['title']}",
                       "",
-                      f"**{category}**",
+                      f"**{featured['type']}**",
                       "",
-                      description(
-                          project,
-                          category
-                      ),
+                      featured["description"],
                       "",
                       f"[Voir le projet]"
-                      f"({github_url(project)})",
+                      f"({github_url(Path(featured['path']))})",
                       "",
                   ])
 
-          # ------------------------------------------------------------
-          # TOUS LES PROJETS
-          # ------------------------------------------------------------
+          # ------------------------------------------------
+          # MESSAGE SI AUCUN PROJET VITRINE
+          # ------------------------------------------------
 
-          hugo_lines.extend([
-              "## Tous mes projets",
-              "",
-          ])
+          if not featured_existing:
 
-          category_paths = [
-              (
-                  "Machine Learning",
-                  "Machine-Learning"
-              ),
-              (
-                  "Power BI",
-                  "PowerBI"
-              ),
-              (
-                  "Excel",
-                  "Excel"
-              ),
-              (
-                  "Python",
-                  "Python"
-              ),
-              (
-                  "SQL",
-                  "sql"
-              ),
-          ]
+              hugo_lines.extend([
+                  "_Aucun projet vitrine disponible pour le moment._",
+                  "",
+              ])
 
-          for category, path in category_paths:
-
-              root = Path(path)
-
-              if root.is_dir():
-
-                  hugo_lines.extend([
-                      f"- [{category}]"
-                      f"({github_url(root)})",
-                      "",
-                  ])
+          # ------------------------------------------------
+          # FIN
+          # ------------------------------------------------
 
           HUGO_PATH.parent.mkdir(
               parents=True,
@@ -849,20 +725,43 @@ jobs:
           HUGO_PATH.write_text(
               "\n".join(hugo_lines).rstrip() + "\n",
               encoding="utf-8",
-              newline="\n",
+              newline="\n"
           )
-
-          # ============================================================
-          # FIN
-          # ============================================================
 
           print()
           print("=" * 70)
           print("GENERATION TERMINEE")
           print("=" * 70)
+          print(
+              f"Machine Learning : "
+              f"{len(ml_projects)} projet(s)"
+          )
+          print(
+              f"Power BI         : "
+              f"{len(powerbi_projects)} projet(s)"
+          )
+          print(
+              f"Excel            : "
+              f"{len(excel_projects)} projet(s)"
+          )
+          print(
+              f"Python           : "
+              f"{len(python_projects)} projet(s)"
+          )
+          print(
+              f"SQL              : "
+              f"{len(sql_projects)} projet(s)"
+          )
           print()
-          print("README.md et Hugo ont ete mis a jour.")
+          print(
+              f"Projets Hugo     : "
+              f"{len(featured_existing)} projet(s)"
+          )
           print()
+          print(
+              "README.md et content/projets/_index.md "
+              "ont ete generes."
+          )
           PY
 
       - name: Commit generated files
@@ -874,9 +773,12 @@ jobs:
           git add README.md content/projets/_index.md
 
           if git diff --cached --quiet; then
-            echo "Aucune modification à committer."
+            echo "Aucune modification générée."
             exit 0
           fi
 
           git commit -m "chore: update portfolio projects"
+
+          git pull --rebase origin main
+
           git push origin main
