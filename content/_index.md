@@ -8,17 +8,62 @@ title: ""
 
 <h1>👋 Bonjour, je suis Fabrice Bomisso 👨🏾‍💻</h1>
 
-<h2>Data Analyst | Business Intelligence | Data Science</h2>
+<h2>Data Analyst</h2>
 
 <p>
-Bienvenue dans mon espace numérique où je documente mes travaux,
-mes projets et mon parcours dans l'analyse des données.
+Bienvenue dans mon espace numérique où je transforme les données
+en informations fiables et exploitables pour faciliter la prise de décision.
 </p>
+
+<div class="tools-section">
+
+<h3>Outils</h3>
+
+<div class="tools-grid">
+
+<div class="tool-item">
+<img src="/fabrice.bomisso/img/logos/power bi logo.webp" alt="Power BI">
+<span>Power BI</span>
+</div>
+
+<div class="tool-item">
+<img src="/fabrice.bomisso/img/logos/python-powered.png" alt="Python">
+<span>Python</span>
+</div>
+
+<div class="tool-item">
+<img src="/fabrice.bomisso/img/logos/Excel logo.webp" alt="Excel">
+<span>Excel</span>
+</div>
+
+<div class="tool-item">
+<img src="/fabrice.bomisso/img/logos/SQL server logo.webp" alt="SQL Server">
+<span>SQL</span>
+</div>
+
+<div class="tool-item">
+<img src="/fabrice.bomisso/img/logos/Git logo.png" alt="Git">
+<span>Git</span>
+</div>
+
+<div class="tool-item">
+<img src="/fabrice.bomisso/img/logos/GitHub logo.webp" alt="GitHub">
+<span>GitHub</span>
+</div>
+
+<div class="tool-item">
+<img src="/fabrice.bomisso/img/logos/VS Code logo.webp" alt="Visual Studio Code">
+<span>VS Code</span>
+</div>
+
+</div>
+
+</div>
 
 <div class="social-links">
 
 <a href="https://github.com/fbomisso" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.83 1.23 1.83 1.23 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.6-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.831.23 1.83 1.23 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.6-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
 </a>
 
 <a href="https://www.linkedin.com/in/fabrice-bomisso/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
@@ -27,14 +72,14 @@ mes projets et mon parcours dans l'analyse des données.
 
 <span class="contact-item">
 <a href="tel:+2250545778538" aria-label="Téléphone" title="Téléphone">
-<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 9c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>
 </a>
 <span>(+225) 0545778538 | 0778314526</span>
 </span>
 
 <span class="contact-item">
 <a href="mailto:fabricebtibo@mail.com" aria-label="Email" title="Email">
-<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2-2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
 </a>
 <span>fabricebtibo@mail.com | fabricebtibo@yahoo.com</span>
 </span>

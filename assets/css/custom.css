@@ -1,0 +1,56 @@
+﻿/* ========================================
+   SECTION OUTILS
+   ======================================== */
+
+.tools-section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.tools-section h3 {
+    margin-bottom: 1.2rem;
+}
+
+.tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.tool-item {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    white-space: nowrap;
+}
+
+.tool-item img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
+
+.tool-item span {
+    font-weight: 500;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 700px) {
+
+    .tools-grid {
+        gap: 1rem;
+    }
+
+    .tool-item img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .tool-item span {
+        font-size: 0.9rem;
+    }
+}
