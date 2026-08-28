@@ -1,4 +1,4 @@
-name: Update Machine Learning README
+﻿name: Update Machine Learning README
 
 on:
   push:
@@ -32,21 +32,22 @@ jobs:
           root = Path("Machine-Learning")
           readme = root / "README.md"
 
-          ignored = {
+          ignored_dirs = {
               ".git",
               ".github",
               "__pycache__",
               "node_modules",
               "data",
-              "Visuels_Projet"
-          }
-
-          category_descriptions = {
-              "Classification": "Projets de classification supervisée",
-              "Regression": "Projets de régression et de prédiction",
-              "Deep-Learning": "Projets de Deep Learning et réseaux de neurones",
-              "Clustering": "Projets d'apprentissage non supervisé et clustering",
-              "Reinforcement-Learning": "Projets d'apprentissage par renforcement"
+              "Data",
+              "documentation",
+              "Documentation",
+              "screenshots",
+              "Screenshots",
+              "notebooks",
+              "models",
+              "app",
+              "Visuels_Projet",
+              "_template",
           }
 
           def display_name(name):
@@ -59,87 +60,145 @@ jobs:
                   f"tree/main/{relative}"
               )
 
-          lines = []
+          def is_project(path):
+              return (
+                  path.is_dir()
+                  and path.name not in ignored_dirs
+                  and not path.name.startswith(".")
+                  and (path / "README.md").is_file()
+              )
 
-          categories = sorted(
-              folder
-              for folder in root.iterdir()
-              if folder.is_dir()
-              and folder.name not in ignored
-              and not folder.name.startswith(".")
-          )
+          lines = [
+              "<!-- AUTO_PROJECTS_START -->",
+              "",
+          ]
 
-          if not categories:
-              lines.append("_Aucun projet disponible pour le moment._")
-          else:
+          # ============================================================
+          # I. APPRENTISSAGE SUPERVISÉ
+          # ============================================================
+
+          supervised = root / "I_Apprentissage_supervise"
+
+          if supervised.is_dir():
+
+              lines.extend([
+                  "## 📚 I. Apprentissage supervisé",
+                  "",
+              ])
+
+              # --------------------------------------------------------
+              # A. RÉGRESSION
+              # --------------------------------------------------------
+
+              regression = supervised / "A_Regression"
+
+              if regression.is_dir():
+
+                  lines.extend([
+                      "### 📈 A. Régression",
+                      "",
+                  ])
+
+                  projects = sorted(
+                      (
+                          p for p in regression.iterdir()
+                          if is_project(p)
+                      ),
+                      key=lambda p: p.name.lower()
+                  )
+
+                  for project in projects:
+                      name = display_name(project.name)
+                      url = github_link(project)
+                      lines.append(f"- **[{name}]({url})**")
+
+                  lines.append("")
+
+              # --------------------------------------------------------
+              # B. CLASSIFICATION
+              # --------------------------------------------------------
+
+              classification = supervised / "B_Classification"
+
+              if classification.is_dir():
+
+                  lines.extend([
+                      "### 🏷️ B. Classification",
+                      "",
+                  ])
+
+                  projects = sorted(
+                      (
+                          p for p in classification.iterdir()
+                          if is_project(p)
+                      ),
+                      key=lambda p: p.name.lower()
+                  )
+
+                  for project in projects:
+                      name = display_name(project.name)
+                      url = github_link(project)
+                      lines.append(f"- **[{name}]({url})**")
+
+                  lines.append("")
+
+          # ============================================================
+          # II. APPRENTISSAGE NON SUPERVISÉ
+          # ============================================================
+
+          unsupervised = root / "II_Apprentissage_non_supervise"
+
+          if unsupervised.is_dir():
+
+              lines.extend([
+                  "## 📚 II. Apprentissage non supervisé",
+                  "",
+              ])
+
+              categories = sorted(
+                  (
+                      p for p in unsupervised.iterdir()
+                      if (
+                          p.is_dir()
+                          and p.name not in ignored_dirs
+                          and not p.name.startswith(".")
+                      )
+                  ),
+                  key=lambda p: p.name.lower()
+              )
 
               for category in categories:
 
-                  category_name = display_name(category.name)
-
-                  description = category_descriptions.get(
-                      category.name,
-                      "Projets Machine Learning"
-                  )
-
-                  lines.append(
-                      f"### 📁 {category_name}"
-                  )
-                  lines.append("")
-                  lines.append(description)
-                  lines.append("")
+                  lines.extend([
+                      f"### 📁 {display_name(category.name)}",
+                      "",
+                  ])
 
                   projects = sorted(
-                      folder
-                      for folder in category.iterdir()
-                      if folder.is_dir()
-                      and folder.name not in ignored
-                      and not folder.name.startswith(".")
+                      (
+                          p for p in category.iterdir()
+                          if is_project(p)
+                      ),
+                      key=lambda p: p.name.lower()
                   )
 
-                  if not projects:
-                      lines.append(
-                          "_Aucun projet dans cette catégorie._"
-                      )
-                      lines.append("")
-                      continue
-
                   for project in projects:
-
-                      project_name = display_name(project.name)
-
-                      project_url = github_link(project)
-
-                      lines.append(
-                          f"- **[{project_name}]({project_url})**"
-                      )
-
-                      nested_dirs = sorted(
-                          folder
-                          for folder in project.rglob("*")
-                          if folder.is_dir()
-                          and folder.name not in ignored
-                          and not folder.name.startswith(".")
-                      )
-
-                      for nested in nested_dirs:
-
-                          relative = nested.relative_to(project)
-
-                          nested_url = github_link(nested)
-
-                          lines.append(
-                              f"  - [`{relative}/`]({nested_url})"
-                          )
+                      name = display_name(project.name)
+                      url = github_link(project)
+                      lines.append(f"- **[{name}]({url})**")
 
                   lines.append("")
+
+          # ============================================================
+          # UPDATE README
+          # ============================================================
+
+          lines.append("<!-- AUTO_PROJECTS_END -->")
+
+          content = readme.read_text(encoding="utf-8")
 
           start = "<!-- AUTO_PROJECTS_START -->"
           end = "<!-- AUTO_PROJECTS_END -->"
-
-          content = readme.read_text(
-              encoding="utf-8"
-          )
 
           if start not in content:
               raise ValueError(
@@ -154,13 +213,7 @@ jobs:
           start_index = content.index(start)
           end_index = content.index(end) + len(end)
 
-          generated = (
-              start
-              + "\n\n"
-              + "\n".join(lines)
-              + "\n"
-              + end
-          )
+          generated = "\n".join(lines)
 
           content = (
               content[:start_index]
@@ -170,7 +223,8 @@ jobs:
 
           readme.write_text(
               content,
-              encoding="utf-8"
+              encoding="utf-8",
+              newline="\n"
           )
 
           print(

@@ -1,4 +1,4 @@
-name: Update Power BI README
+﻿name: Update Power BI README
 
 on:
   push:
@@ -32,46 +32,22 @@ jobs:
           root = Path("PowerBI")
           readme = root / "README.md"
 
-          ignored = {
+          ignored_dirs = {
               ".git",
               ".github",
               "__pycache__",
               "node_modules",
               "data",
+              "Data",
+              "documentation",
+              "Documentation",
               "screenshots",
-              "documentation"
-          }
-
-          project_descriptions = {
-              "GAP_SERVICE":
-                  "Analyse et pilotage de la performance du service",
-
-              "Pilotage Décisionnel d'un Réseau de Distribution Multi-Magasins avec Power BI":
-                  "Pilotage décisionnel d'un réseau de distribution multi-magasins",
-
-              "_template":
-                  "Template pour les futurs projets Power BI",
-
-              "analyse-coupe-du-monde-fifa-2026":
-                  "Analyse et visualisation de la Coupe du Monde FIFA 2026",
-
-              "analyse-performance-football-europe":
-                  "Analyse de la performance du football européen",
-
-              "analyse-performance-olist":
-                  "Analyse de performance e-commerce avec Power BI",
-
-              "analyse-pitchside-pro-revenue":
-                  "Analyse des revenus et de la performance commerciale",
-
-              "analyse-retail-star-schema":
-                  "Analyse retail avec modèle en étoile",
-
-              "assurance-automobile-dashboard":
-                  "Analyse et pilotage de la performance d'un portefeuille automobile",
-
-              "pilotage-risque-credit-bancaire":
-                  "Analyse et pilotage du risque de crédit bancaire"
+              "Screenshots",
+              "notebooks",
+              "models",
+              "app",
+              "Visuels_Projet",
+              "_template",
           }
 
           def display_name(name):
@@ -84,64 +60,56 @@ jobs:
                   f"tree/main/{relative}"
               )
 
-          lines = []
+          def is_project(path):
+              return (
+                  path.is_dir()
+                  and path.name not in ignored_dirs
+                  and not path.name.startswith(".")
+                  and (path / "README.md").is_file()
+              )
+
+          lines = [
+              "<!-- AUTO_PROJECTS_START -->",
+              "",
+          ]
 
           projects = sorted(
-              folder
-              for folder in root.iterdir()
-              if folder.is_dir()
-              and folder.name not in ignored
-              and not folder.name.startswith(".")
+              (
+                  p for p in root.iterdir()
+                  if is_project(p)
+              ),
+              key=lambda p: p.name.lower()
           )
 
           if not projects:
-              lines.append("_Aucun projet disponible pour le moment._")
+
+              lines.extend([
+                  "_Aucun projet disponible pour le moment._",
+                  "",
+              ])
+
           else:
 
               for project in projects:
 
-                  project_name = display_name(project.name)
+                  name = display_name(project.name)
+                  url = github_link(project)
 
-                  description = project_descriptions.get(
-                      project.name,
-                      "Projet du portfolio Power BI"
-                  )
+                  lines.extend([
+                      f"## 📁 [{name}]({url})",
+                      "",
+                  ])
 
-                  project_url = github_link(project)
+          lines.append("<!-- AUTO_PROJECTS_END -->")
 
-                  lines.append(
-                      f"### 📁 [{project_name}]({project_url})"
-                  )
-                  lines.append("")
-                  lines.append(description)
-                  lines.append("")
+          # ============================================================
+          # UPDATE README
+          # ============================================================
 
-                  nested_dirs = sorted(
-                      folder
-                      for folder in project.rglob("*")
-                      if folder.is_dir()
-                      and folder.name not in ignored
-                      and not folder.name.startswith(".")
-                  )
-
-                  for nested in nested_dirs:
-
-                      relative = nested.relative_to(project)
-
-                      nested_url = github_link(nested)
-
-                      lines.append(
-                          f"- [`{relative}/`]({nested_url})"
-                      )
-
-                  lines.append("")
+          content = readme.read_text(encoding="utf-8")
 
           start = "<!-- AUTO_PROJECTS_START -->"
           end = "<!-- AUTO_PROJECTS_END -->"
-
-          content = readme.read_text(
-              encoding="utf-8"
-          )
 
           if start not in content:
               raise ValueError(
@@ -156,13 +124,7 @@ jobs:
           start_index = content.index(start)
           end_index = content.index(end) + len(end)
 
-          generated = (
-              start
-              + "\n\n"
-              + "\n".join(lines)
-              + "\n"
-              + end
-          )
+          generated = "\n".join(lines)
 
           content = (
               content[:start_index]
@@ -172,7 +134,8 @@ jobs:
 
           readme.write_text(
               content,
-              encoding="utf-8"
+              encoding="utf-8",
+              newline="\n"
           )
 
           print(
