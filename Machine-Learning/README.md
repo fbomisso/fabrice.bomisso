@@ -25,24 +25,16 @@ Les projets ci-dessous sont **générés automatiquement** à partir de la struc
 
 <!-- AUTO_PROJECTS_START -->
 
-### 📁 01 Apprentissage supervise
+## 📚 I. Apprentissage supervisé
 
-Projets Machine Learning
+### 📈 A. Régression
 
-- **[01 Classification](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/01_Classification)**
-  - [`01_Customer_Churn/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/01_Classification/01_Customer_Churn)
-  - [`01_Customer_Churn/app/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/01_Classification/01_Customer_Churn/app)
-  - [`01_Customer_Churn/data/raw/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/01_Classification/01_Customer_Churn/data/raw)
-  - [`01_Customer_Churn/models/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/01_Classification/01_Customer_Churn/models)
-  - [`01_Customer_Churn/notebooks/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/01_Classification/01_Customer_Churn/notebooks)
-- **[02 Regression](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression)**
-  - [`01_Prediction_progression_diabete/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete)
-  - [`01_Prediction_progression_diabete/Visuels_Projet/01_eda_univariee/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/01_eda_univariee)
-  - [`01_Prediction_progression_diabete/Visuels_Projet/02_eda_bivariee/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/02_eda_bivariee)
-  - [`01_Prediction_progression_diabete/Visuels_Projet/03_diagnostic_modeles/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/03_diagnostic_modeles)
-  - [`01_Prediction_progression_diabete/Visuels_Projet/05_interpretation/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression/01_Prediction_progression_diabete/Visuels_Projet/05_interpretation)
-  - [`02_Prediction_bruit_aerodynamique/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression/02_Prediction_bruit_aerodynamique)
-  - [`02_Prediction_bruit_aerodynamique/data/raw/`](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/01_Apprentissage_supervise/02_Regression/02_Prediction_bruit_aerodynamique/data/raw)
+- **[01 Prediction progression diabete](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete)**
+- **[02 Prediction bruit aerodynamique](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/02_Prediction_bruit_aerodynamique)**
+
+### 🏷️ B. Classification
+
+- **[01 Customer Churn](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/B_Classification/01_Customer_Churn)**
 
 <!-- AUTO_PROJECTS_END -->
 
