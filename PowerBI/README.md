@@ -8,6 +8,24 @@ Les projets sont organisés par dossiers afin de séparer clairement les fichier
 
 <!-- AUTO_PROJECTS_START -->
 
+## 📁 [analyse coupe du monde fifa 2026](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-coupe-du-monde-fifa-2026)
+
+## 📁 [analyse performance football europe](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-football-europe)
+
+## 📁 [analyse performance olist](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-olist)
+
+## 📁 [analyse pitchside pro revenue](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-pitchside-pro-revenue)
+
+## 📁 [analyse retail star schema](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-retail-star-schema)
+
+## 📁 [assurance automobile dashboard](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/assurance-automobile-dashboard)
+
+## 📁 [gap service](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/gap-service)
+
+## 📁 [pilotage reseau distribution multimagasins](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-reseau-distribution-multimagasins)
+
+## 📁 [pilotage risque credit bancaire](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-risque-credit-bancaire)
+
 <!-- AUTO_PROJECTS_END -->
 
 ## 📂 Organisation des projets
