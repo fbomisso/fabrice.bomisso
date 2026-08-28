@@ -35,6 +35,7 @@ Les projets ci-dessous sont **générés automatiquement** à partir de la struc
 ### 🏷️ B. Classification
 
 - **[01 Customer Churn](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/B_Classification/01_Customer_Churn)**
+- **[02 breast cancer](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/B_Classification/02_breast_cancer)**
 
 <!-- AUTO_PROJECTS_END -->
 
