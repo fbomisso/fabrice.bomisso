@@ -26,6 +26,8 @@ Les projets sont organisés par dossiers afin de séparer clairement les fichier
 
 ## 📁 [pilotage risque credit bancaire](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-risque-credit-bancaire)
 
+## 📁 [Soins de santé](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Soins de santé)
+
 <!-- AUTO_PROJECTS_END -->
 
 ## 📂 Organisation des projets
