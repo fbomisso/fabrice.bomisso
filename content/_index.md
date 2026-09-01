@@ -48,78 +48,140 @@ Télécharger mon CV
 </div>
 
 </div>
+
+<div class="home-story">
 
-## 🪴 Projets phares
+<p>
+Formé en <strong>Génie de l’Eau et de l’Environnement</strong>, j’ai construit mon parcours autour des problématiques liées à l’eau, à l’environnement et à l’assainissement.
+</p>
 
-### 🤖 Projets Machine Learning
+<p>
+C’est au cours de mes <strong>travaux de fin d’études</strong> que j’ai découvert l’importance de la donnée pour comprendre une problématique, approfondir une analyse et éclairer la prise de décision. Cette expérience a progressivement orienté mon parcours vers <strong>le domaine de la Data</strong>.
+</p>
 
-### Customer Churn Prediction
+<p>
+Depuis, je poursuis cette transition avec passion, en développant mes compétences et en réalisant des projets qui me permettent de transformer les données en informations fiables et utiles.
+</p>
 
-**Machine Learning · Telco**
+<p>
+<a href="{{< relref "/a-propos/" >}}">Découvrir mon parcours →</a>
+</p>
 
-Prédiction du risque de churn client avec Random Forest, analyse SHAP, segmentation des risques et application Streamlit.
+</div>
+<h2 class="featured-projects-title">🪴 Projets phares</h2>
 
-**Recall 77,81 % · F1-score 63,75 % · ROC-AUC 0,85**
+<div class="featured-domain">
 
-[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/B_Classification/01_Customer_Churn)
+<div class="featured-domain-header">
 
-### 📊 Projets Power BI
+<img src="/fabrice.bomisso/icons/machine-learning.jpg" alt="Machine Learning">
 
-### Retail Analytics
+<h3> Projets Machine Learning</h3>
 
-**Power BI · Data Quality · DAX**
+</div>
 
-Analyse retail basée sur un modèle en étoile, avec audit des indicateurs et validation des résultats.
+<div class="projects-list">
 
-[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-retail-star-schema)
+<div class="project-card">
 
-### Olist E-commerce Analytics
+<h2>Customer Churn Prediction</h2>
 
-**Power BI · E-commerce · Data Modeling**
+<p><strong>Machine Learning · Telco</strong></p>
 
-Analyse d'une marketplace e-commerce brésilienne avec modélisation en constellation et analyse de la performance logistique.
+<p>Prédiction du risque de churn client avec Random Forest, analyse SHAP, segmentation des risques et application Streamlit.</p>
 
-[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-olist)
+<p><strong>Recall 77,81 % · F1-score 63,75 % · ROC-AUC 0,85</strong></p>
 
-### PitchSide Pro Revenue
+<a class="project-link" href="/fabrice.bomisso/projets/machine-learning/customer-churn/">Lire le projet →</a>
 
-**Power BI · Revenue Analytics · Business Intelligence**
+</div>
 
-Analyse de la croissance des revenus d'une plateforme e-commerce spécialisée dans les articles de football.
+</div>
 
-[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-pitchside-pro-revenue)
+</div>
 
-### Performance Football Européen
+<div class="featured-domain">
 
-**Power BI · Sport Analytics · Scouting**
+<div class="featured-domain-header">
 
-Analyse de la performance des joueurs et des équipes du football européen, avec des volets consacrés au scouting, aux statistiques et à la valorisation.
+<img src="/fabrice.bomisso/icons/powerbi.svg" alt="Power BI">
 
-[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-football-europe)
+<h3> Projets Power BI</h3>
 
-## À propos
+</div>
 
-Je transforme les données en informations fiables et exploitables pour faciliter la prise de décision.
+<div class="projects-list">
 
-Mon travail porte principalement sur la Business Intelligence, la Data Analytics et le Machine Learning, avec une attention particulière portée à la qualité des données, à la modélisation et à l'interprétation des résultats.
+<div class="project-card">
 
-[Découvrir mon parcours]({{< relref "/a-propos/" >}})
+<h2>Retail Analytics</h2>
 
-## Recherche
+<p><strong>Power BI · Data Quality · DAX</strong></p>
 
-### Diagnostic de la défécation à l'air libre dans le district de Yamoussoukro
+<p>Analyse retail basée sur un modèle en étoile, avec audit des indicateurs et validation des résultats.</p>
+
+<a class="project-link" href="/fabrice.bomisso/projets/power-bi/analyse-retail-star-schema/">Lire le projet →</a>
+
+</div>
+
+<div class="project-card">
+
+<h2>Olist E-commerce Analytics</h2>
+
+<p><strong>Power BI · E-commerce · Data Modeling</strong></p>
+
+<p>Analyse d'une marketplace e-commerce brésilienne avec modélisation en constellation et analyse de la performance logistique.</p>
+
+<a class="project-link" href="/fabrice.bomisso/projets/power-bi/analyse-performance-olist/">Lire le projet →</a>
+
+</div>
+
+<div class="project-card">
+
+<h2>PitchSide Pro Revenue</h2>
+
+<p><strong>Power BI · Revenue Analytics · Business Intelligence</strong></p>
+
+<p>Analyse de la croissance des revenus d'une plateforme e-commerce spécialisée dans les articles de football.</p>
+
+<a class="project-link" href="/fabrice.bomisso/projets/power-bi/analyse-pitchside-pro-revenue/">Lire le projet →</a>
+
+</div>
+
+<div class="project-card">
+
+<h2>Performance Football Européen</h2>
+
+<p><strong>Power BI · Sport Analytics · Scouting</strong></p>
+
+<p>Analyse de la performance des joueurs et des équipes du football européen, avec des volets consacrés au scouting, aux statistiques et à la valorisation.</p>
+
+<a class="project-link" href="/fabrice.bomisso/projets/power-bi/analyse-performance-football-europe/">Lire le projet →</a>
+
+</div>
+
+</div>
+
+</div>
+
+<p style="margin-top: 2rem;">
+<a href="/fabrice.bomisso/projets/">→ Voir tous les projets</a>
+</p>
+<h2 class="section-title">Recherche</h2>
+
+<h3 class="section-subtitle">Diagnostic de la défécation à l'air libre dans le district de Yamoussoukro</h3>
 
 Travail de recherche consacré au diagnostic de la défécation à l'air libre dans le district de Yamoussoukro.
 
 [Lire la recherche]({{< relref "/recherche/" >}})
 
-## Formation
+<h2 class="section-title">Formation</h2>
 
 Formation en Data Science, Data Analytics et Génie de l'Eau et de l'Environnement.
 
 [Voir ma formation]({{< relref "/formation/" >}})
 
-## Certifications
+<h2 class="section-title">Certifications</h2>
 
 Certifications en Data Analytics, Microsoft Power BI, gestion de projet, MEAL, WASH et HSE.
 
@@ -157,7 +219,7 @@ Certifications en Data Analytics, Microsoft Power BI, gestion de projet, MEAL, W
 </div>
 
 <div class="tool-item">
-<img src="/fabrice.bomisso/icons/sqlserver.svg" alt="SQL Server">
+<img src="/fabrice.bomisso/icons/sql-server.png" alt="SQL Server">
 <span>SQL Server</span>
 </div>
 
@@ -169,3 +231,18 @@ Certifications en Data Analytics, Microsoft Power BI, gestion de projet, MEAL, W
 </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

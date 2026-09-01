@@ -1,49 +1,27 @@
+﻿---
+title: "Mes projets"
 ---
-title: "Projets"
----
 
-Une sélection de projets réalisés en Business Intelligence, Data Analytics et Data Science.
+Explorez mes travaux par domaine de compétence.
 
-## 🤖 Machine Learning
+<div class="projects-domains">
 
-### [I Apprentissage supervise](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise)
+<a class="project-domain-card" href="/fabrice.bomisso/projets/machine-learning/">
+    <img src="/fabrice.bomisso/icons/machine-learning.jpg" alt="Machine Learning">
+    <h2>Machine Learning</h2>
+    <span>Voir les projets</span>
+</a>
 
-#### [A Regression](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression)
+<a class="project-domain-card" href="/fabrice.bomisso/projets/power-bi/">
+    <img src="/fabrice.bomisso/icons/powerbi.svg" alt="Power BI">
+    <h2>Power BI</h2>
+    <span>Voir les projets</span>
+</a>
 
-**Progression de la prédiction du diabète**
+<a class="project-domain-card" href="/fabrice.bomisso/projets/sql/">
+    <img src="/fabrice.bomisso/icons/sql-server.png" alt="SQL Server">
+    <h2>SQL</h2>
+    <span>Voir les projets</span>
+</a>
 
-Projet de régression visant à prédire la progression du diabète à partir de variables cliniques.
-
-[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/01_Prediction_progression_diabete)
-
-**Prédiction du bruit aérodynamique**
-
-Projet de régression consacré à la prédiction du bruit aérodynamique.
-
-[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/A_Regression/02_Prediction_bruit_aerodynamique)
-
-#### [B Classification](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/B_Classification)
-
-**Customer Churn**
-
-Prédiction du churn client avec Random Forest, analyse SHAP, segmentation des risques et application Streamlit.
-
-[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/Machine-Learning/I_Apprentissage_supervise/B_Classification/01_Customer_Churn)
-
-## 📊 Power BI
-
-### 01 Analyse de la Coupe du Monde FIFA 2026
-
-**Power BI**
-
-Analyse et visualisation de la Coupe du Monde FIFA 2026 avec Power BI.
-
-[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-coupe-du-monde-fifa-2026)
-
-### 02 Analyse de la performance du football européen
-
-**Power BI**
-
-Analyse de la performance du football européen avec Power BI.
-
-[Voir le projet](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/analyse-performance-football-europe)
+</div>
