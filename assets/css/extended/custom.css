@@ -461,3 +461,168 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================================================
+   À PROPOS - Espacement et lisibilité
+   ========================================================= */
+
+.about-page .about-content {
+    line-height: 1.8;
+}
+
+.about-page .about-content p {
+    margin: 0 0 1.5rem;
+}
+
+.about-page .about-content h3 {
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.about-page .about-process {
+    margin: 2rem 0;
+    line-height: 2;
+}
+
+.about-page .social-links {
+    margin-top: 1.5rem;
+}
+
+.about-page .about-cv {
+    margin-top: 2rem;
+}
+
+
+/* =========================================================
+   À PROPOS - Espace entre profil et contenu
+   ========================================================= */
+
+.about-page .about-profile {
+    margin-bottom: 3rem;
+}
+
+.about-page .about-profile h2 {
+    margin-bottom: 0.8rem;
+}
+
+.about-page .about-profile h3 {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   À PROPOS - Photo et titre du profil
+   ========================================================= */
+
+.about-page .about-profile {
+    margin-bottom: 3rem;
+}
+
+.about-page .about-profile .about-photo {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1.8rem;
+}
+
+.about-page .about-profile h2 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+}
+
+.about-page .about-profile h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   RECHERCHE - Espacement et lisibilité
+   ========================================================= */
+
+.research-page {
+    line-height: 1.8;
+}
+
+.research-page h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+}
+
+.research-page h3 {
+    margin-top: 2.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.research-page p {
+    margin-bottom: 1.8rem;
+    line-height: 1.8;
+}
+
+.research-page ul {
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.research-page li {
+    margin-bottom: 0.6rem;
+}
+
+
+/* =========================================================
+   RECHERCHE - Espacement et lisibilité
+   ========================================================= */
+
+.post-single .post-content h2 {
+    margin-top: 2.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.post-single .post-content h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-single .post-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.post-single .post-content ul {
+    margin-bottom: 2rem;
+}
+
+.post-single .post-content li {
+    margin-bottom: 0.5rem;
+}
+
+
+/* =========================================================
+   FORMATION - Espacement et lisibilité
+   ========================================================= */
+
+.post-single .post-content h2 {
+    margin-top: 2.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.post-single .post-content h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-single .post-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.post-single .post-content ul {
+    margin-bottom: 2rem;
+}
+
+.post-single .post-content li {
+    margin-bottom: 0.5rem;
+}
+
