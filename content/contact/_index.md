@@ -28,4 +28,5 @@ title: "Contact"
 
 ### CV
 
-[Télécharger mon CV](../../documents/CV_Fabrice_Bomisso.pdf)
+[Télécharger mon CV](../../documents/CV_Tibo_Fabrice_Bomisso.pdf)
+

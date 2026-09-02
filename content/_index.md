@@ -39,7 +39,7 @@ en informations fiables et exploitables pour faciliter la prise de décision.
 <span>fabricebtibo@mail.com | fabricebtibo@yahoo.com</span>
 </span>
 
-<a class="cv-link" href="/fabrice.bomisso/documents/CV_Fabrice_Bomisso.pdf">
+<a class="cv-link" href="/fabrice.bomisso/documents/CV_Tibo_Fabrice_Bomisso.pdf">
 Télécharger mon CV
 </a>
 
@@ -231,6 +231,7 @@ Certifications en Data Analytics, Microsoft Power BI, gestion de projet, MEAL, W
 </div>
 
 </div>
+
 
 
 

@@ -72,7 +72,7 @@ Je porte une attention particulière à la <strong>qualité et à la fiabilité 
 
 <div class="about-cv">
 
-<a class="cv-link" href="/fabrice.bomisso/documents/CV_Fabrice_Bomisso.pdf">
+<a class="cv-link" href="/fabrice.bomisso/documents/CV_Tibo_Fabrice_Bomisso.pdf">
 Télécharger mon CV
 </a>
 
@@ -81,3 +81,4 @@ Télécharger mon CV
 </div>
 
 </div>
+
