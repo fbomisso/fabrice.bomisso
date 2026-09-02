@@ -246,10 +246,11 @@ Soins de santé/
 
 <div class="project-github-link">
 
-<a href="https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/soins-de-sante" target="_blank" rel="noopener">
+<a href="https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Soins%20de%20sant%C3%A9" target="_blank" rel="noopener">
 🔗 Voir le projet sur GitHub →
 </a>
 
 </div>
+
 
 
