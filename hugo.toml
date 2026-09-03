@@ -47,3 +47,5 @@ ignoreLogs = ["warning-goldmark-raw-html"]
     name = "Certifications"
     url = "/certifications/"
     weight = 50
+[services.googleAnalytics]
+  ID = "G-CM1MXRL70X"
