@@ -35,6 +35,11 @@ La liste des projets est générée automatiquement à partir des projets prése
 - [07 gap service](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/gap-service)
 - [08 pilotage reseau distribution multimagasins](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-reseau-distribution-multimagasins)
 - [09 pilotage risque credit bancaire](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/pilotage-risque-credit-bancaire)
+- [10 Soins de santé](https://github.com/fbomisso/fabrice.bomisso/tree/main/PowerBI/Soins de santé)
+
+### 🐍 Python
+
+- [01 Suivi & Impact](https://github.com/fbomisso/fabrice.bomisso/tree/main/Python/Suivi & Impact)
 
 <!-- AUTO_STRUCTURE_END -->
 
