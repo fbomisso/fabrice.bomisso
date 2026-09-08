@@ -111,7 +111,7 @@ Dans le dataset fourni, chaque `BORROWER_ID` apparaît une seule fois dans la ta
 
 La relation observée est donc **1:1** avec les données disponibles.
 
-Sur le plan métier, un emprunteur peut toutefois avoir plusieurs prêts. Dans un système bancaire réel, la relation serait alors **1:*** si plusieurs contrats étaient associés au même emprunteur.
+Sur le plan métier, un emprunteur peut toutefois avoir plusieurs prêts. Dans un système bancaire réel, la relation serait alors **1:N** si plusieurs contrats étaient associés au même emprunteur.
 
 ---
 
@@ -336,7 +336,7 @@ Cette structure ne signifie pas qu'un emprunteur ne peut jamais avoir plusieurs 
 
 Elle reflète uniquement la structure du dataset utilisé.
 
-Dans un système bancaire réel, plusieurs contrats pourraient être associés au même emprunteur. La relation serait alors **1:***.
+Dans un système bancaire réel, plusieurs contrats pourraient être associés au même emprunteur. La relation serait alors **1:N**.
 
 ### Relations avec la dimension Date
 
@@ -423,7 +423,7 @@ Cette page permet d'obtenir rapidement une vision globale de l'état du portefeu
 
 Elle comprend les principaux KPIs, la répartition des prêts par statut, le taux de défaut par grade, la répartition géographique du montant prêté et l'évolution du volume de prêts.
 
-![Vue Exécutive](./screenshots/01-vue-executive.jpg)
+![Vue Exécutive](./screenshots/01-vue-executive.png)
 
 ### Analyse du Risque
 
@@ -431,7 +431,7 @@ Cette page permet d'identifier les segments présentant les niveaux de risque le
 
 Elle présente une matrice Grade × Statut, le taux de défaut selon le motif du prêt et le statut de vérification ainsi qu'un nuage de points DTI vs taux d'intérêt.
 
-![Analyse du risque](./screenshots/02-analyse-du-risque.jpg)
+![Analyse du risque](./screenshots/02-analyse-du-risque.png)
 
 ### Profil Emprunteur
 
@@ -439,7 +439,7 @@ Cette page permet d'analyser les caractéristiques des emprunteurs.
 
 Elle présente le revenu annuel moyen et médian, la distribution des revenus, le taux de défaut selon le statut de propriété et l'ancienneté professionnelle ainsi que le Top 10 des métiers représentés.
 
-![Profil emprunteur](./screenshots/03-profil-emprunteur.jpg)
+![Profil emprunteur](./screenshots/03-profil-emprunteur.png)
 
 ### Évolution Temporelle
 
@@ -447,7 +447,7 @@ Cette page permet d'analyser les principales tendances observées au cours de la
 
 Elle présente le montant prêté et le montant remboursé par mois, la croissance mensuelle, l'évolution du taux de défaut et le taux d'intérêt moyen mensuel.
 
-![Évolution Temporelle](./screenshots/04-evolution-temporelle.jpg)
+![Évolution Temporelle](./screenshots/04-Profil%20Empreteur.png)
 
 > ℹ️ Les captures montrent une vue filtrée du dashboard. Le bandeau « Données à jour au 31/07/2023 » visible sur certaines captures provient d'un gabarit initial et ne correspond pas à la couverture réelle du dataset. Les données utilisées couvrent principalement l'année 2021 et s'étendent jusqu'en janvier 2022 pour certaines dates de suivi.
 
@@ -474,7 +474,7 @@ pilotage-risque-credit-bancaire/
 ├── documentation/
 │   └── Corrections_Projet_BI.docx
 
-└── pilotage-risque-credit-bancaire.pbix
+└── Dashboard Analyse de Crédit Bancaire.pbix
 ```
 
 ---
