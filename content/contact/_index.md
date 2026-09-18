@@ -16,7 +16,7 @@ title: "Contact"
 
 ### Email
 
-[fabricebtibo@mail.com](mailto:fabricebtibo@mail.com)
+[fabricebtibo@gmail.com](mailto:fabricebtibo@gmail.com)
 
 [fabricebtibo@yahoo.com](mailto:fabricebtibo@yahoo.com)
 

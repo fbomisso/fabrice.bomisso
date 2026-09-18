@@ -6,7 +6,7 @@ title: "À propos"
 
 <div class="about-profile">
 
-<img src="/fabrice.bomisso/img/photo.jpeg" alt="Fabrice Bomisso" class="about-photo">
+<img src="/fabrice.bomisso/img/Image_CV.png" alt="Fabrice Bomisso" class="about-photo">
 
 <h2>Fabrice Bomisso</h2>
 
